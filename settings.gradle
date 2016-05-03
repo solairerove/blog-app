@@ -1,0 +1,4 @@
+rootProject.name = 'rest-blog'
+include 'application'
+include 'dataaccess'
+
