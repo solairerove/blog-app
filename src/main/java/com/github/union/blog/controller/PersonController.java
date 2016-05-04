@@ -12,22 +12,28 @@ import java.util.List;
  */
 
 @RestController
+@RequestMapping("/api/person")
 public class PersonController {
     @Autowired
     private PersonService personService;
 
-    @RequestMapping(value = "/person/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "{id}", method = RequestMethod.GET)
     public Person getPersonByVariableId(@PathVariable(value = "id") Long id) {
         return personService.findOnePersonById(id);
     }
 
-    @RequestMapping(value = "/person", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public Person getPersonByParamId(@RequestParam(value = "id", required = false) Long id) {
         return personService.findOnePersonById(id);
     }
 
-    @RequestMapping(value = "/persons", method = RequestMethod.GET)
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
     public List<Person> getAllPersons() {
         return personService.findAll();
     }
+
+//    @RequestMapping(value = "/add/{firstName}/{lastName}", method = RequestMethod.POST)
+//    public void addPerson(@PathVariable String firstName, @PathVariable String lastName) {
+//        personService.save(new Person(firstName, lastName));
+//    }
 }
