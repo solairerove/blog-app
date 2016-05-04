@@ -3,6 +3,8 @@ package com.github.union.blog.controller;
 import com.github.union.blog.domain.Person;
 import com.github.union.blog.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -44,10 +46,14 @@ public class PersonController {
         return personService.findAll();
     }
 
-    @RequestMapping(value = "/add/{firstName}/{lastName}", method = RequestMethod.POST)
-    public void addPerson(@PathVariable String firstName, @PathVariable String lastName) {
+    //if we type a url in adress bar of a browser and hit enter, it's always a GET request, we need to specify POST request
+    @RequestMapping(value = "/add/{firstName}/{lastName}", method = RequestMethod.GET)
+    public ResponseEntity<?> addPerson(@PathVariable(value = "firstName") String firstName,
+                                       @PathVariable(value = "lastName") String lastName) {
         //check if person exists in db, check person firstname and lastname are valid
         //if not return HttpStatus.BAD_REQUEST
         personService.save(new Person(firstName, lastName));
+
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
