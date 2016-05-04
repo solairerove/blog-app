@@ -1,10 +1,21 @@
 package com.github.union.blog.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.io.Serializable;
+
 /**
  * Created by union on 04.05.16.
  */
 
-public class Person {
+@Entity
+public class Person implements Serializable{
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String firstName;
     private String lastName;
