@@ -11,6 +11,7 @@ import java.util.concurrent.atomic.AtomicLong;
 /**
  * Created by union on 04.05.16.
  */
+
 @RestController
 public class GreetingController {
     private static final String TEMPLATE = "Hello, %s!";
