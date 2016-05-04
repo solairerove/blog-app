@@ -1,8 +1,6 @@
 group 'com.github.union.blog'
 version '1.0-SNAPSHOT'
 
-apply plugin: 'java'
-
 buildscript {
     repositories {
         mavenCentral()
@@ -12,44 +10,28 @@ buildscript {
     }
 }
 
-//sourceCompatibility = 1.5
-//
-//repositories {
-//    mavenCentral()
-//}
-//
-//dependencies {
-//    testCompile group: 'junit', name: 'junit', version: '4.11'
-//}
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
 
-project(':application') {
-    apply plugin: 'java'
-    apply plugin: 'eclipse'
-    apply plugin: 'idea'
-    apply plugin: 'spring-boot'
-
-    repositories {
-        mavenCentral()
-    }
-
-    sourceCompatibility = 1.8
-    targetCompatibility = 1.8
-
-    dependencies {
-        compile project(':dataaccess')
-        compile("org.springframework.boot:spring-boot-starter-web")
-    }
+jar {
+    baseName = 'restfull-web'
+    version =  '0.1.0'
 }
 
-project(':dataaccess') {
-    apply plugin: 'java'
-    apply plugin: 'eclipse'
-    apply plugin: 'idea'
+repositories {
+    mavenCentral()
+}
 
-    repositories {
-        mavenCentral()
-    }
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
-    sourceCompatibility = 1.8
-    targetCompatibility = 1.8
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    testCompile("junit:junit")
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.13'
 }

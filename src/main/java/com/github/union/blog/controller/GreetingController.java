@@ -1,6 +1,6 @@
-package com.github.union.blog.application.controller;
+package com.github.union.blog.controller;
 
-import com.github.union.blog.dataaccess.model.Greeting;
+import com.github.union.blog.dto.Greeting;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -9,9 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
- * Created by union on 03.05.16.
+ * Created by union on 04.05.16.
  */
-
 @RestController
 public class GreetingController {
     private static final String TEMPLATE = "Hello, %s!";
