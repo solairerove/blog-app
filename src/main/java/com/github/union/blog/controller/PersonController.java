@@ -47,7 +47,7 @@ public class PersonController {
     }
 
     //if we type a url in adress bar of a browser and hit enter, it's always a GET request, we need to specify POST request
-    @RequestMapping(value = "/add/{firstName}/{lastName}", method = RequestMethod.GET)
+    @RequestMapping(value = "/add/{firstName}/{lastName}", method = RequestMethod.POST)
     public ResponseEntity<?> addPerson(@PathVariable(value = "firstName") String firstName,
                                        @PathVariable(value = "lastName") String lastName) {
         //check if person exists in db, check person firstname and lastname are valid
