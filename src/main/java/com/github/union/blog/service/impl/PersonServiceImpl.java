@@ -32,4 +32,10 @@ public class PersonServiceImpl implements PersonService {
         log.info("Find all persons: " );
         return personRepository.findAll();
     }
+
+    @Override
+    public void save(Person person) {
+        log.info("Save entity: " + person.toString());
+        personRepository.save(person);
+    }
 }

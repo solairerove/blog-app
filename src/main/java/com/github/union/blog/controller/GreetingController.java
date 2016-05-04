@@ -13,11 +13,12 @@ import java.util.concurrent.atomic.AtomicLong;
  */
 
 @RestController
+@RequestMapping("/api")
 public class GreetingController {
     private static final String TEMPLATE = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
 
-    @RequestMapping(value = "/greeting", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public Greeting greeting(@RequestParam(value = "name", defaultValue = "World", required = false) String name) {
         return new Greeting(counter.incrementAndGet(), String.format(TEMPLATE, name));
     }
