@@ -38,4 +38,13 @@ public class PersonServiceImpl implements PersonService {
         log.info("Save entity: " + person.toString());
         personRepository.save(person);
     }
+
+    @Override
+    public boolean personExists(Long id){
+        log.info("Checking person "+ id +" in database");
+        return personRepository.exists(id);
+
+    }
+
+
 }

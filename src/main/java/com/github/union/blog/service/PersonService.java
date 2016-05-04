@@ -14,4 +14,6 @@ public interface PersonService {
     List<Person> findAll();
 
     void save(Person person);
+
+    boolean personExists(Long id);
 }

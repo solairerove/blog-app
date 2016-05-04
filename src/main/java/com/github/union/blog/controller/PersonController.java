@@ -19,12 +19,24 @@ public class PersonController {
 
     @RequestMapping(value = "{id}", method = RequestMethod.GET)
     public Person getPersonByVariableId(@PathVariable(value = "id") Long id) {
-        return personService.findOnePersonById(id);
+        if(personService.personExists(id)) {
+            return personService.findOnePersonById(id);
+        }
+        else{
+            //  return HttpStatus.NOT_FOUND;
+            return null;
+        }
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public Person getPersonByParamId(@RequestParam(value = "id", required = false) Long id) {
-        return personService.findOnePersonById(id);
+        if(personService.personExists(id)) {
+            return personService.findOnePersonById(id);
+        }
+        else{
+            //  return HttpStatus.NOT_FOUND;
+            return null;
+        }
     }
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
@@ -32,8 +44,10 @@ public class PersonController {
         return personService.findAll();
     }
 
-//    @RequestMapping(value = "/add/{firstName}/{lastName}", method = RequestMethod.POST)
-//    public void addPerson(@PathVariable String firstName, @PathVariable String lastName) {
-//        personService.save(new Person(firstName, lastName));
-//    }
+    @RequestMapping(value = "/add/{firstName}/{lastName}", method = RequestMethod.POST)
+    public void addPerson(@PathVariable String firstName, @PathVariable String lastName) {
+        //check if person exists in db, check person firstname and lastname are valid
+        //if not return HttpStatus.BAD_REQUEST
+        personService.save(new Person(firstName, lastName));
+    }
 }
