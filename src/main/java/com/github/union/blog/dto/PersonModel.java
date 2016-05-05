@@ -3,6 +3,7 @@ package com.github.union.blog.dto;
 /**
  * Created by union on 5/05/16.
  */
+
 public class PersonModel {
     private String firstName;
     private String lastName;
