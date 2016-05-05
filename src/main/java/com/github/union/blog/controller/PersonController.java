@@ -1,12 +1,17 @@
 package com.github.union.blog.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.union.blog.domain.Person;
+import com.github.union.blog.dto.PersonModel;
 import com.github.union.blog.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -47,8 +52,9 @@ public class PersonController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public ResponseEntity<?> addPerson(Person person) {
+    public ResponseEntity<?> addPerson(@Valid @RequestBody PersonModel personModel) throws IOException {
+        Person person = new Person(personModel.getFirstName(), personModel.getLastName());
         personService.save(person);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(person, HttpStatus.OK);
     }
 }

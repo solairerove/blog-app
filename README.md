@@ -24,11 +24,25 @@ ___
 
 ___
 
-#### Open in browser
+#### Open in rest client
 
 * `http://localhost:8080/api/person/?id=1` - return person with id = 1
+```json
+{
+  "id": "1",
+  "firstName": "Jack",
+  "lastName": "Bauer"
+}
+```
 * `http://localhost:8080/api/person/1` - return person with id = 1 (example)
-* `http://localhost:8080/api/person/all` return all persons
+* `http://localhost:8080/api/person/all` - return all persons
+* `http://localhost:8080/api/person/add` - post method with request body
+```json
+{
+  "firstName": "Jack",
+  "lastName": "Bauer"
+}
+```
 
 ##### `@SpringBootApplication` is a convenience annotation that adds all of the following:
 * `@Configuration` tags the class as a source of bean definitions for the application context.
