@@ -16,7 +16,7 @@ apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
 jar {
-    baseName = 'restfull-web'
+    baseName = 'rest-blog'
     version =  '0.1.0'
 }
 
