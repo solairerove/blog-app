@@ -39,8 +39,8 @@ ___
 * `http://localhost:8080/api/person/add` - post method with request body
 ```json
 {
-  "firstName": "Jack",
-  "lastName": "Bauer"
+  "firstName": "Egor",
+  "lastName": "Letov"
 }
 ```
 

@@ -21,6 +21,7 @@ public class Person implements Serializable{
     private String lastName;
 
     public Person() {
+        // default constructor for entity
     }
 
     public Person(String firstName, String lastName) {
