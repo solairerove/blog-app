@@ -24,23 +24,42 @@ ___
 
 ___
 
-#### Open in rest client
+#### Open in whatever rest client
 
-* `http://localhost:8080/api/person/?id=1` - return person with id = 1
+* `http://localhost:8080/api/post?id=1` - return person with id = 1
 ```json
 {
-  "id": "1",
-  "firstName": "Jack",
-  "lastName": "Bauer"
+    "id": 1,
+    "name": "post1",
+    "description": "this is 1 post",
+    "text": "text1",
+    "date": {
+        "year": 2016,
+        "month": "MAY",
+        "monthValue": 5,
+        "chronology": {
+            "calendarType": "iso8601",
+            "id": "ISO"
+        },
+        "era": "CE",
+        "dayOfYear": 128,
+        "dayOfWeek": "SATURDAY",
+        "leapYear": true,
+        "dayOfMonth": 7
+    },
+    "author": "author1",
+    "new": false
 }
 ```
-* `http://localhost:8080/api/person/1` - return person with id = 1 (example)
-* `http://localhost:8080/api/person/all` - return all persons
-* `http://localhost:8080/api/person/add` - post method with request body
+* `http://localhost:8080/api/post/1` - return person with id = 1
+* `http://localhost:8080/api/post/all` - return all posts
+* `http://localhost:8080/api/post/` - added new post
 ```json
 {
-  "firstName": "Egor",
-  "lastName": "Letov"
+    "name": "new post",
+    "description": "this is new post",
+    "text": "text of new post",
+    "author": "author of new post"
 }
 ```
 
