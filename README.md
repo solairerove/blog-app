@@ -26,7 +26,7 @@ ___
 
 #### Open in whatever rest client
 
-* `http://localhost:8080/api/post?id=1` - return person with id = 1
+* `http://localhost:8080/api/post/1` - return person with id = 1
 ```json
 {
     "id": 1,
@@ -51,8 +51,7 @@ ___
     "new": false
 }
 ```
-* `http://localhost:8080/api/post/1` - return person with id = 1
-* `http://localhost:8080/api/post/all` - return all posts
+* `http://localhost:8080/api/post/` - return all posts
 * `http://localhost:8080/api/post/` - added new post
 ```json
 {
@@ -62,6 +61,7 @@ ___
     "author": "author of new post"
 }
 ```
+* `http://localhost:8080/api/post/1` - deleted post by id
 
 ___
 

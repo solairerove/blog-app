@@ -15,16 +15,15 @@ import java.util.List;
 
 @Service
 public class PostServiceImpl implements PostService {
-
     private Logger logger = Logger.getLogger(PostServiceImpl.class);
 
     @Autowired
     private PostRepository postRepository;
 
     @Override
-    public void save(Post post) {
-        logger.info("Save entity:" + post.toString());
-        postRepository.save(post);
+    public List<Post> findAll() {
+        logger.info("Find all posts");
+        return postRepository.findAll();
     }
 
     @Override
@@ -34,8 +33,14 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public List<Post> findAll() {
-        logger.info("Find all posts");
-        return postRepository.findAll();
+    public void save(Post post) {
+        logger.info("Save entity:" + post.toString());
+        postRepository.save(post);
+    }
+
+    @Override
+    public void deletePostById(Integer id) {
+        logger.info("Delete entity by id: " + id);
+        postRepository.delete(id);
     }
 }
