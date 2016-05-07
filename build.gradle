@@ -16,7 +16,7 @@ apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
 jar {
-    baseName = 'rest-blog'
+    baseName = 'restfull-web'
     version =  '0.1.0'
 }
 
@@ -37,4 +37,8 @@ dependencies {
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.13'
+}
+
+task stage {
+    dependsOn build
 }
