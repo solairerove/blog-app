@@ -10,9 +10,11 @@ import java.util.List;
 
 public interface PostService {
 
-    void save(Post post);
+    List<Post> findAll();
 
     Post findOnePostById(Integer id);
 
-    List<Post> findAll();
+    void save(Post post);
+
+    void deletePostById(Integer id);
 }

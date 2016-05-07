@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Created by union on 7/05/16.
@@ -21,19 +22,14 @@ public class PostController {
     @Autowired
     private PostService postService;
 
+    @RequestMapping("/")
+    public ResponseEntity<?> getAllPosts() {
+        return ResponseEntity.ok(postService.findAll());
+    }
+
     @RequestMapping("/{id}")
     public ResponseEntity<?> getOnePostById(@PathVariable Integer id) {
         return ResponseEntity.ok(postService.findOnePostById(id));
-    }
-
-    @RequestMapping("")
-    public ResponseEntity<?> getPostById(@RequestParam(value = "id") Integer id) {
-        return ResponseEntity.ok(postService.findOnePostById(id));
-    }
-
-    @RequestMapping("/all")
-    public ResponseEntity<?> getAllPosts() {
-        return ResponseEntity.ok(postService.findAll());
     }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
@@ -45,6 +41,12 @@ public class PostController {
         post.setDate(LocalDate.now());
         post.setAuthor(model.getAuthor());
         postService.save(post);
+        return ResponseEntity.ok(HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<?> deletePostById(@PathVariable Integer id) {
+        postService.deletePostById(id);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 }
