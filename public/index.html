@@ -6,15 +6,10 @@
     <script src="js/controller.js"></script>
 </head>
 
-<body>
-<div ng-controller="DemoCtrl">
-    <p>Hello {{name}}</p>
-</div>
-
-<table>
-    <tr ng-repeat="i in [0,1,2,3,4,5]">
-        <td>{{i}}</td>
-    </tr>
-</table>
+<body ng-controller="PostCtrl">
+    <div ng-repeat="post in posts">
+        <span>{{post.id}}</span>
+        <p>{{post.name}}</p>
+    </div>
 </body>
 </html>
