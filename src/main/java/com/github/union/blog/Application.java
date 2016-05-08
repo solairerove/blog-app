@@ -1,14 +1,9 @@
 package com.github.union.blog;
 
-import com.github.union.blog.domain.Post;
-import com.github.union.blog.repository.PostRepository;
 import org.h2.server.web.WebServlet;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.embedded.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
-
-import java.time.LocalDate;
 
 import static org.springframework.boot.SpringApplication.run;
 
