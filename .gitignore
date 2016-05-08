@@ -21,11 +21,11 @@ classes/
 # .idea/uiDesigner.xml
 
 # Gradle:
-# .gradle/
-# build/
-# gradle/
-# gradlew
-# gradlew.bat
+ .gradle/
+ build/
+ gradle/
+ gradlew
+ gradlew.bat
 
 # Mongo Explorer plugin:
 # .idea/mongoSettings.xml
