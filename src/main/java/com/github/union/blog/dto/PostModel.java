@@ -8,7 +8,7 @@ public class PostModel {
 
     private String name;
     private String description;
-    private String text;
+    private String content;
     private String author;
 
     public PostModel() {
@@ -16,10 +16,10 @@ public class PostModel {
         // default constructor
     }
 
-    public PostModel(String name, String description, String text, String author) {
+    public PostModel(String name, String description, String content, String author) {
         this.name = name;
         this.description = description;
-        this.text = text;
+        this.content = content;
         this.author = author;
     }
 
@@ -39,12 +39,12 @@ public class PostModel {
         this.description = description;
     }
 
-    public String getText() {
-        return text;
+    public String getContent() {
+        return content;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public String getAuthor() {
@@ -60,7 +60,7 @@ public class PostModel {
         return "PostModel{" +
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", text='" + text + '\'' +
+                ", content='" + content + '\'' +
                 ", author='" + author + '\'' +
                 '}';
     }

@@ -24,6 +24,11 @@ ___
 
 ___
 
+#### To create db uncomment:
+
+`spring.jpa.hibernate.ddl-auto=create` in `application.properties`
+___
+
 #### Open in whatever rest client
 
 * `http://localhost:8080/api/post/1` - return person with id = 1
@@ -32,7 +37,7 @@ ___
     "id": 1,
     "name": "post1",
     "description": "this is 1 post",
-    "text": "text1",
+    "content": "text1",
     "date": {
         "year": 2016,
         "month": "MAY",
@@ -57,7 +62,7 @@ ___
 {
     "name": "new post",
     "description": "this is new post",
-    "text": "text of new post",
+    "content": "content of new post",
     "author": "author of new post"
 }
 ```
