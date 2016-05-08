@@ -4,6 +4,9 @@
 
 var blog = angular.module('blog', []);
 
-blog.controller("DemoCtrl", function ($scope) {
-    $scope.name = 'World';
+blog.controller("PostCtrl", function ($scope, $http) {
+
+    $http.get('http://localhost:8080/api/post/').success(function (data) {
+        $scope.posts = data;
+    });
 });
