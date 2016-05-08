@@ -17,4 +17,6 @@ public interface PostService {
     void save(Post post);
 
     void deletePostById(Integer id);
+
+    void updateContentById(String content,Integer id);
 }

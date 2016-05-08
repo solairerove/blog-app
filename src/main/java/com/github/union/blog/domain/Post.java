@@ -1,9 +1,9 @@
 package com.github.union.blog.domain;
 
 import org.springframework.data.domain.Persistable;
+import org.springframework.data.jpa.repository.Modifying;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 
 /**
  * Created by union on 7/05/16.
@@ -19,15 +19,17 @@ public class Post implements Persistable<Integer> {
     private String name;
     private String description;
     private String content;
-    private LocalDate date;
+    private String date;
     private String author;
+    //TODO локалдэйт стринга
+
 
     public Post() {
         super();
         // default entity constructor
     }
 
-    public Post(String name, String description, String content, LocalDate date, String author) {
+    public Post(String name, String description, String content, String date, String author) {
         super();
         this.name = name;
         this.description = description;
@@ -67,19 +69,21 @@ public class Post implements Persistable<Integer> {
         this.description = description;
     }
 
+    @Modifying
     public String getContent() {
         return content;
     }
 
+    @Modifying
     public void setContent(String content) {
         this.content = content;
     }
 
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
