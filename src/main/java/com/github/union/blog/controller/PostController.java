@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 /**
  * Created by union on 7/05/16.
@@ -37,7 +36,7 @@ public class PostController {
         Post post = new Post();
         post.setName(model.getName());
         post.setDescription(model.getDescription());
-        post.setText(model.getText());
+        post.setContent(model.getContent());
         post.setDate(LocalDate.now());
         post.setAuthor(model.getAuthor());
         postService.save(post);
