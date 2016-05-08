@@ -14,6 +14,7 @@ import java.time.LocalDate;
  * Created by union on 7/05/16.
  */
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/post")
 public class PostController {
