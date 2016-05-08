@@ -1,0 +1,15 @@
+<!doctype html>
+<html ng-app="blog">
+<head>
+    <title>Hello AngularJS</title>
+    <script src="js/angular.js"></script>
+    <script src="js/controller.js"></script>
+</head>
+
+<body ng-controller="PostCtrl">
+    <div ng-repeat="post in posts">
+        <span>{{post.id}}</span>
+        <p>{{post.name}}</p>
+    </div>
+</body>
+</html>
