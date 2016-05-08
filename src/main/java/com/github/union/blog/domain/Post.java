@@ -10,14 +10,15 @@ import java.time.LocalDate;
  */
 
 @Entity
+//@Table(name = "post")
 public class Post implements Persistable<Integer> {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private String description;
-    private String text;
+    private String content;
     private LocalDate date;
     private String author;
 
@@ -26,11 +27,11 @@ public class Post implements Persistable<Integer> {
         // default entity constructor
     }
 
-    public Post(String name, String description, String text, LocalDate date, String author) {
+    public Post(String name, String description, String content, LocalDate date, String author) {
         super();
         this.name = name;
         this.description = description;
-        this.text = text;
+        this.content = content;
         this.date = date;
         this.author = author;
     }
@@ -66,12 +67,12 @@ public class Post implements Persistable<Integer> {
         this.description = description;
     }
 
-    public String getText() {
-        return text;
+    public String getContent() {
+        return content;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public LocalDate getDate() {
@@ -96,7 +97,7 @@ public class Post implements Persistable<Integer> {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", text='" + text + '\'' +
+                ", content='" + content + '\'' +
                 ", date=" + date +
                 ", author='" + author + '\'' +
                 '}';
