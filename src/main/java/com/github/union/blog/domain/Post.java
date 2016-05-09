@@ -1,9 +1,9 @@
 package com.github.union.blog.domain;
 
 import org.springframework.data.domain.Persistable;
+import org.springframework.data.jpa.repository.Modifying;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 
 /**
  * Created by union on 7/05/16.
@@ -16,21 +16,22 @@ public class Post implements Persistable<Integer> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String name;
-    private String description;
+    private String title;
+    private String subtitle;
     private String content;
-    private LocalDate date;
+    private String date;
     private String author;
+    //TODO локалдэйт стринга
+
 
     public Post() {
         super();
         // default entity constructor
     }
 
-    public Post(String name, String description, String content, LocalDate date, String author) {
-        super();
-        this.name = name;
-        this.description = description;
+    public Post(String title, String subtitle, String content, String date, String author) {
+        this.title = title;
+        this.subtitle = subtitle;
         this.content = content;
         this.date = date;
         this.author = author;
@@ -51,35 +52,37 @@ public class Post implements Persistable<Integer> {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getDescription() {
-        return description;
+    public String getSubtitle() {
+        return subtitle;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setSubtitle(String subtitle) {
+        this.subtitle = subtitle;
     }
 
+    @Modifying
     public String getContent() {
         return content;
     }
 
+    @Modifying
     public void setContent(String content) {
         this.content = content;
     }
 
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -95,10 +98,9 @@ public class Post implements Persistable<Integer> {
     public String toString() {
         return "Post{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", content='" + content + '\'' +
-                ", date=" + date +
+                ", title='" + title + '\'' +
+                ", subtitle='" + subtitle + '\'' +
+                ", date='" + date + '\'' +
                 ", author='" + author + '\'' +
                 '}';
     }

@@ -35,10 +35,10 @@ public class PostController {
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public ResponseEntity<?> addNewPost(@RequestBody PostModel model) {
         Post post = new Post();
-        post.setName(model.getName());
-        post.setDescription(model.getDescription());
+        post.setTitle(model.getTitle());
+        post.setSubtitle(model.getSubtitle());
         post.setContent(model.getContent());
-        post.setDate(LocalDate.now());
+        post.setDate(LocalDate.now().toString());
         post.setAuthor(model.getAuthor());
         postService.save(post);
         return ResponseEntity.ok(HttpStatus.OK);
@@ -47,6 +47,12 @@ public class PostController {
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<?> deletePostById(@PathVariable Integer id) {
         postService.deletePostById(id);
+        return ResponseEntity.ok(HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/", method = RequestMethod.PUT)
+    public ResponseEntity<?> updateContentById(@RequestBody Post post){
+        postService.updateContentById(post.getContent(),post.getId());
         return ResponseEntity.ok(HttpStatus.OK);
     }
 }
