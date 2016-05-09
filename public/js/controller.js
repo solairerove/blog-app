@@ -5,6 +5,7 @@
 var blog = angular.module('blog', ['ngRoute']);
 
 blog.config(['$routeProvider', function ($routeProvide) {
+
     $routeProvide
         .when('/', {
             templateUrl: 'template/home.html',
@@ -36,4 +37,10 @@ blog.controller('AboutCtrl', ['$scope', '$http', '$location', function ($scope, 
 
 blog.controller('PostCtrl', ['$scope', '$http', '$location', '$routeParams', function ($scope, $http, $location, $routeParams) {
     $scope.id = $routeParams.id;
+    
+    var url = 'http://localhost:8080/api/post/' + $routeParams.id;
+    
+    $http.get(url).success(function (data) {
+        $scope.post = data;
+    });
 }]);
