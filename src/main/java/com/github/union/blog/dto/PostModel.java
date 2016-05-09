@@ -6,8 +6,8 @@ package com.github.union.blog.dto;
 
 public class PostModel {
 
-    private String name;
-    private String description;
+    private String title;
+    private String subtitle;
     private String content;
     private String author;
 
@@ -16,27 +16,27 @@ public class PostModel {
         // default constructor
     }
 
-    public PostModel(String name, String description, String content, String author) {
-        this.name = name;
-        this.description = description;
+    public PostModel(String title, String subtitle, String content, String author) {
+        this.title = title;
+        this.subtitle = subtitle;
         this.content = content;
         this.author = author;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getDescription() {
-        return description;
+    public String getSubtitle() {
+        return subtitle;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setSubtitle(String subtitle) {
+        this.subtitle = subtitle;
     }
 
     public String getContent() {
@@ -58,8 +58,8 @@ public class PostModel {
     @Override
     public String toString() {
         return "PostModel{" +
-                "name='" + name + '\'' +
-                ", description='" + description + '\'' +
+                "title='" + title + '\'' +
+                ", subtitle='" + subtitle + '\'' +
                 ", content='" + content + '\'' +
                 ", author='" + author + '\'' +
                 '}';
