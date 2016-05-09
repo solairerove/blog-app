@@ -23,7 +23,7 @@
           rel='stylesheet' type='text/css'>
 </head>
 
-<body ng-controller="PostCtrl">
+<body ng-controller="PostListCtrl">
 <!-- Navigation -->
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
 
@@ -43,13 +43,10 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="index.html">Home</a>
+                    <a href="#/">Home</a>
                 </li>
                 <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Posts</a>
+                    <a href="#/about">About</a>
                 </li>
             </ul>
         </div>
@@ -65,6 +62,7 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="site-heading">
                     <h1>Clean Blog</h1>
+                    <ng-view></ng-view>
                     <hr class="small">
                     <span class="subheading">Anything more than you need</span>
                 </div>
@@ -182,10 +180,14 @@
 <div ng-repeat="post in posts">
     <span>{{post.id}}</span>
     <p>{{post.name}}</p>
+    <a href="#/posts/{{post.id}}">id</a>
 </div>
 
 <!-- AngularJS -->
 <script src="js/angular.js"></script>
+
+<!-- Angular Route -->
+<script src="js/angular-route.js"></script>
 
 <!-- Controller -->
 <script src="js/controller.js"></script>
