@@ -43,4 +43,11 @@ public class PostServiceImpl implements PostService {
         logger.info("Delete entity by id: " + id);
         postRepository.delete(id);
     }
+
+    //TODO апдейт ёбана
+    @Override
+    public void updateContentById(String content, Integer id){
+        logger.info("Updating post content with id:" + id);
+        postRepository.updateContentById(content,id);
+    }
 }
