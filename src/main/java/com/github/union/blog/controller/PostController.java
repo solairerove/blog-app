@@ -35,8 +35,8 @@ public class PostController {
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public ResponseEntity<?> addNewPost(@RequestBody PostModel model) {
         Post post = new Post();
-        post.setName(model.getName());
-        post.setDescription(model.getDescription());
+        post.setTitle(model.getTitle());
+        post.setSubtitle(model.getSubtitle());
         post.setContent(model.getContent());
         post.setDate(LocalDate.now().toString());
         post.setAuthor(model.getAuthor());

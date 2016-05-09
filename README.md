@@ -31,42 +31,41 @@ ___
 
 #### Open in whatever rest client
 
-* `http://localhost:8080/api/post/1` - return person with id = 1
+* `http://localhost:8080/api/post/2` - get post by id
 ```json
 {
-    "id": 1,
-    "name": "post1",
-    "description": "this is 1 post",
-    "content": "text1",
-    "date": {
-        "year": 2016,
-        "month": "MAY",
-        "monthValue": 5,
-        "chronology": {
-            "calendarType": "iso8601",
-            "id": "ISO"
-        },
-        "era": "CE",
-        "dayOfYear": 128,
-        "dayOfWeek": "SATURDAY",
-        "leapYear": true,
-        "dayOfMonth": 7
-    },
-    "author": "author1",
-    "new": false
-}
+        "id": 2,
+        "title": "new another",
+        "subtitle": "this is new post",
+        "content": "new content",
+        "date": "2016-05-09",
+        "author": "author of new post",
+        "new": false
+    }
 ```
 * `http://localhost:8080/api/post/` - return all posts
 * `http://localhost:8080/api/post/` - added new post
 ```json
 {
-    "name": "new post",
-    "description": "this is new post",
-    "content": "content of new post",
+    "title": "new another",
+    "subtitle": "this is new post",
+    "content": "text of new post",
     "author": "author of new post"
 }
 ```
 * `http://localhost:8080/api/post/1` - deleted post by id
+* `http://localhost:8080/api/post/` - update(put) post content by id
+```json
+{
+        "id": 2,
+        "title": "new another",
+        "subtitle": "this is new post",
+        "content": "new content",
+        "date": "2016-05-09",
+        "author": "author of new post",
+        "new": false
+}
+```
 
 ___
 
