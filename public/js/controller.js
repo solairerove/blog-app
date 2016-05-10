@@ -2,7 +2,7 @@
  * Created by union on 8/05/16.
  */
 
-var blog = angular.module('blog', ['ngRoute']);
+var blog = angular.module('blog', ['ngRoute', 'ngSanitize']);
 
 blog.config(['$routeProvider', function ($routeProvide) {
 
@@ -42,5 +42,6 @@ blog.controller('PostCtrl', ['$scope', '$http', '$location', '$routeParams', fun
     
     $http.get(url).success(function (data) {
         $scope.post = data;
+        $scope.content = $scope.post.content;
     });
 }]);
