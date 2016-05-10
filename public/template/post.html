@@ -1,7 +1,18 @@
-<h1>Post {{post.id}}</h1>
-<h1>{{post.title}}</h1>
-<h1>{{post.date}}</h1>
-<h1>{{post.author}}</h1>
+<!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+<header class="intro-header" style="background-image: url('img/header.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>{{post.title}}</h1>
+                    <h2 class="subheading">{{post.subtitle}}</h2>
+                    <span class="meta">Posted by <a href="#">{{post.author}}</a> on {{post.date}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 
 <article>
     <div class="container">
