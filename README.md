@@ -16,7 +16,7 @@ ___
 
 * go to `public` folder
 * open terminal
-* python -m SimpleHTTPServer
+* `python -m SimpleHTTPServer`
 * `http://localhost:8000/index.html#/`
 ___
 
