@@ -1,17 +1,5 @@
 # rest-blog
 
-##### You’ll use the gradle build task frequently. This task compiles, tests, and assembles the code into a JAR file. You can run it like this:
-
-`gradle build`
-
-___
-
-##### Run the following command to download and initialize the wrapper scripts:
-
-`gradle wrapper`
-
-___
-
 ##### Run the wrapper script to perform the build task, just like you did previously:
 
 `./gradlew build`
@@ -22,6 +10,14 @@ ___
 
 `./gradlew bootRun`
 
+___
+
+##### To run html page:
+
+* go to `public` folder
+* open terminal
+* python -m SimpleHTTPServer
+* `http://localhost:8000/index.html#/`
 ___
 
 #### To create db uncomment:
