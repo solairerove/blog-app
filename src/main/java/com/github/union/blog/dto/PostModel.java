@@ -12,8 +12,6 @@ public class PostModel {
     private String author;
 
     public PostModel() {
-        super();
-        // default constructor
     }
 
     public PostModel(String title, String subtitle, String content, String author) {
@@ -65,3 +63,4 @@ public class PostModel {
                 '}';
     }
 }
+
