@@ -1,7 +1,7 @@
 package com.github.union.blog.controller;
 
 import com.github.union.blog.domain.Post;
-import com.github.union.blog.dto.PostModel;
+import com.github.union.blog.dto.PostDTO;
 import com.github.union.blog.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,13 +32,13 @@ public class PostController {
     }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    public ResponseEntity<?> addNewPost(@RequestBody PostModel model) {
+    public ResponseEntity<?> addNewPost(@RequestBody PostDTO postDTO) {
         Post post = new Post();
-        post.setTitle(model.getTitle());
-        post.setSubtitle(model.getSubtitle());
-        post.setContent(model.getContent());
+        post.setTitle(postDTO.getTitle());
+        post.setSubtitle(postDTO.getSubtitle());
+        post.setContent(postDTO.getContent());
         post.setDate(LocalDate.now().toString());
-        post.setAuthor(model.getAuthor());
+        post.setAuthor(postDTO.getAuthor());
         postService.save(post);
         return ResponseEntity.ok(HttpStatus.OK);
     }
@@ -50,8 +50,8 @@ public class PostController {
     }
 
     @RequestMapping(value = "/", method = RequestMethod.PUT)
-    public ResponseEntity<?> updateContentById(@RequestBody PostModel model){
-        postService.updateContentById(model.getContent(), model.getId());
+    public ResponseEntity<?> updateContentById(@RequestBody PostDTO postDTO){
+        postService.updateContentById(postDTO);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 }
