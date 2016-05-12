@@ -1,5 +1,12 @@
 # rest-blog
 
+##### You can use Takari maven wrapper to build the project:
+
+`./mvnw spring-boot:run`
+
+___
+
+
 ##### Run the wrapper script to perform the build task, just like you did previously:
 
 `./gradlew build`
