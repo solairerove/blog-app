@@ -4,7 +4,7 @@ package com.github.union.blog.dto;
  * Created by union on 7/05/16.
  */
 
-public class PostModel {
+public class PostDTO {
     private Integer id;
     private String title;
     private String subtitle;
@@ -12,10 +12,10 @@ public class PostModel {
     private String date;
     private String author;
 
-    public PostModel() {
+    public PostDTO() {
     }
 
-    public PostModel(Integer id, String title, String subtitle, String content, String date, String author) {
+    public PostDTO(Integer id, String title, String subtitle, String content, String date, String author) {
         this.id = id;
         this.title = title;
         this.subtitle = subtitle;
@@ -74,7 +74,7 @@ public class PostModel {
 
     @Override
     public String toString() {
-        return "PostModel{" +
+        return "PostDTO{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", subtitle='" + subtitle + '\'' +

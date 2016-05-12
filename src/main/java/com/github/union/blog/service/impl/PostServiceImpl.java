@@ -1,6 +1,7 @@
 package com.github.union.blog.service.impl;
 
 import com.github.union.blog.domain.Post;
+import com.github.union.blog.dto.PostDTO;
 import com.github.union.blog.repository.PostRepository;
 import com.github.union.blog.service.PostService;
 import org.apache.log4j.Logger;
@@ -47,8 +48,8 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public void updateContentById(String content, Integer id){
-        logger.info("Updating post content with id:" + id);
-        postRepository.updateContentById(content,id);
+    public void updateContentById(PostDTO postDTO){
+        logger.info("Updating post content with id:" + postDTO.getId());
+        postRepository.updateContentById(postDTO.getContent(), postDTO.getId());
     }
 }

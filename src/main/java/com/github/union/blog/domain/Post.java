@@ -1,16 +1,17 @@
 package com.github.union.blog.domain;
 
-import org.springframework.data.domain.Persistable;
-import org.springframework.data.jpa.repository.Modifying;
-
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.io.Serializable;
 
 /**
  * Created by union on 7/05/16.
  */
 
 @Entity
-public class Post implements Persistable<Integer> {
+public class Post implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,13 +33,6 @@ public class Post implements Persistable<Integer> {
         this.author = author;
     }
 
-    @Override
-    @Transient
-    public boolean isNew() {
-        return id == null;
-    }
-
-    @Override
     public Integer getId() {
         return this.id;
     }
@@ -63,12 +57,10 @@ public class Post implements Persistable<Integer> {
         this.subtitle = subtitle;
     }
 
-    @Modifying
     public String getContent() {
         return content;
     }
 
-    @Modifying
     public void setContent(String content) {
         this.content = content;
     }
@@ -88,16 +80,4 @@ public class Post implements Persistable<Integer> {
     public void setAuthor(String author) {
         this.author = author;
     }
-
-    @Override
-    public String toString() {
-        return "Post{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", subtitle='" + subtitle + '\'' +
-                ", date='" + date + '\'' +
-                ", author='" + author + '\'' +
-                '}';
-    }
 }
-
