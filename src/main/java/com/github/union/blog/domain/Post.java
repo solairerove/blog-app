@@ -10,7 +10,6 @@ import javax.persistence.*;
  */
 
 @Entity
-//@Table(name = "post")
 public class Post implements Persistable<Integer> {
 
     @Id
@@ -21,12 +20,8 @@ public class Post implements Persistable<Integer> {
     private String content;
     private String date;
     private String author;
-    //TODO локалдэйт стринга
-
 
     public Post() {
-        super();
-        // default entity constructor
     }
 
     public Post(String title, String subtitle, String content, String date, String author) {
@@ -105,3 +100,4 @@ public class Post implements Persistable<Integer> {
                 '}';
     }
 }
+
