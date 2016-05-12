@@ -6,6 +6,7 @@ import com.github.union.blog.service.PostService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -14,6 +15,7 @@ import java.util.List;
  */
 
 @Service
+@Transactional
 public class PostServiceImpl implements PostService {
     private Logger logger = Logger.getLogger(PostServiceImpl.class);
 
@@ -44,7 +46,6 @@ public class PostServiceImpl implements PostService {
         postRepository.delete(id);
     }
 
-    //TODO апдейт ёбана
     @Override
     public void updateContentById(String content, Integer id){
         logger.info("Updating post content with id:" + id);
