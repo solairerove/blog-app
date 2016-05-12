@@ -18,5 +18,5 @@ public interface PostRepository extends JpaRepository<Post, Integer> {
 
     @Modifying
     @Query(value = "UPDATE Post p SET p.content = ?1 WHERE p.id = ?2")
-    void updateContentById(String content,Integer id);
+    void updateContentById(String content, Integer id);
 }
