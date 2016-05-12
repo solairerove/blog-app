@@ -1,9 +1,6 @@
 package com.github.union.blog.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -11,6 +8,7 @@ import java.io.Serializable;
  */
 
 @Entity
+@Table(name = "post")
 public class Post implements Serializable {
 
     @Id
