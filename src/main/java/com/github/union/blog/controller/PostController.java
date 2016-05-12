@@ -51,9 +51,8 @@ public class PostController {
     }
 
     @RequestMapping(value = "/", method = RequestMethod.PUT)
-    public ResponseEntity<?> updateContentById(@RequestBody Post post){
-        postService.updateContentById(post.getContent(),post.getId());
+    public ResponseEntity<?> updateContentById(@RequestBody PostModel model){
+        postService.updateContentById(model.getContent(), model.getId());
         return ResponseEntity.ok(HttpStatus.OK);
     }
 }
-

@@ -5,20 +5,31 @@ package com.github.union.blog.dto;
  */
 
 public class PostModel {
-
+    private Integer id;
     private String title;
     private String subtitle;
     private String content;
+    private String date;
     private String author;
 
     public PostModel() {
     }
 
-    public PostModel(String title, String subtitle, String content, String author) {
+    public PostModel(Integer id, String title, String subtitle, String content, String date, String author) {
+        this.id = id;
         this.title = title;
         this.subtitle = subtitle;
         this.content = content;
+        this.date = date;
         this.author = author;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -45,6 +56,14 @@ public class PostModel {
         this.content = content;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
     public String getAuthor() {
         return author;
     }
@@ -56,9 +75,11 @@ public class PostModel {
     @Override
     public String toString() {
         return "PostModel{" +
-                "title='" + title + '\'' +
+                "id=" + id +
+                ", title='" + title + '\'' +
                 ", subtitle='" + subtitle + '\'' +
                 ", content='" + content + '\'' +
+                ", date='" + date + '\'' +
                 ", author='" + author + '\'' +
                 '}';
     }
