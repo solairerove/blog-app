@@ -7,13 +7,7 @@
 ___
 
 
-##### Run the wrapper script to perform the build task, just like you did previously:
-
-`./gradlew build`
-
-___
-
-##### Then you can run the app!
+##### Run the app!
 
 `./gradlew bootRun`
 
@@ -34,39 +28,39 @@ ___
 
 #### Open in whatever rest client
 
-* `http://localhost:8080/api/post/2` - get post by id
+* `http://localhost:8080/api/post/1` - get post by id
 ```json
 {
-        "id": 2,
-        "title": "new another",
-        "subtitle": "this is new post",
-        "content": "new content",
-        "date": "2016-05-09",
-        "author": "author of new post",
-        "new": false
-    }
+        "id": 1,
+        "title": "Failure is not an option",
+        "subtitle": "Many say exploration is part of our destiny, but it’s actually our duty to future generations.",
+        "content": "<em>MockFlow</em> ",
+        "date": "2016-05-11",
+        "author": "union.one"
+}
 ```
 * `http://localhost:8080/api/post/` - return all posts
 * `http://localhost:8080/api/post/` - added new post
 ```json
 {
-    "title": "new another",
-    "subtitle": "this is new post",
-    "content": "text of new post",
-    "author": "author of new post"
+        "id": 1,
+        "title": "Failure is not an option",
+        "subtitle": "Many say exploration is part of our destiny, but it’s actually our duty to future generations.",
+        "content": "<em>MockFlow</em> ",
+        "date": "2016-05-11",
+        "author": "union.one"
 }
 ```
 * `http://localhost:8080/api/post/1` - deleted post by id
 * `http://localhost:8080/api/post/` - update(put) post content by id
 ```json
 {
-        "id": 2,
-        "title": "new another",
-        "subtitle": "this is new post",
-        "content": "new content",
-        "date": "2016-05-09",
-        "author": "author of new post",
-        "new": false
+        "id": 1,
+        "title": "Failure is not an option",
+        "subtitle": "Many say exploration is part of our destiny, but it’s actually our duty to future generations.",
+        "content": "<em>new content</em> ",
+        "date": "2016-05-11",
+        "author": "union.one"
 }
 ```
 
