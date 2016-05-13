@@ -1,10 +1,12 @@
 package com.github.union.blog.dto;
 
+import java.io.Serializable;
+
 /**
  * Created by union on 7/05/16.
  */
 
-public class PostDTO {
+public class PostDTO implements Serializable {
     private Integer id;
     private String title;
     private String subtitle;
