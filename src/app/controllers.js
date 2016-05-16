@@ -4,38 +4,18 @@
 
 var blog = angular.module('blog', ['ngRoute', 'ngSanitize', 'ngResource']);
 
-blog.config(['$routeProvider', function ($routeProvide) {
-
-    $routeProvide
-        .when('/', {
-            templateUrl: 'app/components/template/home.html',
-            controller: 'PostListCtrl'
-        })
-        .when('/about', {
-            templateUrl: 'app/components/about/about.html',
-            controller: 'AboutController'
-        })
-        .when('/posts/:id', {
-            templateUrl: 'app/components/template/post.html',
-            controller: 'PostCtrl'
-        })
-        .otherwise({
-            redirectTo: '/'
-        });
-}]);
-
 /* Factory */
-blog.factory('Post', ['$resource', function ($resource) {
-    return $resource('http://localhost:8080/api/post/:id', {id: '@id'});
-}]);
-
 blog.factory('PostList', ['$resource', function ($resource) {
     return $resource('http://localhost:8080/api/post/.', {});
 }]);
 
+blog.factory('Post', ['$resource', function ($resource) {
+    return $resource('http://localhost:8080/api/post/:id', {id: '@id'});
+}]);
+
 /* Controllers */
-blog.controller('PostListCtrl', ['$scope', '$http', '$location', 'PostList',
-    function ($scope, $http, $location, PostList) {
+blog.controller('PostListCtrl', ['$scope', 'PostList',
+    function ($scope, PostList) {
         $scope.posts = PostList.query();
     }]);
 
