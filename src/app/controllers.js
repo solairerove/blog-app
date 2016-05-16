@@ -4,19 +4,14 @@
 
 var blog = angular.module('blog', ['ngRoute', 'ngSanitize', 'ngResource']);
 
-/* Factory */
-blog.factory('PostList', ['$resource', function ($resource) {
-    return $resource('http://localhost:8080/api/post/.', {});
-}]);
-
 blog.factory('Post', ['$resource', function ($resource) {
     return $resource('http://localhost:8080/api/post/:id', {id: '@id'});
 }]);
 
 /* Controllers */
-blog.controller('PostListCtrl', ['$scope', 'PostList',
-    function ($scope, PostList) {
-        $scope.posts = PostList.query();
+blog.controller('PostListCtrl', ['$scope', 'MainFactory',
+    function ($scope, MainFactory) {
+        $scope.posts = MainFactory.query();
     }]);
 
 blog.controller('PostCtrl', ['$scope', '$location', '$routeParams', 'Post',
