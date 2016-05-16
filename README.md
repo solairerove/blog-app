@@ -27,6 +27,13 @@ ___
 
 ___
 
+##### Use H2 web console:
+
+* `http://localhost:8080/console/`
+* `jdbc:h2:mem:post`
+
+___
+
 #### Open in whatever rest client
 
 * `http://localhost:8080/api/post/1` - get post by id
