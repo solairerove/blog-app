@@ -9,7 +9,7 @@
         .module('blog')
         .controller('AboutController', AboutController);
 
-    // /** @ngInject */
+    /** @ngInject */
     function AboutController() {
 
     }

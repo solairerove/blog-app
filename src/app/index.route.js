@@ -13,7 +13,7 @@
         $routeProvider
             .when('/', {
                 templateUrl: 'app/components/main/main.html',
-                controller: 'PostListCtrl'
+                controller: 'MainController'
             })
             .when('/about', {
                 templateUrl: 'app/components/about/about.html',
@@ -21,7 +21,7 @@
             })
             .when('/posts/:id', {
                 templateUrl: 'app/components/post/post.html',
-                controller: 'PostCtrl'
+                controller: 'PostController'
             })
             .otherwise({
                 redirectTo: '/'
