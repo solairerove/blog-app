@@ -1,9 +1,9 @@
 package com.github.union.blog.repository.common;
 
 import com.github.union.blog.domain.Post;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-
 /**
  * Created by vlad on 16.05.16.
  */
@@ -21,15 +21,7 @@ public class EntityUtils {
         return RandomStringUtils.random(length, true, true);
     }
 
-    public static Integer getRandomInteger(int bound) {
-        return RandomUtils.nextInt(1, bound);
-    }
-
-    public static Long getRandomLong(long bound) {
-        return RandomUtils.nextLong(1, bound);
-    }
-
-    public Post generateAccount() {
+    public static Post generatePost() {
         return new Post(getRandomString(MAX_STRING_LENGTH),
                 getRandomString(MAX_STRING_LENGTH),
                 getRandomString(MAX_STRING_LENGTH),
