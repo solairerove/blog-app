@@ -43,7 +43,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public void deletePostById(Integer id) {
-        logger.info("Delete entity by id: " + id);
+//        logger.info("Delete entity by id: " + id);
         postRepository.delete(id);
     }
 

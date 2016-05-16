@@ -3,6 +3,7 @@ package com.github.union.blog.aspect;
 import com.github.union.blog.service.impl.PostServiceImpl;
 import org.apache.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
@@ -31,5 +32,9 @@ public class LoggingAspect {
         logger.info("Save entity:" + joinPoint.getArgs()[0].toString());
     }
 
+    @After("execution(* com.github.union.blog.service.PostService.deletePostById(..))")
+    public void deletePostLog(JoinPoint joinPoint){
+        logger.info("Deleting entity by id:" + joinPoint.getArgs()[0]);
+    }
 
 }
