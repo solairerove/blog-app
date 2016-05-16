@@ -32,6 +32,8 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
     compile("com.h2database:h2")
+    compile("org.aspectj:aspectjrt")
+    compile("org.aspectj:aspectjweaver")
     testCompile("junit:junit")
 }
 
