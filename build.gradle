@@ -35,6 +35,7 @@ dependencies {
     compile("org.aspectj:aspectjrt")
     compile("org.aspectj:aspectjweaver")
     testCompile("junit:junit")
+    testCompile("org.apache.commons:commons-lang3")
 }
 
 task wrapper(type: Wrapper) {
