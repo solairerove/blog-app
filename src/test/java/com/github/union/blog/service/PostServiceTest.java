@@ -34,9 +34,10 @@ public class PostServiceTest {
     public void findAllTest(){
         LOGGER.info("********* FINDING ALL POSTS TEST *********");
         List<Post> saved = new LinkedList<>();
+        saved.add(EntityUtils.generatePost());
+        saved.add(EntityUtils.generatePost());
 
-        saved.add(EntityUtils.generatePost());
-        saved.add(EntityUtils.generatePost());
+        postService.deleteAllPosts();
 
         postService.save(saved.get(0));
         postService.save(saved.get(1));

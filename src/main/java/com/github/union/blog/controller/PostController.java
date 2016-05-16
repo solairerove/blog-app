@@ -50,13 +50,13 @@ public class PostController {
     }
 
     @RequestMapping(value = "/", method = RequestMethod.PUT)
-    public ResponseEntity<?> updateContentById(@RequestBody PostDTO postDTO){
+    public ResponseEntity<?> updateContentById(@RequestBody PostDTO postDTO) {
         postService.updateContentById(postDTO);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/clear",method = RequestMethod.DELETE)
-    public ResponseEntity<?> deleteAllPosts(){
+    @RequestMapping(value = "/clear", method = RequestMethod.DELETE)
+    public ResponseEntity<?> deleteAllPosts() {
         postService.deleteAllPosts();
         return ResponseEntity.ok(HttpStatus.OK);
     }
