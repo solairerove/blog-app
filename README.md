@@ -6,7 +6,6 @@
 
 ___
 
-
 ##### Run the server!
 
 `./gradlew bootRun`
@@ -17,16 +16,13 @@ ___
 
 * `npm install`
 * `bower install`
+
 ___
 
 ##### Run the client:
 
 * `gulp serve`
-___
 
-#### To create db uncomment:
-
-`spring.jpa.hibernate.ddl-auto=create` in `application.properties`
 ___
 
 #### Open in whatever rest client
@@ -36,8 +32,8 @@ ___
 {
         "id": 1,
         "title": "Failure is not an option",
-        "subtitle": "Many say exploration is part of our destiny, but it’s actually our duty to future generations.",
-        "content": "<em>MockFlow</em> ",
+        "subtitle": "Many say exploration is part of our destiny.",
+        "content": "MockFlow",
         "date": "2016-05-11",
         "author": "union.one"
 }
@@ -48,8 +44,8 @@ ___
 {
         "id": 1,
         "title": "Failure is not an option",
-        "subtitle": "Many say exploration is part of our destiny, but it’s actually our duty to future generations.",
-        "content": "<em>MockFlow</em> ",
+        "subtitle": "Many say exploration is part of our destiny.",
+        "content": "MockFlow",
         "date": "2016-05-11",
         "author": "union.one"
 }
@@ -60,8 +56,8 @@ ___
 {
         "id": 1,
         "title": "Failure is not an option",
-        "subtitle": "Many say exploration is part of our destiny, but it’s actually our duty to future generations.",
-        "content": "<em>new content</em> ",
+        "subtitle": "Many say exploration is part of our destiny.",
+        "content": "new content",
         "date": "2016-05-11",
         "author": "union.one"
 }
