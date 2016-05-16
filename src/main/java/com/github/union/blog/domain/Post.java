@@ -2,6 +2,8 @@ package com.github.union.blog.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by union on 7/05/16.
@@ -12,13 +14,28 @@ import java.io.Serializable;
 public class Post implements Serializable {
 
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Column(name = "title")
     private String title;
+
+    @Column(name = "subtitle")
     private String subtitle;
+
+    @Column(name = "content")
     private String content;
+
+    @Column(name = "date", length = 50)
     private String date;
+
+    @Column(name = "author", length = 50)
     private String author;
+
+    @OneToMany
+    @JoinColumn(name = "post_id", referencedColumnName = "id")
+    private List<Comment> commentList;
 
     public Post() {
     }
@@ -32,7 +49,7 @@ public class Post implements Serializable {
     }
 
     public Integer getId() {
-        return this.id;
+        return id;
     }
 
     public void setId(Integer id) {
@@ -77,5 +94,45 @@ public class Post implements Serializable {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public List<Comment> getCommentList() {
+        return commentList;
+    }
+
+    public void setCommentList(List<Comment> commentList) {
+        this.commentList = commentList;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Post)) return false;
+        Post post = (Post) o;
+        return Objects.equals(id, post.id) &&
+                Objects.equals(title, post.title) &&
+                Objects.equals(subtitle, post.subtitle) &&
+                Objects.equals(content, post.content) &&
+                Objects.equals(date, post.date) &&
+                Objects.equals(author, post.author) &&
+                Objects.equals(commentList, post.commentList);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, subtitle, content, date, author, commentList);
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "commentList=" + commentList +
+                ", author='" + author + '\'' +
+                ", date='" + date + '\'' +
+                ", content='" + content + '\'' +
+                ", subtitle='" + subtitle + '\'' +
+                ", title='" + title + '\'' +
+                ", id=" + id +
+                '}';
     }
 }
