@@ -12,7 +12,7 @@
     function routeConfig($routeProvider) {
         $routeProvider
             .when('/', {
-                templateUrl: 'app/components/template/home.html',
+                templateUrl: 'app/components/main/main.html',
                 controller: 'PostListCtrl'
             })
             .when('/about', {
@@ -20,7 +20,7 @@
                 controller: 'AboutController'
             })
             .when('/posts/:id', {
-                templateUrl: 'app/components/template/post.html',
+                templateUrl: 'app/components/post/post.html',
                 controller: 'PostCtrl'
             })
             .otherwise({
