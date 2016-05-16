@@ -1,6 +1,7 @@
 /**
  * Created by union on 16.05.16.
  */
+
 (function () {
     'use strict';
 
@@ -8,8 +9,9 @@
         .module('blog')
         .controller('AboutController', AboutController);
 
-    /** @ngInject */
+    // /** @ngInject */
     function AboutController() {
 
     }
+    
 })();
