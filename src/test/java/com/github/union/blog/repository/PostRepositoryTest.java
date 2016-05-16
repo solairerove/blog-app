@@ -5,7 +5,6 @@ import com.github.union.blog.domain.Post;
 import com.github.union.blog.repository.common.EntityUtils;
 import com.github.union.blog.service.PostService;
 import org.apache.log4j.Logger;
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -35,11 +34,6 @@ public class PostRepositoryTest {
     public void setUp(){
         LOGGER.info("********* SETTING UP SUCCESSFUL *********");
         postService.save(EntityUtils.generatePost());
-    }
-
-    @After
-    public void down(){
-        LOGGER.info("********* SETTING DOWN SUCCESSFUL *********");
     }
 
     @Test
