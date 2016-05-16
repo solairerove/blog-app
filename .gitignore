@@ -1,6 +1,11 @@
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm
 
-*.iml
+node_modules/
+bower_components/
+coverage/
+.sass-cache/
+.tmp/
+dist/
 
 ## Directory-based project format:
 .idea/
@@ -23,9 +28,6 @@ classes/
 # Gradle:
  .gradle/
  build/
- gradle/
- gradlew
- gradlew.bat
 
 # Mongo Explorer plugin:
 # .idea/mongoSettings.xml
