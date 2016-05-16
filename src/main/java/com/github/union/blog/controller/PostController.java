@@ -1,7 +1,11 @@
 package com.github.union.blog.controller;
 
+import com.github.union.blog.domain.Comment;
 import com.github.union.blog.domain.Post;
+import com.github.union.blog.dto.CommentDTO;
 import com.github.union.blog.dto.PostDTO;
+import com.github.union.blog.service.CommentService;
+import com.github.union.blog.service.ManagerPostService;
 import com.github.union.blog.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,6 +24,12 @@ public class PostController {
 
     @Autowired
     private PostService postService;
+
+    @Autowired
+    private CommentService commentService;
+
+    @Autowired
+    private ManagerPostService managerPostService;
 
     @RequestMapping("/")
     public ResponseEntity<?> getAllPosts() {
@@ -52,6 +62,18 @@ public class PostController {
     @RequestMapping(value = "/", method = RequestMethod.PUT)
     public ResponseEntity<?> updateContentById(@RequestBody PostDTO postDTO){
         postService.updateContentById(postDTO);
+        return ResponseEntity.ok(HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "{id}/comment", method = RequestMethod.POST)
+    public ResponseEntity<?> addNewCommentToPost(@PathVariable Integer id, @RequestBody CommentDTO commentDTO) {
+        Comment comment = new Comment();
+        comment.setAuthor(commentDTO.getAuthor());
+        comment.setReview(commentDTO.getReview());
+        comment.setDate(commentDTO.getDate());
+        commentService.save(comment);
+
+        managerPostService.addNewCommentToPost(id, comment);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 }

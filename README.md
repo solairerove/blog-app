@@ -72,7 +72,16 @@ ___
         "author": "union.one"
 }
 ```
-
+* `http://localhost:8080/api/post/1/comment` - add new comment to post by id
+```json
+{
+    "id": 1,
+    "author": "I'm a great author",
+    "review": "this is my another review",
+    "date": "date",
+    "postId": 2
+}
+```
 ___
 
 ##### `@SpringBootApplication` is a convenience annotation that adds all of the following:
