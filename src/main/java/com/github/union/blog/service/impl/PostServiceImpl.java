@@ -25,7 +25,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public List<Post> findAll() {
-        logger.info("Find all posts");
+//        logger.info("Find all posts");
         return postRepository.findAll();
     }
 
