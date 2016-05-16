@@ -1,6 +1,9 @@
 package com.github.union.blog.dto;
 
+import com.github.union.blog.domain.Comment;
+
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by union on 7/05/16.
@@ -13,6 +16,7 @@ public class PostDTO implements Serializable {
     private String content;
     private String date;
     private String author;
+    private List<Comment> commentList;
 
     public PostDTO() {
     }
@@ -24,6 +28,16 @@ public class PostDTO implements Serializable {
         this.content = content;
         this.date = date;
         this.author = author;
+    }
+
+    public PostDTO(Integer id, String title, String subtitle, String content, String date, String author, List<Comment> commentList) {
+        this.id = id;
+        this.title = title;
+        this.subtitle = subtitle;
+        this.content = content;
+        this.date = date;
+        this.author = author;
+        this.commentList = commentList;
     }
 
     public Integer getId() {
@@ -74,6 +88,14 @@ public class PostDTO implements Serializable {
         this.author = author;
     }
 
+    public List<Comment> getCommentList() {
+        return commentList;
+    }
+
+    public void setCommentList(List<Comment> commentList) {
+        this.commentList = commentList;
+    }
+
     @Override
     public String toString() {
         return "PostDTO{" +
@@ -83,6 +105,7 @@ public class PostDTO implements Serializable {
                 ", content='" + content + '\'' +
                 ", date='" + date + '\'' +
                 ", author='" + author + '\'' +
+                ", commentList=" + commentList +
                 '}';
     }
 }
