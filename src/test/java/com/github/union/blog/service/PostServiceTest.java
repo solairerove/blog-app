@@ -36,15 +36,22 @@ public class PostServiceTest {
         List<Post> saved = new LinkedList<>();
         saved.add(EntityUtils.generatePost());
         saved.add(EntityUtils.generatePost());
-
         postService.deleteAllPosts();
-
         postService.save(saved.get(0));
         postService.save(saved.get(1));
 
         List<Post> found = postService.findAll();
-
         Assert.assertTrue(saved.containsAll(found) && found.containsAll(saved));
+    }
+
+    @Test
+    public void findOnePostByIdTest(){
+        LOGGER.info("********* FIND ONE POST BY ID TEST *********");
+        Post saved = EntityUtils.generatePost();
+        postService.deleteAllPosts();
+        postService.save(saved);
+
+        Assert.assertEquals(postService.findOnePostById(saved.getId()),saved);
     }
 
 
@@ -52,4 +59,3 @@ public class PostServiceTest {
 
 
 }
-
