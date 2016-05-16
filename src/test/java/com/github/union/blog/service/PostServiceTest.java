@@ -45,16 +45,6 @@ public class PostServiceTest {
     }
 
     @Test
-    public void findOnePostByIdTest(){
-        LOGGER.info("********* FIND ONE POST BY ID TEST *********");
-        Post saved = EntityUtils.generatePost();
-        postService.deleteAllPosts();
-        postService.save(saved);
-
-        Assert.assertEquals(postService.findOnePostById(saved.getId()),saved);
-    }
-
-    @Test
     public void saveTest(){
         LOGGER.info("********* SAVE POST TEST *********");
         Post saved = EntityUtils.generatePost();
