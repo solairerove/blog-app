@@ -1,5 +1,6 @@
 package com.github.union.blog.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.union.blog.Application;
 import com.github.union.blog.domain.Post;
 import com.github.union.blog.repository.common.EntityUtils;
@@ -90,5 +91,19 @@ public class PostControllerTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.date", is(saved.getDate())))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.author", is(saved.getAuthor())));
     }
+
+    @Test
+    public void addNewPost() throws Exception{
+        postService.deleteAllPosts();
+        Post saved = EntityUtils.generatePost();
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        mvc.perform(MockMvcRequestBuilders.request(HttpMethod.POST,"/api/post/")
+                .content(objectMapper.writeValueAsString(saved))
+                .contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk());
+    }
+
+
 
 }
