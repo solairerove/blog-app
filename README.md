@@ -7,18 +7,21 @@
 ___
 
 
-##### Run the app!
+##### Run the server!
 
 `./gradlew bootRun`
 
 ___
 
-##### To run html page:
+##### Download all dependencies(first time):
 
-* go to `public` folder
-* open terminal
-* `python -m SimpleHTTPServer`
-* `http://localhost:8000/index.html#/`
+* `npm install`
+* `bower install`
+___
+
+##### Run the client:
+
+* `gulp serve`
 ___
 
 #### To create db uncomment:
