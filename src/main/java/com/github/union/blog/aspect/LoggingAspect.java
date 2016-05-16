@@ -17,8 +17,13 @@ public class LoggingAspect {
     private Logger logger = Logger.getLogger(PostServiceImpl.class);
 
     @Before("execution(* com.github.union.blog.service.PostService.findAll(..))")
-    public void logBefore(JoinPoint joinPoint){
+    public void findAllLog(JoinPoint joinPoint){
         logger.info("Finding all posts");
+    }
+
+    @Before("execution(* com.github.union.blog.service.PostService.findOnePostById(..))")
+    public void fingPostLog(JoinPoint joinPoint){
+        logger.info("Find one post by id: " + joinPoint.getArgs()[0]);
     }
 
 
