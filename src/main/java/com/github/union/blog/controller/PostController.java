@@ -54,4 +54,11 @@ public class PostController {
         postService.updateContentById(postDTO);
         return ResponseEntity.ok(HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/clear",method = RequestMethod.DELETE)
+    public ResponseEntity<?> deleteAllPosts(){
+        postService.deleteAllPosts();
+        return ResponseEntity.ok(HttpStatus.OK);
+    }
+
 }
