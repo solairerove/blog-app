@@ -31,7 +31,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public Post findOnePostById(Integer id) {
-        logger.info("Find one post by id: " + id);
+//        logger.info("Find one post by id: " + id);
         return postRepository.findOnePostById(id);
     }
 
