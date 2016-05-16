@@ -37,7 +37,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public void save(Post post) {
-        logger.info("Save entity:" + post.toString());
+//        logger.info("Save entity:" + post.toString());
         postRepository.save(post);
     }
 
