@@ -1,5 +1,7 @@
 # rest-blog
 
+TODO spread files in app folder
+
 ##### You can use Takari maven wrapper to build the project:
 
 `./mvnw spring-boot:run`
