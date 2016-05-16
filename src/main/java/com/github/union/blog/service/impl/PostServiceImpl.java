@@ -45,4 +45,9 @@ public class PostServiceImpl implements PostService {
     public void updateContentById(PostDTO postDTO){
         postRepository.updateContentById(postDTO.getContent(), postDTO.getId());
     }
+
+    @Override
+    public void deleteAllPosts(){
+        postRepository.deleteAll();
+    }
 }
