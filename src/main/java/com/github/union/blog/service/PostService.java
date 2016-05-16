@@ -22,4 +22,6 @@ public interface PostService {
     void deletePostById(Integer id);
 
     void updateContentById(PostDTO postDTO);
+
+    void deleteAllPosts();
 }
