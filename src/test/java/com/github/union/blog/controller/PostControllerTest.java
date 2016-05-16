@@ -2,6 +2,7 @@ package com.github.union.blog.controller;
 
 import com.github.union.blog.Application;
 import com.github.union.blog.domain.Post;
+import com.github.union.blog.repository.common.EntityUtils;
 import com.github.union.blog.service.PostService;
 import org.apache.log4j.Logger;
 import org.junit.Before;
@@ -10,6 +11,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
@@ -69,6 +71,24 @@ public class PostControllerTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$[1].content", is("another test content")))
                 .andExpect(MockMvcResultMatchers.jsonPath("$[1].date", is("another test date")))
                 .andExpect(MockMvcResultMatchers.jsonPath("$[1].author", is("another test author")));
+    }
+
+    @Test
+    public void getOnePostById() throws Exception{
+        postService.deleteAllPosts();
+        Post saved = EntityUtils.generatePost();
+        postService.save(saved);
+
+        mvc.perform(MockMvcRequestBuilders.request(HttpMethod.GET,"/api/post/"+saved.getId())
+                .accept(MediaType.APPLICATION_JSON)
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.title",  is(saved.getTitle())))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.subtitle", is(saved.getSubtitle())))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.content", is(saved.getContent())))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.date", is(saved.getDate())))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.author", is(saved.getAuthor())));
     }
 
 }
