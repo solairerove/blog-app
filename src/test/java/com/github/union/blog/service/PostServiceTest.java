@@ -63,7 +63,15 @@ public class PostServiceTest {
         Assert.assertEquals(postService.findOnePostById(saved.getId()),saved);
     }
 
+    @Test
+    public void deletePostByIdTest(){
+        LOGGER.info("********* DELETE POST BY ID TEST *********");
+        Post saved = EntityUtils.generatePost();
+        postService.save(saved);
 
+        postService.deletePostById(saved.getId());
+        Assert.assertEquals(postService.findOnePostById(saved.getId()), null);
+    }
 
 
 
