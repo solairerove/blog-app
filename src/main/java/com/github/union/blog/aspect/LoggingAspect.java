@@ -26,5 +26,10 @@ public class LoggingAspect {
         logger.info("Find one post by id: " + joinPoint.getArgs()[0]);
     }
 
+    @Before("execution(* com.github.union.blog.service.PostService.save(..))")
+    public void savePostLog(JoinPoint joinPoint){
+        logger.info("Find one post by id: " + joinPoint.getArgs()[0].toString());
+    }
+
 
 }
