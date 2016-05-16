@@ -32,8 +32,8 @@ public class PostRepositoryTest {
 
     @Before
     public void setUp(){
-        LOGGER.info("********* SETTING UP SUCCESSFUL *********");
         postService.save(EntityUtils.generatePost());
+        LOGGER.info("********* SETTING UP SUCCESSFUL *********");
     }
 
     @Test

@@ -36,7 +36,11 @@ dependencies {
     compile("org.aspectj:aspectjrt")
     compile("org.aspectj:aspectjweaver")
     testCompile("junit:junit")
+    testCompile("org.hamcrest:hamcrest-all")
     testCompile("org.apache.commons:commons-lang3")
+    testCompile("com.jayway.jsonpath:json-path")
+    testCompile("com.jayway.jsonpath:json-path-assert")
+    testCompile("net.minidev:json-smart:2.1.1")
 }
 
 task wrapper(type: Wrapper) {
