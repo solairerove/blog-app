@@ -12,8 +12,8 @@ blog.config(['$routeProvider', function ($routeProvide) {
             controller: 'PostListCtrl'
         })
         .when('/about', {
-            templateUrl: 'app/components/template/about.html',
-            controller: 'AboutCtrl'
+            templateUrl: 'app/components/about/about.html',
+            controller: 'AboutController'
         })
         .when('/posts/:id', {
             templateUrl: 'app/components/template/post.html',
@@ -38,10 +38,6 @@ blog.controller('PostListCtrl', ['$scope', '$http', '$location', 'PostList',
     function ($scope, $http, $location, PostList) {
         $scope.posts = PostList.query();
     }]);
-
-blog.controller('AboutCtrl', ['$scope', '$location', function ($scope, $location) {
-
-}]);
 
 blog.controller('PostCtrl', ['$scope', '$location', '$routeParams', 'Post',
     function ($scope, $location, $routeParams, Post) {
