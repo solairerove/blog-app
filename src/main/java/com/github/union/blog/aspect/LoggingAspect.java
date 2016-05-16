@@ -1,5 +1,6 @@
 package com.github.union.blog.aspect;
 
+import com.github.union.blog.dto.PostDTO;
 import com.github.union.blog.service.impl.PostServiceImpl;
 import org.apache.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
@@ -37,4 +38,8 @@ public class LoggingAspect {
         logger.info("Deleting entity by id:" + joinPoint.getArgs()[0]);
     }
 
+    @Before("execution(* com.github.union.blog.service.PostService.updateContentById(..))")
+    public void updateContentLog(JoinPoint joinPoint){
+        logger.info("Updating post content with id:" + ((PostDTO)(joinPoint.getArgs()[0])).getId());
+    }
 }
