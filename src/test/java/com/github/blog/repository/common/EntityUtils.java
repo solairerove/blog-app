@@ -12,13 +12,9 @@ import org.springframework.transaction.annotation.Transactional;
 @Component
 @Transactional
 public class EntityUtils {
-    public static final int MAX_STRING_LENGTH = 25;
-    public static final int MAX_NUMBER = 1000;
-    public static final int MAX_ENTITIES_COUNT = 20;
+    private static final int MAX_STRING_LENGTH = 25;
 
-
-
-    public static String getRandomString(int length) {
+    private static String getRandomString(int length) {
         return RandomStringUtils.random(length, true, true);
     }
 
@@ -29,7 +25,4 @@ public class EntityUtils {
                 getRandomString(MAX_STRING_LENGTH),
                 getRandomString(MAX_STRING_LENGTH));
     }
-
-
-
 }
