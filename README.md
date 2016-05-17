@@ -39,39 +39,65 @@ ___
 * `http://localhost:8080/api/post/1` - get post by id
 ```json
 {
-        "id": 1,
-        "title": "Man must explore, and this is exploration at its greatest.",
-        "subtitle": "Problems look mighty small from 150 miles up.",
-        "content": "<p>What was most significant about the lunar voyage was not that man set foot on the Moon but that they set eye on the earth.</p>\n  <p>Houston, Tranquillity Base here. The Eagle has landed.</p>\n  <p>NASA is not about the ‘Adventure of Human Space Exploration’…We won’t be doing it just to get out there in space – we’ll be doing it because the things we learn out there will be making life better for a lot of people who won’t be able to go.</p>\n  <p>The Earth was small, light blue, and so touchingly alone, our home that must be defended like a holy relic. The Earth was absolutely round. I believe I never knew what the word round meant until I saw Earth from space.</p>\n  <p>When I orbited the Earth in a spaceship, I saw for the first time how beautiful our planet is. Mankind, let us preserve and increase this beauty, and not destroy it!</p>",
-        "date": "2016-05-11",
-        "author": "union.one",
-        "commentList": []
+    "id": 1,
+    "title": "Man must explore, and this is exploration at its greatest.",
+    "subtitle": "Problems look mighty small from 150 miles up.",
+    "content": "<p>What was most significant about the lunar voyage was not that man set foot on the Moon.</p>",
+    "date": "2016-05-11",
+    "author": "union.one",
+    "commentList": []
 }
 ```
+
 * `http://localhost:8080/api/post/` - return all posts
+
 * `http://localhost:8080/api/post/` - added new post
 ```json
 {
-        "id": 1,
-        "title": "Failure is not an option",
-        "subtitle": "Many say exploration is part of our destiny.",
-        "content": "MockFlow",
-        "date": "2016-05-11",
-        "author": "union.one"
+    "id": 1,
+    "title": "Failure is not an option",
+    "subtitle": "Many say exploration is part of our destiny.",
+    "content": "MockFlow",
+    "date": "2016-05-11",
+    "author": "union.one"
 }
 ```
 * `http://localhost:8080/api/post/1` - deleted post by id
+
 * `http://localhost:8080/api/post/` - update(put) post content by id
 ```json
 {
-        "id": 1,
-        "title": "Failure is not an option",
-        "subtitle": "Many say exploration is part of our destiny.",
-        "content": "new content",
-        "date": "2016-05-11",
-        "author": "union.one"
+    "id": 1,
+    "title": "Failure is not an option",
+    "subtitle": "Many say exploration is part of our destiny.",
+    "content": "new content",
+    "date": "2016-05-11",
+    "author": "union.one"
 }
 ```
+
+* `http://localhost:8080/api/comment/` - get all comment
+```json
+{
+    "id": 1,
+    "author": "I'm a great author",
+    "review": "this is my another review",
+    "date": "date",
+    "postId": 2
+}
+```
+
+* `http://localhost:8080/api/comment/1` - get comment by id
+```json
+{
+    "id": 1,
+    "author": "I'm a great author",
+    "review": "this is my another review",
+    "date": "date",
+    "postId": 2
+}
+```
+
 * `http://localhost:8080/api/post/1/comment` - add new comment to post by id
 ```json
 {
@@ -82,6 +108,7 @@ ___
     "postId": 2
 }
 ```
+
 * `http://localhost:8080/api/post/1/comment` - get all comments from post by id
 ```json
 {
