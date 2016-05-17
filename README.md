@@ -98,6 +98,17 @@ ___
 }
 ```
 
+* `http://localhost:8080/api/comment/` - update comment review by id
+```json
+{
+    "id": 1,
+    "author": "this is great author.",
+    "review": "review update",
+    "date": "date of great comment.",
+    "postId": 1
+}
+```
+
 * `http://localhost:8080/api/post/1/comment` - add new comment to post by id
 ```json
 {
@@ -119,6 +130,7 @@ ___
     "postId": 2
 }
 ```
+
 ___
 
 ##### `@SpringBootApplication` is a convenience annotation that adds all of the following:
