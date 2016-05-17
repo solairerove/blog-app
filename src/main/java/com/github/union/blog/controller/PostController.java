@@ -5,11 +5,11 @@ import com.github.union.blog.domain.Post;
 import com.github.union.blog.dto.CommentDTO;
 import com.github.union.blog.dto.PostDTO;
 import com.github.union.blog.service.CommentService;
-import com.github.union.blog.service.ManagerPostService;
 import com.github.union.blog.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -18,6 +18,7 @@ import java.time.LocalDate;
  * Created by union on 7/05/16.
  */
 
+@Component
 @RestController
 @RequestMapping("/api/post")
 public class PostController {
@@ -27,9 +28,6 @@ public class PostController {
 
     @Autowired
     private CommentService commentService;
-
-    @Autowired
-    private ManagerPostService managerPostService;
 
     @RequestMapping("/")
     public ResponseEntity<?> getAllPosts() {
@@ -73,7 +71,12 @@ public class PostController {
         comment.setDate(commentDTO.getDate());
         commentService.save(comment);
 
-        managerPostService.addNewCommentToPost(id, comment);
+        commentService.addNewCommentToPost(id, comment);
         return ResponseEntity.ok(HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "{id}/comment")
+    public ResponseEntity<?> getAllCommentsFromPost(@PathVariable Integer id) {
+        return ResponseEntity.ok(commentService.findAllCommentsFromPostById(id));
     }
 }
