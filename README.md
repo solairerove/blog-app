@@ -64,7 +64,7 @@ ___
 ```
 * `http://localhost:8080/api/post/1` - deleted post by id
 
-* `http://localhost:8080/api/post/` - update(put) post content by id
+* `http://localhost:8080/api/post/` - update post content by id
 ```json
 {
     "id": 1,
@@ -98,7 +98,7 @@ ___
 }
 ```
 
-* `http://localhost:8080/api/comment/` - update comment review by id
+* `http://localhost:8080/api/comment/1` - update comment review by id
 ```json
 {
     "id": 1,
@@ -108,6 +108,8 @@ ___
     "postId": 1
 }
 ```
+
+* `http://localhost:8080/api/comment/1` - delete comment by id
 
 * `http://localhost:8080/api/post/1/comment` - add new comment to post by id
 ```json

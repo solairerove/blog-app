@@ -42,6 +42,12 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
+    public void deleteCommentById(Integer id) {
+        LOGGER.info("Delete entity by id: " + id);
+        commentRepository.delete(id);
+    }
+
+    @Override
     public void addNewCommentToPost(Integer id, Comment comment) {
         LOGGER.info("Add new comment: " + comment + "to post: " + id);
         comment.setPostId(id);
