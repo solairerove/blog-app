@@ -1,12 +1,12 @@
 package com.github.union.blog.controller;
 
+import com.github.union.blog.dto.CommentDTO;
 import com.github.union.blog.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by union on 17.05.16.
@@ -28,5 +28,11 @@ public class CommentController {
     @RequestMapping(value = "/{id}")
     public ResponseEntity<?> getOneCommentById(@PathVariable Integer id) {
         return ResponseEntity.ok(commentService.findOneCommentById(id));
+    }
+
+    @RequestMapping(value = "/", method = RequestMethod.PUT)
+    public ResponseEntity<?> updateReviewById(@RequestBody CommentDTO commentDTO) {
+        commentService.updateReviewById(commentDTO);
+        return ResponseEntity.ok(HttpStatus.OK);
     }
 }
