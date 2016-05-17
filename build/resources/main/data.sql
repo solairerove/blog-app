@@ -59,3 +59,66 @@ VALUES (
   '2016-05-11',
   'vlad'
 );
+
+INSERT INTO `COMMENT` (`id`, `author`, `review`, `date`, `post_id`)
+VALUES (
+  1,
+  'this is great author.',
+  'this is great review of great author.',
+  'date of great comment.',
+  1
+);
+
+INSERT INTO `COMMENT` (`id`, `author`, `review`, `date`, `post_id`)
+VALUES (
+  2,
+  'this is great author.',
+  'this is great review of great author.',
+  'date of great comment.',
+  1
+);
+
+INSERT INTO `COMMENT` (`id`, `author`, `review`, `date`, `post_id`)
+VALUES (
+  3,
+  'this is great author.',
+  'this is great review of great author.',
+  'date of great comment.',
+  1
+);
+
+INSERT INTO `COMMENT` (`id`, `author`, `review`, `date`, `post_id`)
+VALUES (
+  4,
+  'this is great author.',
+  'this is great review of great author.',
+  'date of great comment.',
+  1
+);
+
+INSERT INTO `COMMENT` (`id`, `author`, `review`, `date`, `post_id`)
+VALUES (
+  5,
+  'this is great author.',
+  'this is great review of great author.',
+  'date of great comment.',
+  2
+);
+
+INSERT INTO `COMMENT` (`id`, `author`, `review`, `date`, `post_id`)
+VALUES (
+  6,
+  'this is great author.',
+  'this is great review of great author.',
+  'date of great comment.',
+  2
+);
+
+INSERT INTO `COMMENT` (`id`, `author`, `review`, `date`, `post_id`)
+VALUES (
+  7,
+  'this is great author.',
+  'this is great review of great author.',
+  'date of great comment.',
+  2
+);
