@@ -40,9 +40,6 @@ public class PostControllerTest {
     private MockMvc mvc;
 
     @Autowired
-    private PostController postController;
-
-    @Autowired
     private PostService postService;
 
     @Before
