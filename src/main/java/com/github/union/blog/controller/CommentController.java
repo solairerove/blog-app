@@ -35,4 +35,10 @@ public class CommentController {
         commentService.updateReviewById(commentDTO);
         return ResponseEntity.ok(HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<?> deleteCommentById(@PathVariable Integer id) {
+        commentService.deleteCommentById(id);
+        return ResponseEntity.ok(HttpStatus.OK);
+    }
 }
