@@ -8,21 +8,36 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Created by union on 16.05.16.
  */
 
-@Transactional
 @Service
+@Transactional
 public class CommentServiceImpl implements CommentService {
-    private Logger logger = Logger.getLogger(CommentServiceImpl.class);
+    private static final Logger LOGGER = Logger.getLogger(CommentServiceImpl.class);
 
     @Autowired
     private CommentRepository commentRepository;
 
     @Override
     public void save(Comment comment) {
-        logger.info("Save entity:" + comment.toString());
+        LOGGER.info("Save entity:" + comment.toString());
         commentRepository.save(comment);
+    }
+
+    @Override
+    public void addNewCommentToPost(Integer id, Comment comment) {
+        LOGGER.info("add new comment: " + comment + "to post: " + id);
+        comment.setPostId(id);
+        commentRepository.save(comment);
+    }
+
+    @Override
+    public List<Comment> findAllCommentsFromPostById(Integer id) {
+        LOGGER.info("Find all comment from post by id: " + id);
+        return commentRepository.findAllCommentsFromPostById(id);
     }
 }
