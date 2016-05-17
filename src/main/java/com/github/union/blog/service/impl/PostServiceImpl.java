@@ -18,38 +18,38 @@ import java.util.List;
 @Service
 @Transactional
 public class PostServiceImpl implements PostService {
-    private Logger logger = Logger.getLogger(PostServiceImpl.class);
+    private static final Logger LOGGER = Logger.getLogger(PostServiceImpl.class);
 
     @Autowired
     private PostRepository postRepository;
 
     @Override
     public List<Post> findAll() {
-        logger.info("Find all posts");
+        LOGGER.info("Find all posts");
         return postRepository.findAll();
     }
 
     @Override
     public Post findOnePostById(Integer id) {
-        logger.info("Find one post by id: " + id);
+        LOGGER.info("Find one post by id: " + id);
         return postRepository.findOnePostById(id);
     }
 
     @Override
     public void save(Post post) {
-        logger.info("Save entity:" + post.toString());
+        LOGGER.info("Save entity:" + post.toString());
         postRepository.save(post);
     }
 
     @Override
     public void deletePostById(Integer id) {
-        logger.info("Delete entity by id: " + id);
+        LOGGER.info("Delete entity by id: " + id);
         postRepository.delete(id);
     }
 
     @Override
     public void updateContentById(PostDTO postDTO){
-        logger.info("Updating post content with id:" + postDTO.getId());
+        LOGGER.info("Updating post content with id:" + postDTO.getId());
         postRepository.updateContentById(postDTO.getContent(), postDTO.getId());
     }
 }
