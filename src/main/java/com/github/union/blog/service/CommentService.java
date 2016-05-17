@@ -19,6 +19,8 @@ public interface CommentService {
 
     void save(Comment comment);
 
+    void deleteCommentById(Integer id);
+
     void addNewCommentToPost(Integer id, Comment comment);
 
     List<Comment> findAllCommentsFromPostById(Integer id);
