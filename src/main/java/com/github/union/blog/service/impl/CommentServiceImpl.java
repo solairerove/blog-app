@@ -1,6 +1,7 @@
 package com.github.union.blog.service.impl;
 
 import com.github.union.blog.domain.Comment;
+import com.github.union.blog.dto.CommentDTO;
 import com.github.union.blog.repository.CommentRepository;
 import com.github.union.blog.service.CommentService;
 import org.apache.log4j.Logger;
@@ -42,7 +43,7 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public void addNewCommentToPost(Integer id, Comment comment) {
-        LOGGER.info("add new comment: " + comment + "to post: " + id);
+        LOGGER.info("Add new comment: " + comment + "to post: " + id);
         comment.setPostId(id);
         commentRepository.save(comment);
     }
@@ -51,5 +52,11 @@ public class CommentServiceImpl implements CommentService {
     public List<Comment> findAllCommentsFromPostById(Integer id) {
         LOGGER.info("Find all comment from post by id: " + id);
         return commentRepository.findAllCommentsFromPostById(id);
+    }
+
+    @Override
+    public void updateReviewById(CommentDTO commentDTO) {
+        LOGGER.info("Updating comment review with id: " + commentDTO.getId());
+        commentRepository.updateReviewById(commentDTO.getReview(), commentDTO.getId());
     }
 }
