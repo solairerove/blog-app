@@ -27,41 +27,109 @@ ___
 
 ___
 
+##### Use H2 web console:
+
+* `http://localhost:8080/console/`
+* `jdbc:h2:mem:post`
+
+___
+
 #### Open in whatever rest client
 
 * `http://localhost:8080/api/post/1` - get post by id
 ```json
 {
-        "id": 1,
-        "title": "Failure is not an option",
-        "subtitle": "Many say exploration is part of our destiny.",
-        "content": "MockFlow",
-        "date": "2016-05-11",
-        "author": "union.one"
+    "id": 1,
+    "title": "Man must explore, and this is exploration at its greatest.",
+    "subtitle": "Problems look mighty small from 150 miles up.",
+    "content": "<p>What was most significant about the lunar voyage was not that man set foot on the Moon.</p>",
+    "date": "2016-05-11",
+    "author": "union.one",
+    "commentList": []
 }
 ```
+
 * `http://localhost:8080/api/post/` - return all posts
+
 * `http://localhost:8080/api/post/` - added new post
 ```json
 {
-        "id": 1,
-        "title": "Failure is not an option",
-        "subtitle": "Many say exploration is part of our destiny.",
-        "content": "MockFlow",
-        "date": "2016-05-11",
-        "author": "union.one"
+    "id": 1,
+    "title": "Failure is not an option",
+    "subtitle": "Many say exploration is part of our destiny.",
+    "content": "MockFlow",
+    "date": "2016-05-11",
+    "author": "union.one"
 }
 ```
 * `http://localhost:8080/api/post/1` - deleted post by id
-* `http://localhost:8080/api/post/` - update(put) post content by id
+
+* `http://localhost:8080/api/post/` - update post content by id
 ```json
 {
-        "id": 1,
-        "title": "Failure is not an option",
-        "subtitle": "Many say exploration is part of our destiny.",
-        "content": "new content",
-        "date": "2016-05-11",
-        "author": "union.one"
+    "id": 1,
+    "title": "Failure is not an option",
+    "subtitle": "Many say exploration is part of our destiny.",
+    "content": "new content",
+    "date": "2016-05-11",
+    "author": "union.one"
+}
+```
+
+* `http://localhost:8080/api/comment/` - get all comment
+```json
+{
+    "id": 1,
+    "author": "I'm a great author",
+    "review": "this is my another review",
+    "date": "date",
+    "postId": 2
+}
+```
+
+* `http://localhost:8080/api/comment/1` - get comment by id
+```json
+{
+    "id": 1,
+    "author": "I'm a great author",
+    "review": "this is my another review",
+    "date": "date",
+    "postId": 2
+}
+```
+
+* `http://localhost:8080/api/comment/1` - update comment review by id
+```json
+{
+    "id": 1,
+    "author": "this is great author.",
+    "review": "review update",
+    "date": "date of great comment.",
+    "postId": 1
+}
+```
+
+* `http://localhost:8080/api/comment/1` - delete comment by id
+
+* `http://localhost:8080/api/post/1/comment` - add new comment to post by id
+```json
+{
+    "id": 1,
+    "author": "I'm a great author",
+    "review": "this is my another review",
+    "date": "date",
+    "postId": 2
+}
+```
+
+* `http://localhost:8080/api/post/1/comment` - get all comments from post by id
+```json
+{
+    "id": 1,
+    "author": "I'm a great author",
+    "review": "this is my another review",
+    "date": "date",
+    "postId": 2
 }
 ```
 
