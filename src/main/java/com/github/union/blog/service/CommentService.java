@@ -12,6 +12,10 @@ import java.util.List;
 @Component
 public interface CommentService {
 
+    List<Comment> findAll();
+
+    Comment findOneCommentById(Integer id);
+
     void save(Comment comment);
 
     void addNewCommentToPost(Integer id, Comment comment);

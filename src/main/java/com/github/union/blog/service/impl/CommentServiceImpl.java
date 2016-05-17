@@ -23,6 +23,18 @@ public class CommentServiceImpl implements CommentService {
     private CommentRepository commentRepository;
 
     @Override
+    public List<Comment> findAll() {
+        LOGGER.info("Find all comments");
+        return commentRepository.findAll();
+    }
+
+    @Override
+    public Comment findOneCommentById(Integer id) {
+        LOGGER.info("Find one comment by id: " + id);
+        return commentRepository.findOneCommentById(id);
+    }
+
+    @Override
     public void save(Comment comment) {
         LOGGER.info("Save entity:" + comment.toString());
         commentRepository.save(comment);
