@@ -1,6 +1,38 @@
-# rest-blog
+# blog-app
 
-TODO spread files in app folder
+##### TODO on client
+
+* navigation
+* bootstrap
+* post details
+
+___
+
+##### TODO on server
+
+* user and authority models 
+* user and authority dto 
+* additional repositories and services 
+* aspectj
+* additional junit and mock
+* rest controllers too
+* update group in insomnia rest client
+
+___
+
+##### Run server
+
+* `mvn spring-boot:run`
+
+___
+
+##### Run client
+
+* `npm i` - first time to download dependencies
+* `cd client/`
+* `npm start`
+
+___
 
 ##### Use H2 web console:
 
