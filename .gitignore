@@ -22,5 +22,5 @@ client/npm-debug.log
 client/node_modules
 client/typings
 
-client/app/*.js
+*.js
 *.js.map
