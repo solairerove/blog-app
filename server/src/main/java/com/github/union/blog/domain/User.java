@@ -1,15 +1,32 @@
 package com.github.union.blog.domain;
 
+import javax.persistence.*;
 import java.util.List;
 
 /**
  * Created by vlad on 22.05.16.
  */
+
+@Entity
+@Table(name = "user")
 public class User {
 
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(name = "nickname",length = 30)
     private String nickname;
+
+    @Column(name = "login")
     private String login;
+
+    @Column(name = "password")
     private String password;
+
+    @OneToMany
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private List<Role> roles;
 
     public String getNickname() {
