@@ -1,17 +1,16 @@
 import {Component, OnInit} from 'angular2/core';
-import {PostService} from './post.service';
 import {HTTP_PROVIDERS} from 'angular2/http';
 
-import {Post} from './post';
+import {PostService} from './post.service';
 
 @Component({
-    selector: 'posts',
-    templateUrl: 'app/posts.component.ts',
+    selector: 'my-posts',
+    templateUrl: 'app/posts.component.html',
     providers: [PostService, HTTP_PROVIDERS]
 })
 
 export class PostsComponent implements OnInit {
-    posts:Post[];
+    posts:Object[];
     errorMessage:string;
 
     constructor(private postsService:PostService) {
