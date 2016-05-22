@@ -6,14 +6,15 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class PostService {
+
+    private postsUrl = 'http://localhost:8080/api/post/';
+
     constructor(private http:Http) {
     }
 
-    private _postsUrl = 'http://localhost:8080/api/post/';
-
-    getPosts() {
-        return this.http.get(this._postsUrl)
-            .map(res => <Post[]> res.json())
+    getPosts(): Observable<Post[]> {
+        return this.http.get(this.postsUrl)
+            .map(res => res.json())
             .catch(this.handleError);
     }
 
