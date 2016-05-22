@@ -1,6 +1,5 @@
 import {Injectable} from 'angular2/core';
 import {Http, Response} from 'angular2/http';
-import {Post} from './post';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/Rx';
 
@@ -12,7 +11,7 @@ export class PostService {
     constructor(private http:Http) {
     }
 
-    getPosts(): Observable<Post[]> {
+    getPosts():Observable<Object[]> {
         return this.http.get(this.postsUrl)
             .map(res => res.json())
             .catch(this.handleError);
