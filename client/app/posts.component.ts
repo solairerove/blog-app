@@ -5,16 +5,16 @@ import {HTTP_PROVIDERS} from 'angular2/http';
 import {Post} from './post';
 
 @Component({
-    selector: 'my-app',
-    templateUrl: 'app/app.component.html',
+    selector: 'posts',
+    templateUrl: 'app/posts.component.ts',
     providers: [PostService, HTTP_PROVIDERS]
 })
 
-export class AppComponent implements OnInit{
-    posts: Post[];
-    errorMessage: string;
+export class PostsComponent implements OnInit {
+    posts:Post[];
+    errorMessage:string;
 
-    constructor(private _postService: PostService) {
+    constructor(private postsService:PostService) {
 
     }
 
@@ -23,7 +23,7 @@ export class AppComponent implements OnInit{
     }
 
     getPosts() {
-        this._postService.getPosts()
+        this.postsService.getPosts()
             .subscribe(
                 posts => this.posts = posts,
                 error => this.errorMessage = <any> error
