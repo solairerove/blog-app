@@ -1,12 +1,23 @@
 package com.github.union.blog.domain;
 
+import javax.persistence.*;
+import java.io.Serializable;
+
 /**
  * Created by vlad on 22.05.16.
  */
-public class Role {
 
+@Entity
+@Table(name = "role")
+public class Role implements Serializable {
+
+
+    @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @Column(name = "name")
     private String name;
 
     public Role() {
