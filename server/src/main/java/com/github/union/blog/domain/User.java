@@ -29,6 +29,15 @@ public class User {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private List<Role> roles;
 
+    public User(){}
+
+    public User(String nickname, String login, String password, List<Role> roles) {
+        this.nickname = nickname;
+        this.login = login;
+        this.password = password;
+        this.roles = roles;
+    }
+
     public String getNickname() {
         return nickname;
     }
@@ -59,6 +68,10 @@ public class User {
 
     public void setRoles(List<Role> roles) {
         this.roles = roles;
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     @Override
