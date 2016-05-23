@@ -2,7 +2,7 @@
 
 ##### TODO on client
 
-* navigation
+* routing
 * bootstrap
 * post details
 
