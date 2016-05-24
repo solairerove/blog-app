@@ -2,6 +2,7 @@ package com.github.union.blog.domain;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by vlad on 22.05.16.
@@ -77,30 +78,25 @@ public class User {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
+        if (!(o instanceof User)) return false;
         User user = (User) o;
-
-        if (nickname != null ? !nickname.equals(user.nickname) : user.nickname != null) return false;
-        if (login != null ? !login.equals(user.login) : user.login != null) return false;
-        if (password != null ? !password.equals(user.password) : user.password != null) return false;
-        return roles != null ? roles.equals(user.roles) : user.roles == null;
-
+        return Objects.equals(id, user.id) &&
+                Objects.equals(nickname, user.nickname) &&
+                Objects.equals(login, user.login) &&
+                Objects.equals(password, user.password) &&
+                Objects.equals(roles, user.roles);
     }
 
     @Override
     public int hashCode() {
-        int result = nickname != null ? nickname.hashCode() : 0;
-        result = 31 * result + (login != null ? login.hashCode() : 0);
-        result = 31 * result + (password != null ? password.hashCode() : 0);
-        result = 31 * result + (roles != null ? roles.hashCode() : 0);
-        return result;
+        return Objects.hash(id, nickname, login, password, roles);
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "nickname='" + nickname + '\'' +
+                "id=" + id +
+                ", nickname='" + nickname + '\'' +
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
                 ", roles=" + roles +
