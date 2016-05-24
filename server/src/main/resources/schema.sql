@@ -14,3 +14,16 @@ CREATE TABLE IF NOT EXISTS `comment` (
   `date`    VARCHAR(255),
   `post_id` INTEGER
 );
+
+CREATE TABLE IF NOT EXISTS `user` (
+  `id`       INTEGER IDENTITY PRIMARY KEY,
+  `nickname` VARCHAR(255),
+  `login`    VARCHAR(255),
+  `password` VARCHAR(255)
+);
+
+CREATE TABLE IF NOT EXISTS `role` (
+  `id`      INTEGER IDENTITY PRIMARY KEY,
+  `name`    VARCHAR(255),
+  `user_id` INTEGER
+);

@@ -2,6 +2,7 @@ package com.github.union.blog.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * Created by vlad on 22.05.16.
@@ -19,6 +20,9 @@ public class Role implements Serializable {
 
     @Column(name = "name")
     private String name;
+
+    @Column(name = "user_id")
+    private Integer userId;
 
     public Role() {
 
@@ -44,23 +48,27 @@ public class Role implements Serializable {
         this.name = name;
     }
 
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
+        if (!(o instanceof Role)) return false;
         Role role = (Role) o;
-
-        if (id != null ? !id.equals(role.id) : role.id != null) return false;
-        return name != null ? name.equals(role.name) : role.name == null;
-
+        return Objects.equals(id, role.id) &&
+                Objects.equals(name, role.name) &&
+                Objects.equals(userId, role.userId);
     }
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        return result;
+        return Objects.hash(id, name, userId);
     }
 
     @Override
@@ -68,6 +76,7 @@ public class Role implements Serializable {
         return "Role{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", userId=" + userId +
                 '}';
     }
 }
