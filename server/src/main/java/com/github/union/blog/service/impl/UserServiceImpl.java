@@ -4,10 +4,14 @@ import com.github.union.blog.domain.User;
 import com.github.union.blog.repository.UserRepository;
 import com.github.union.blog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by vlad on 23.05.16.
  */
+@Service
+@Transactional
 public class UserServiceImpl implements UserService {
 
     @Autowired
