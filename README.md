@@ -10,10 +10,14 @@ ___
 
 ##### TODO on server
 
-* user and authority models 
-* user and authority dto 
-* additional repositories and services 
+* user and authority models **implemented**
+* user and authority dto **implemented**
+* additional repositories and services **implemented**
 * aspectj
+* rename `role` to `authority`
+* added email(uniq)
+* nickname and login ara uniq
+* many to many relation between user and authority
 * additional junit and mock
 * rest controllers too
 * update group in insomnia rest client
