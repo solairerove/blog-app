@@ -8,6 +8,7 @@ import {
 import {PostService} from './post.service';
 import {PostsComponent} from './posts.component';
 import {AboutComponent} from './about.component';
+import {PostDetailComponent} from './post-detail.component';
 
 @RouteConfig([
     {
@@ -20,6 +21,15 @@ import {AboutComponent} from './about.component';
         path: '/about',
         name: 'About',
         component: AboutComponent
+    },
+    {
+        path: '/posts/:id',
+        name: 'PostDetail',
+        component: PostDetailComponent
+    },
+    {
+        path: '/**',
+        redirectTo: ['Posts']
     }
 ])
 
