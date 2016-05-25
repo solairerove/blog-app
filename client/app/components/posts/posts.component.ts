@@ -2,12 +2,13 @@ import {Component, OnInit} from 'angular2/core';
 import {HTTP_PROVIDERS} from 'angular2/http';
 import {Router} from 'angular2/router';
 
-import {PostService} from './post.service';
-import {Post} from './post';
+import {Post} from '../../../app/model/post';
+import {PostService} from '../../service/post.service';
+
 
 @Component({
     selector: 'my-posts',
-    templateUrl: 'app/posts.component.html',
+    templateUrl: '/app/components/posts/posts.component.html',
     providers: [PostService, HTTP_PROVIDERS]
 })
 
