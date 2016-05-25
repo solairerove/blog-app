@@ -5,7 +5,6 @@
     </div>
     <input type="button" (click)="goBack()" value="back">
 
-    <div>
-        {{post.content}}
+    <div [innerHTML]="post.content">
     </div>
 </div>
