@@ -6,5 +6,13 @@ import {Component} from 'angular2/core';
 })
 
 export class HeaderComponent {
+    image:string;
+    
+    constructor() {
+        this.image = '../../../resources/img/header.jpg';
+    }
 
+    setImage(image:string) {
+        this.image = image;
+    }
 }
