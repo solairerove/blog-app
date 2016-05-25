@@ -21,7 +21,7 @@ export class PostService {
     }
 
     getPost(id):Observable<Post> {
-        return this.http.get(this.url + id)
+        return this.http.get(this.url + '/' + id)
             .map(res => res.json())
             .catch(this.handleError);
     }
