@@ -5,7 +5,7 @@
 * routing **implemented**
 * bootstrap
 * post details **implemented**
-* html content formatting
+* html content formatting **implemented**
 
 ___
 
