@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.*;
 
 @Component
 @RestController
-@RequestMapping("/api/comment")
+@RequestMapping("/api/comments")
 public class CommentController {
 
     @Autowired
     private CommentService commentService;
 
-    @RequestMapping(value = "/")
+    @RequestMapping(value = "")
     public ResponseEntity<?> getAllComments() {
         return ResponseEntity.ok(commentService.findAll());
     }
@@ -30,7 +30,7 @@ public class CommentController {
         return ResponseEntity.ok(commentService.findOneCommentById(id));
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.PUT)
+    @RequestMapping(value = "", method = RequestMethod.PUT)
     public ResponseEntity<?> updateReviewById(@RequestBody CommentDTO commentDTO) {
         commentService.updateReviewById(commentDTO);
         return ResponseEntity.ok(HttpStatus.OK);

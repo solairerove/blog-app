@@ -1,7 +1,9 @@
 import {Component, OnInit} from 'angular2/core';
 import {HTTP_PROVIDERS} from 'angular2/http';
+import {Router} from 'angular2/router';
 
 import {PostService} from './post.service';
+import {Post} from './post';
 
 @Component({
     selector: 'my-posts',
@@ -10,10 +12,11 @@ import {PostService} from './post.service';
 })
 
 export class PostsComponent implements OnInit {
-    posts:Object[];
+    posts:Post[];
     errorMessage:string;
 
-    constructor(private postsService:PostService) {
+    constructor(private router:Router,
+                private postsService:PostService) {
 
     }
 
@@ -27,5 +30,9 @@ export class PostsComponent implements OnInit {
                 posts => this.posts = posts,
                 error => this.errorMessage = <any> error
             );
+    }
+
+    gotoDetail(post:Post) {
+        this.router.navigate(['PostDetail', {id: post.id}]);
     }
 }
