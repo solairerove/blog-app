@@ -1,8 +1,8 @@
-package com.github.union.blog.service.impl;
+package com.github.solairerove.blog.service.impl;
 
-import com.github.union.blog.domain.User;
-import com.github.union.blog.repository.UserRepository;
-import com.github.union.blog.service.UserService;
+import com.github.solairerove.blog.domain.User;
+import com.github.solairerove.blog.repository.UserRepository;
+import com.github.solairerove.blog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

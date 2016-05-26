@@ -27,7 +27,6 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppC
 /**
  * Created by vlad on 16.05.16.
  */
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @Transactional
 @WebAppConfiguration
@@ -54,7 +53,7 @@ public class PostControllerTest {
         postService.save(new Post("another test title", "another test subtitle", "another test content", "" +
                 "another test date", "another test author"));
 
-        mvc.perform(MockMvcRequestBuilders.request(HttpMethod.GET, "/api/post/"))
+        mvc.perform(MockMvcRequestBuilders.request(HttpMethod.GET, "/api/posts"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$", hasSize(2)))
                 .andExpect(MockMvcResultMatchers.jsonPath("$[0].title", is("test title")))
@@ -75,7 +74,7 @@ public class PostControllerTest {
         Post saved = EntityUtils.generatePost();
         postService.save(saved);
 
-        mvc.perform(MockMvcRequestBuilders.request(HttpMethod.GET, "/api/post/" + saved.getId())
+        mvc.perform(MockMvcRequestBuilders.request(HttpMethod.GET, "/api/posts/" + saved.getId())
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
@@ -93,7 +92,7 @@ public class PostControllerTest {
         Post saved = EntityUtils.generatePost();
         ObjectMapper objectMapper = new ObjectMapper();
 
-        mvc.perform(MockMvcRequestBuilders.request(HttpMethod.POST, "/api/post/")
+        mvc.perform(MockMvcRequestBuilders.request(HttpMethod.POST, "/api/posts")
                 .content(objectMapper.writeValueAsString(saved))
                 .contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk());

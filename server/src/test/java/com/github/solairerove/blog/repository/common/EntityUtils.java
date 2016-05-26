@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  * Created by vlad on 16.05.16.
  */
-
 @Component
 @Transactional
 public class EntityUtils {

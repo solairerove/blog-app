@@ -5,10 +5,6 @@ import com.github.solairerove.blog.domain.Comment;
 import java.io.Serializable;
 import java.util.List;
 
-/**
- * Created by union on 7/05/16.
- */
-
 public class PostDTO implements Serializable {
     private Integer id;
     private String title;

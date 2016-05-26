@@ -19,11 +19,17 @@ CREATE TABLE IF NOT EXISTS `user` (
   `id`       INTEGER IDENTITY PRIMARY KEY,
   `nickname` VARCHAR(255),
   `login`    VARCHAR(255),
-  `password` VARCHAR(255)
+  `password` VARCHAR(255),
+  `email`    VARCHAR(255)
 );
 
-CREATE TABLE IF NOT EXISTS `role` (
+CREATE TABLE IF NOT EXISTS `authority` (
+  `id`   INTEGER IDENTITY PRIMARY KEY,
+  `name` VARCHAR(255),
+);
+
+CREATE TABLE IF NOT EXISTS `authorities` (
   `id`      INTEGER IDENTITY PRIMARY KEY,
-  `name`    VARCHAR(255),
-  `user_id` INTEGER
+  `user_id` INTEGER,
+  `role_id` INTEGER
 );
