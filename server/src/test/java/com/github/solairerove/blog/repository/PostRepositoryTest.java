@@ -17,7 +17,6 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  * Created by vlad on 16.05.16.
  */
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @Transactional
 @WebAppConfiguration

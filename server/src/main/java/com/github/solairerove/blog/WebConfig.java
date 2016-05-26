@@ -8,7 +8,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 /**
  * Created by union on 12.05.16.
  */
-
 @EnableWebMvc
 @Configuration
 public class WebConfig extends WebMvcConfigurerAdapter {

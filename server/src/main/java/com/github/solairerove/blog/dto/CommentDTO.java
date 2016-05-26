@@ -2,10 +2,6 @@ package com.github.solairerove.blog.dto;
 
 import java.io.Serializable;
 
-/**
- * Created by union on 16.05.16.
- */
-
 public class CommentDTO implements Serializable {
     private Integer id;
     private String author;

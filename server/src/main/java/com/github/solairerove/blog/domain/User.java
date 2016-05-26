@@ -1,4 +1,4 @@
-package com.github.union.blog.domain;
+package com.github.solairerove.blog.domain;
 
 import javax.persistence.*;
 import java.util.List;
@@ -7,7 +7,6 @@ import java.util.Objects;
 /**
  * Created by vlad on 22.05.16.
  */
-
 @Entity
 @Table(name = "user")
 public class User {
@@ -30,7 +29,8 @@ public class User {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private List<Role> roles;
 
-    public User(){}
+    public User() {
+    }
 
     public User(String nickname, String login, String password, List<Role> roles) {
         this.nickname = nickname;

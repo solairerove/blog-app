@@ -5,10 +5,6 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Created by union on 7/05/16.
- */
-
 @Entity
 @Table(name = "post")
 public class Post implements Serializable {

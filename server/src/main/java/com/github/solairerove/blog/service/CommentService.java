@@ -9,7 +9,6 @@ import java.util.List;
 /**
  * Created by union on 16.05.16.
  */
-
 @Component
 public interface CommentService {
 

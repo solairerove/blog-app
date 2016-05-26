@@ -18,7 +18,6 @@ import java.util.List;
 /**
  * Created by vlad on 16.05.16.
  */
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @Transactional

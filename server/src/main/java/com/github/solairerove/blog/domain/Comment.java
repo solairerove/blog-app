@@ -4,10 +4,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
 
-/**
- * Created by union on 16.05.16.
- */
-
 @Entity
 @Table(name = "comment")
 public class Comment implements Serializable {

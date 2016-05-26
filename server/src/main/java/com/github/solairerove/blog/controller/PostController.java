@@ -20,10 +20,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 
-/**
- * Created by union on 7/05/16.
- */
-
 @Component
 @RestController
 @RequestMapping("/api/posts")

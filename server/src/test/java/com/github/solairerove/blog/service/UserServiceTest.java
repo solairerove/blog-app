@@ -1,8 +1,8 @@
-package com.github.union.blog.service;
+package com.github.solairerove.blog.service;
 
-import com.github.union.blog.Application;
-import com.github.union.blog.domain.Role;
-import com.github.union.blog.domain.User;
+import com.github.solairerove.blog.Application;
+import com.github.solairerove.blog.domain.Role;
+import com.github.solairerove.blog.domain.User;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
