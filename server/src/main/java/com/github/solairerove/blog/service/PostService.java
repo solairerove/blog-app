@@ -2,25 +2,50 @@ package com.github.solairerove.blog.service;
 
 import com.github.solairerove.blog.domain.Post;
 import com.github.solairerove.blog.dto.PostDTO;
-import org.springframework.stereotype.Component;
+import com.github.solairerove.blog.repository.PostRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 /**
  * Created by union on 7/05/16.
  */
-@Component
-public interface PostService {
+@Service
+@Transactional
+public class PostService {
 
-    List<Post> findAll();
+    @Autowired
+    private PostRepository postRepository;
 
-    Post findOnePostById(Integer id);
+    public List<Post> findAll() {
+        return postRepository.findAll();
+    }
 
-    void save(Post post);
+    public Page<Post> findAll(Pageable pageable) {
+        return postRepository.findAll(pageable);
+    }
 
-    void deletePostById(Integer id);
+    public Post findOnePostById(Integer id) {
+        return postRepository.findOnePostById(id);
+    }
 
-    void updateContentById(PostDTO postDTO);
+    public void save(Post post) {
+        postRepository.save(post);
+    }
 
-    void deleteAllPosts();
+    public void deletePostById(Integer id) {
+        postRepository.delete(id);
+    }
+
+    public void updateContentById(PostDTO postDTO) {
+        postRepository.updateContentById(postDTO.getContent(), postDTO.getId());
+    }
+
+    public void deleteAllPosts() {
+        postRepository.deleteAll();
+    }
 }

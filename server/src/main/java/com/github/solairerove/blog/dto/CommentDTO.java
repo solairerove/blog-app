@@ -59,15 +59,4 @@ public class CommentDTO implements Serializable {
     public void setPostId(Integer postId) {
         this.postId = postId;
     }
-
-    @Override
-    public String toString() {
-        return "CommentDTO{" +
-                "postId=" + postId +
-                ", date='" + date + '\'' +
-                ", review='" + review + '\'' +
-                ", author='" + author + '\'' +
-                ", id=" + id +
-                '}';
-    }
 }

@@ -1,9 +1,8 @@
-import {Injectable} from 'angular2/core';
-import {Http, Response} from 'angular2/http';
-import {Observable} from 'rxjs/Observable';
-import 'rxjs/Rx';
-
-import {Post} from '../model/post';
+import {Injectable} from "angular2/core";
+import {Http, Response} from "angular2/http";
+import {Observable} from "rxjs/Observable";
+import "rxjs/Rx";
+import {Post} from "../model/post";
 
 @Injectable()
 export class PostService {
@@ -11,7 +10,7 @@ export class PostService {
     private url:string;
 
     constructor(private http:Http) {
-        this.url = 'http://localhost:8080/api/posts'
+        this.url = 'http://localhost:8080/api/posts/'
     }
 
     getPosts():Observable<Post[]> {
@@ -21,7 +20,7 @@ export class PostService {
     }
 
     getPost(id):Observable<Post> {
-        return this.http.get(this.url + '/' + id)
+        return this.http.get(this.url + id)
             .map(res => res.json())
             .catch(this.handleError);
     }
