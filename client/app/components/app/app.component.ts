@@ -9,7 +9,6 @@ import {PostService} from '../../service/post.service';
 import {PostsComponent} from '../../components/posts/posts.component';
 import {AboutComponent} from '../../components/about/about.component';
 import {FooterComponent} from '../../components/footer/footer.component';
-import {HeaderComponent} from '../../components/header/header.component';
 import {PostDetailComponent} from '../../components/post-detail/post-detail.component';
 
 @RouteConfig([
@@ -39,7 +38,6 @@ import {PostDetailComponent} from '../../components/post-detail/post-detail.comp
     selector: 'my-app',
     templateUrl: '/app/components/app/app.component.html',
     directives: [
-        HeaderComponent,
         FooterComponent,
         ROUTER_DIRECTIVES
     ],
