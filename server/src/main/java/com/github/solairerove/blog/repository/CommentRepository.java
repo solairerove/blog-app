@@ -8,10 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * Created by union on 16.05.16.
- */
-
 @Repository
 public interface CommentRepository extends JpaRepository<Comment, Integer> {
 

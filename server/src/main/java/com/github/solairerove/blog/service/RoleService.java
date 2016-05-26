@@ -1,4 +1,4 @@
-package com.github.union.blog.service;
+package com.github.solairerove.blog.service;
 
 import org.springframework.stereotype.Component;
 

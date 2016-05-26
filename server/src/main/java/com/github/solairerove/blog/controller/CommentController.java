@@ -8,10 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
-/**
- * Created by union on 17.05.16.
- */
-
 @Component
 @RestController
 @RequestMapping("/api/comments")

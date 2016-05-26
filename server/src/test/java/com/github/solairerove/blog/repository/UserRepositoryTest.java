@@ -1,8 +1,8 @@
-package com.github.union.blog.repository;
+package com.github.solairerove.blog.repository;
 
-import com.github.union.blog.Application;
-import com.github.union.blog.domain.Role;
-import com.github.union.blog.domain.User;
+import com.github.solairerove.blog.Application;
+import com.github.solairerove.blog.domain.Role;
+import com.github.solairerove.blog.domain.User;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,7 +26,7 @@ import java.util.List;
 public class UserRepositoryTest {
 
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Before
     public void setUp() {

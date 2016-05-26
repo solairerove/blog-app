@@ -1,6 +1,6 @@
-package com.github.union.blog.service.impl;
+package com.github.solairerove.blog.service.impl;
 
-import com.github.union.blog.service.RoleService;
+import com.github.solairerove.blog.service.RoleService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

@@ -1,4 +1,4 @@
-package com.github.union.blog.domain;
+package com.github.solairerove.blog.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -7,11 +7,9 @@ import java.util.Objects;
 /**
  * Created by vlad on 22.05.16.
  */
-
 @Entity
 @Table(name = "role")
 public class Role implements Serializable {
-
 
     @Id
     @Column(name = "id")

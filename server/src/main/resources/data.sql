@@ -122,3 +122,25 @@ VALUES (
   'date of great comment.',
   2
 );
+
+INSERT INTO `USER` (`id`, `nickname`, `login`, `password`, `email`)
+VALUES (
+  1,
+  'JaVaDeV',
+  'javadev12',
+  '12#4aseE',
+  'javadev@gmail.com'
+);
+
+INSERT INTO `AUTHORITY` (`id`, `name`)
+VALUES (
+  1,
+  'USER',
+);
+
+INSERT INTO `AUTHORITIES` (`id`, `user_id`, `role_id`)
+VALUES (
+  1,
+  1,
+  1
+)

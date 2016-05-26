@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Bean;
 /**
  * Created by union on 04.05.16.
  */
-
 @SpringBootApplication
 public class Application {
 

@@ -6,10 +6,6 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-/**
- * Created by union on 7/05/16.
- */
-
 @Repository
 public interface PostRepository extends JpaRepository<Post, Integer> {
 

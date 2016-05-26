@@ -1,6 +1,6 @@
-package com.github.union.blog.service;
+package com.github.solairerove.blog.service;
 
-import com.github.union.blog.domain.User;
+import com.github.solairerove.blog.domain.User;
 import org.springframework.stereotype.Component;
 
 /**
