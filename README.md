@@ -14,11 +14,11 @@ ___
 * user and authority models **implemented**
 * user and authority dto **implemented**
 * additional repositories and services **implemented**
-* aspectj
-* rename `role` to `authority`
-* added email(uniq)
-* nickname and login ara uniq
-* many to many relation between user and authority
+* aspectj **implemented**
+* rename `role` to `authority` **implemented**
+* added email(uniq) **implemented**
+* nickname and login ara uniq **implemented**
+* many to many relation between user and authority **implemented**
 * additional junit and mock
 * rest controllers too
 * update group in insomnia rest client
