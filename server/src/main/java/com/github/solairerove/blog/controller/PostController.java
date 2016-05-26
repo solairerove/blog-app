@@ -45,12 +45,12 @@ public class PostController {
 
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<?> getAllPosts() {
-        return ResponseEntity.ok(postService.findAll());
+        return new ResponseEntity<>(postService.findAll(), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<?> getOnePostById(@PathVariable Integer id) {
-        return ResponseEntity.ok(postService.findOnePostById(id));
+        return new ResponseEntity<>(postService.findOnePostById(id), HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.POST)
@@ -62,25 +62,25 @@ public class PostController {
         post.setDate(LocalDate.now().toString());
         post.setAuthor(postDTO.getAuthor());
         postService.save(post);
-        return ResponseEntity.ok(HttpStatus.OK);
+        return new ResponseEntity<>(postDTO.getTitle(), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<?> deletePostById(@PathVariable Integer id) {
         postService.deletePostById(id);
-        return ResponseEntity.ok(HttpStatus.OK);
+        return new ResponseEntity<>(id, HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.PUT)
     public ResponseEntity<?> updateContentById(@RequestBody PostDTO postDTO) {
         postService.updateContentById(postDTO);
-        return ResponseEntity.ok(HttpStatus.OK);
+        return new ResponseEntity<>(postDTO.getId(), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/clear", method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteAllPosts() {
         postService.deleteAllPosts();
-        return ResponseEntity.ok(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{id}/comments", method = RequestMethod.POST)
@@ -92,11 +92,11 @@ public class PostController {
         commentService.save(comment);
 
         commentService.addNewCommentToPost(id, comment);
-        return ResponseEntity.ok(HttpStatus.OK);
+        return new ResponseEntity<>(id, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{id}/comments", method = RequestMethod.GET)
     public ResponseEntity<?> getAllCommentsFromPost(@PathVariable Integer id) {
-        return ResponseEntity.ok(commentService.findAllCommentsFromPostById(id));
+        return new ResponseEntity<>(commentService.findAllCommentsFromPostById(id), HttpStatus.OK);
     }
 }
