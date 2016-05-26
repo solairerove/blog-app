@@ -123,22 +123,22 @@ VALUES (
   2
 );
 
-INSERT INTO `USER` (`id`, `nickname`, `login`, `password`, `email`)
+INSERT INTO `USER` (`id`, `nickname`, `email`, `login`, `password`)
 VALUES (
   1,
   'JaVaDeV',
-  'javadev12',
-  '12#4aseE',
-  'javadev@gmail.com'
+  'javadev12@mail.com',
+  'voitelrulit',
+  'strongpwd'
 );
 
 INSERT INTO `AUTHORITY` (`id`, `name`)
 VALUES (
   1,
-  'USER',
+  'ROLE_USER',
 );
 
-INSERT INTO `USERS_AUTHORITIES` (`id`, `user_id`, `role_id`)
+INSERT INTO `USER_AUTHORITY` (`id`, `user_id`, `role_id`)
 VALUES (
   1,
   1,

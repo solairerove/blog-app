@@ -1,8 +1,8 @@
 package com.github.solairerove.blog.service.impl;
 
 import com.github.solairerove.blog.domain.Post;
-import com.github.solairerove.blog.repository.PostRepository;
 import com.github.solairerove.blog.dto.PostDTO;
+import com.github.solairerove.blog.repository.PostRepository;
 import com.github.solairerove.blog.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,6 @@ import java.util.List;
 /**
  * Created by union on 7/05/16.
  */
-
 @Service
 @Transactional
 public class PostServiceImpl implements PostService {

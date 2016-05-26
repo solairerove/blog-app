@@ -1,9 +1,9 @@
 package com.github.solairerove.blog.service.impl;
 
-import com.github.solairerove.blog.service.CommentService;
 import com.github.solairerove.blog.domain.Comment;
 import com.github.solairerove.blog.dto.CommentDTO;
 import com.github.solairerove.blog.repository.CommentRepository;
+import com.github.solairerove.blog.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,7 +13,6 @@ import java.util.List;
 /**
  * Created by union on 16.05.16.
  */
-
 @Service
 @Transactional
 public class CommentServiceImpl implements CommentService {
