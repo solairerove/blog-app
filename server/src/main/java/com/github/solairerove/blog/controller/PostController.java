@@ -4,9 +4,15 @@ import com.github.solairerove.blog.domain.Comment;
 import com.github.solairerove.blog.domain.Post;
 import com.github.solairerove.blog.dto.CommentDTO;
 import com.github.solairerove.blog.dto.PostDTO;
+import com.github.solairerove.blog.repository.PostRepository;
 import com.github.solairerove.blog.service.CommentService;
 import com.github.solairerove.blog.service.PostService;
+import com.github.solairerove.blog.web.PageResource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -25,6 +31,18 @@ public class PostController {
 
     @Autowired
     private PostService postService;
+
+    @Autowired
+    private PostRepository postRepository;
+
+    @RequestMapping(value = "/pages", method = RequestMethod.GET)
+    @ResponseBody
+    public PageResource<Post> postPageResource(@RequestParam int page, @RequestParam int size) {
+        Pageable pageable = new PageRequest(page, size, new Sort("id"));
+
+        Page<Post> pageResult = postRepository.findAll(pageable);
+        return new PageResource<>(pageResult, "page", "size");
+    }
 
     @Autowired
     private CommentService commentService;
