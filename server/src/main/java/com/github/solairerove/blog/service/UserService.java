@@ -1,22 +1,38 @@
 package com.github.solairerove.blog.service;
 
 import com.github.solairerove.blog.domain.User;
-import org.springframework.stereotype.Component;
+import com.github.solairerove.blog.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by vlad on 23.05.16.
  */
-@Component
-public interface UserService {
+@Service
+@Transactional
+public class UserService {
 
-    void save(User user);
+    @Autowired
+    private UserRepository userRepository;
 
-    User findUserById(Integer id);
+    public void save(User user) {
+        userRepository.save(user);
+    }
 
-    void changeUserNickname(String nickname, Integer id);
+    public User findUserById(Integer id) {
+        return userRepository.findUserById(id);
+    }
 
-    User findUserByNickname(String nickname);
+    public void changeUserNickname(String nickname, Integer id) {
+        userRepository.changeUserNickname(nickname, id);
+    }
 
-    void deleteUserById(Integer id);
+    public User findUserByNickname(String nickname) {
+        return userRepository.findUserByNickname(nickname);
+    }
 
+    public void deleteUserById(Integer id) {
+        userRepository.delete(id);
+    }
 }

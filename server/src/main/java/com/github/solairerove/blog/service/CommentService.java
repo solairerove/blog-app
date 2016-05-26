@@ -2,27 +2,49 @@ package com.github.solairerove.blog.service;
 
 import com.github.solairerove.blog.domain.Comment;
 import com.github.solairerove.blog.dto.CommentDTO;
-import org.springframework.stereotype.Component;
+import com.github.solairerove.blog.repository.CommentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 /**
  * Created by union on 16.05.16.
  */
-@Component
-public interface CommentService {
+@Service
+@Transactional
+public class CommentService {
 
-    List<Comment> findAll();
+    @Autowired
+    private CommentRepository commentRepository;
 
-    Comment findOneCommentById(Integer id);
+    public List<Comment> findAll() {
+        return commentRepository.findAll();
+    }
 
-    void save(Comment comment);
+    public Comment findOneCommentById(Integer id) {
+        return commentRepository.findOneCommentById(id);
+    }
 
-    void deleteCommentById(Integer id);
+    public void save(Comment comment) {
+        commentRepository.save(comment);
+    }
 
-    void addNewCommentToPost(Integer id, Comment comment);
+    public void deleteCommentById(Integer id) {
+        commentRepository.delete(id);
+    }
 
-    List<Comment> findAllCommentsFromPostById(Integer id);
+    public void addNewCommentToPost(Integer id, Comment comment) {
+        comment.setPostId(id);
+        commentRepository.save(comment);
+    }
 
-    void updateReviewById(CommentDTO commentDTO);
+    public List<Comment> findAllCommentsFromPostById(Integer id) {
+        return commentRepository.findAllCommentsFromPostById(id);
+    }
+
+    public void updateReviewById(CommentDTO commentDTO) {
+        commentRepository.updateReviewById(commentDTO.getReview(), commentDTO.getId());
+    }
 }

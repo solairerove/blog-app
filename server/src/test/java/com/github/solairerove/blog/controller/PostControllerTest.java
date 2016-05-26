@@ -55,17 +55,17 @@ public class PostControllerTest {
 
         mvc.perform(MockMvcRequestBuilders.request(HttpMethod.GET, "/api/posts"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$", hasSize(2)))
-                .andExpect(MockMvcResultMatchers.jsonPath("$[0].title", is("test title")))
-                .andExpect(MockMvcResultMatchers.jsonPath("$[0].subtitle", is("test subtitle")))
-                .andExpect(MockMvcResultMatchers.jsonPath("$[0].content", is("test content")))
-                .andExpect(MockMvcResultMatchers.jsonPath("$[0].date", is("test date")))
-                .andExpect(MockMvcResultMatchers.jsonPath("$[0].author", is("test author")))
-                .andExpect(MockMvcResultMatchers.jsonPath("$[1].title", is("another test title")))
-                .andExpect(MockMvcResultMatchers.jsonPath("$[1].subtitle", is("another test subtitle")))
-                .andExpect(MockMvcResultMatchers.jsonPath("$[1].content", is("another test content")))
-                .andExpect(MockMvcResultMatchers.jsonPath("$[1].date", is("another test date")))
-                .andExpect(MockMvcResultMatchers.jsonPath("$[1].author", is("another test author")));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.content", hasSize(2)))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.content[0].title", is("test title")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.content[0].subtitle", is("test subtitle")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.content[0].content", is("test content")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.content[0].date", is("test date")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.content[0].author", is("test author")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.content[1].title", is("another test title")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.content[1].subtitle", is("another test subtitle")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.content[1].content", is("another test content")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.content[1].date", is("another test date")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.content[1].author", is("another test author")));
     }
 
     @Test

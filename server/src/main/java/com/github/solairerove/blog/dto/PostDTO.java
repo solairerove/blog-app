@@ -91,17 +91,4 @@ public class PostDTO implements Serializable {
     public void setCommentList(List<Comment> commentList) {
         this.commentList = commentList;
     }
-
-    @Override
-    public String toString() {
-        return "PostDTO{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", subtitle='" + subtitle + '\'' +
-                ", content='" + content + '\'' +
-                ", date='" + date + '\'' +
-                ", author='" + author + '\'' +
-                ", commentList=" + commentList +
-                '}';
-    }
 }
