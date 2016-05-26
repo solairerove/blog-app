@@ -22,6 +22,15 @@ ___
 * additional junit and mock
 * rest controllers too
 * update group in insomnia rest client
+* `pagination, sort and filtering`
+
+___
+
+##### Additional cookies
+
+* `npm i -g json`
+* `sudo easy_install pygments`
+* `curl 'http://localhost:8080/api/posts/' | json | pygmentize -l json`
 
 ___
 

@@ -29,17 +29,17 @@ public class PostController {
     @Autowired
     private CommentService commentService;
 
-    @RequestMapping("")
+    @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<?> getAllPosts() {
         return ResponseEntity.ok(postService.findAll());
     }
 
-    @RequestMapping("/{id}")
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<?> getOnePostById(@PathVariable Integer id) {
         return ResponseEntity.ok(postService.findOnePostById(id));
     }
 
-    @RequestMapping(value = "", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<?> addNewPost(@RequestBody PostDTO postDTO) {
         Post post = new Post();
         post.setTitle(postDTO.getTitle());
@@ -57,7 +57,7 @@ public class PostController {
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
-    @RequestMapping(value = "", method = RequestMethod.PUT)
+    @RequestMapping(method = RequestMethod.PUT)
     public ResponseEntity<?> updateContentById(@RequestBody PostDTO postDTO) {
         postService.updateContentById(postDTO);
         return ResponseEntity.ok(HttpStatus.OK);
@@ -69,7 +69,7 @@ public class PostController {
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/{id}/comment", method = RequestMethod.POST)
+    @RequestMapping(value = "/{id}/comments", method = RequestMethod.POST)
     public ResponseEntity<?> addNewCommentToPost(@PathVariable Integer id, @RequestBody CommentDTO commentDTO) {
         Comment comment = new Comment();
         comment.setAuthor(commentDTO.getAuthor());
@@ -81,7 +81,7 @@ public class PostController {
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/{id}/comment")
+    @RequestMapping(value = "/{id}/comments", method = RequestMethod.GET)
     public ResponseEntity<?> getAllCommentsFromPost(@PathVariable Integer id) {
         return ResponseEntity.ok(commentService.findAllCommentsFromPostById(id));
     }
