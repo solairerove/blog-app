@@ -23,6 +23,7 @@ ___
 * rest controllers too
 * update group in insomnia rest client
 * `pagination, sort and filtering`
+* `add findAll(Pageable page) service implementation`
 
 ___
 
@@ -71,6 +72,8 @@ ___
 ```
 
 * `http://localhost:8080/api/post/` - return all posts
+
+* `http://localhost:8080/api/posts/pages?page=1&size=2` - return 2 elements from 1 page 
 
 * `http://localhost:8080/api/post/` - added new post
 ```json
