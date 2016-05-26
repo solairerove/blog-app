@@ -31,7 +31,7 @@ public class UserServiceTest {
     public void saveTest() {
         List<Role> roles = new LinkedList<>();
         roles.add(new Role("ADMIN"));
-        User saved = new User("stark", "tony_stark", "iron_man_1", roles);
+        User saved = new User("stark", "iron@gmail.com", "iron_man_1", "strongpwd", roles);
 
         userService.save(saved);
         Assert.assertEquals(userService.findUserById(saved.getId()), saved);
@@ -41,7 +41,7 @@ public class UserServiceTest {
     public void changeUserNicknameTest() {
         List<Role> roles = new LinkedList<>();
         roles.add(new Role("ADMIN"));
-        User saved = new User("stark", "tony_stark", "iron_man_1", roles);
+        User saved = new User("stark", "iron@gmail.com", "iron_man_1", "strongpwd", roles);
         userService.save(saved);
 
         userService.changeUserNickname("tony", saved.getId());
@@ -53,7 +53,7 @@ public class UserServiceTest {
     public void findUserByNicknameTest() {
         List<Role> roles = new LinkedList<>();
         roles.add(new Role("ADMIN"));
-        User saved = new User("tony", "tony_stark", "iron_man_1", roles);
+        User saved = new User("stark", "iron@gmail.com", "iron_man_1", "strongpwd", roles);
         userService.save(saved);
 
         User found = userService.findUserByNickname(saved.getNickname());

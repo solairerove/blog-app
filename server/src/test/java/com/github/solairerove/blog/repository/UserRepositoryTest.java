@@ -32,14 +32,14 @@ public class UserRepositoryTest {
     public void setUp() {
         List<Role> roles = new LinkedList<>();
         roles.add(new Role("ADMIN"));
-        userRepository.save(new User("stark", "tony_stark", "iron_man_1", roles));
+        userRepository.save(new User("stark1", "iron1@gmail.com", "iron_man_1", "strongpwd", roles));
     }
 
     @Test
     public void findUserByIdTest() {
         List<Role> roles = new LinkedList<>();
         roles.add(new Role("ADMIN"));
-        User saved = new User("stark", "tony_stark", "iron_man_1", roles);
+        User saved = new User("stark2", "iron2@gmail.com", "iron_man_2", "strongpwd", roles);
         userRepository.save(saved);
 
         User found = userRepository.findUserById(saved.getId());
@@ -51,7 +51,7 @@ public class UserRepositoryTest {
     public void changeUserNicknameTest() {
         List<Role> roles = new LinkedList<>();
         roles.add(new Role("ADMIN"));
-        User saved = new User("stark", "tony_stark", "iron_man_1", roles);
+        User saved = new User("stark3", "iron3@gmail.com", "iron_man_3", "strongpwd", roles);
         userRepository.save(saved);
 
         userRepository.changeUserNickname("tony", saved.getId());
@@ -63,7 +63,7 @@ public class UserRepositoryTest {
     public void findUserByNicknameTest() {
         List<Role> roles = new LinkedList<>();
         roles.add(new Role("ADMIN"));
-        User saved = new User("tony", "tony_stark", "iron_man_1", roles);
+        User saved = new User("stark4", "iron4@gmail.com", "iron_man_4", "strongpwd", roles);
         userRepository.save(saved);
 
         User found = userRepository.findUserByNickname(saved.getNickname());

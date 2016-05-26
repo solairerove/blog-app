@@ -1,6 +1,7 @@
 package com.github.solairerove.blog.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
@@ -8,35 +9,57 @@ import java.util.Objects;
  * Created by vlad on 22.05.16.
  */
 @Entity
-@Table(name = "user")
-public class User {
+@Table(
+        name = "user",
+        uniqueConstraints = {
+                @UniqueConstraint(name = "uc_user_nickname", columnNames = {"nickname"}),
+                @UniqueConstraint(name = "uc_user_email", columnNames = {"email"}),
+                @UniqueConstraint(name = "uc_user_login", columnNames = {"login"})
+        }
+)
+public class User implements Serializable {
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "nickname", length = 30)
+    @Column(name = "nickname", length = 32)
     private String nickname;
 
-    @Column(name = "login")
+    @Column(name = "email", length = 32)
+    private String email;
+
+    @Column(name = "login", length = 32)
     private String login;
 
     @Column(name = "password")
     private String password;
 
-    @OneToMany
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinTable(name = "user_authority",
+            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "authority_id", referencedColumnName = "id")}
+    )
     private List<Role> roles;
 
     public User() {
     }
 
-    public User(String nickname, String login, String password, List<Role> roles) {
+    public User(String nickname, String email, String login, String password, List<Role> roles) {
         this.nickname = nickname;
+        this.email = email;
         this.login = login;
         this.password = password;
         this.roles = roles;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNickname() {
@@ -45,6 +68,14 @@ public class User {
 
     public void setNickname(String nickname) {
         this.nickname = nickname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getLogin() {
@@ -71,10 +102,6 @@ public class User {
         this.roles = roles;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -82,6 +109,7 @@ public class User {
         User user = (User) o;
         return Objects.equals(id, user.id) &&
                 Objects.equals(nickname, user.nickname) &&
+                Objects.equals(email, user.email) &&
                 Objects.equals(login, user.login) &&
                 Objects.equals(password, user.password) &&
                 Objects.equals(roles, user.roles);
@@ -89,7 +117,7 @@ public class User {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nickname, login, password, roles);
+        return Objects.hash(id, nickname, email, login, password, roles);
     }
 
     @Override
@@ -97,6 +125,7 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", nickname='" + nickname + '\'' +
+                ", email='" + email + '\'' +
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
                 ", roles=" + roles +
