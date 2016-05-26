@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `authority` (
   `name` VARCHAR(255),
 );
 
-CREATE TABLE IF NOT EXISTS `authorities` (
+CREATE TABLE IF NOT EXISTS `users_authorities` (
   `id`      INTEGER IDENTITY PRIMARY KEY,
   `user_id` INTEGER,
   `role_id` INTEGER

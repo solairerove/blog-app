@@ -18,23 +18,23 @@ public class CommentController {
 
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<?> getAllComments() {
-        return ResponseEntity.ok(commentService.findAll());
+        return new ResponseEntity<>(commentService.findAll(), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<?> getOneCommentById(@PathVariable Integer id) {
-        return ResponseEntity.ok(commentService.findOneCommentById(id));
+        return new ResponseEntity<>(commentService.findOneCommentById(id), HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.PUT)
     public ResponseEntity<?> updateReviewById(@RequestBody CommentDTO commentDTO) {
         commentService.updateReviewById(commentDTO);
-        return ResponseEntity.ok(HttpStatus.OK);
+        return new ResponseEntity<>(commentDTO.getId(), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<?> deleteCommentById(@PathVariable Integer id) {
         commentService.deleteCommentById(id);
-        return ResponseEntity.ok(HttpStatus.OK);
+        return new ResponseEntity<>(id, HttpStatus.OK);
     }
 }
