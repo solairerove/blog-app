@@ -17,10 +17,10 @@ CREATE TABLE IF NOT EXISTS `comment` (
 
 CREATE TABLE IF NOT EXISTS `user` (
   `id`       INTEGER IDENTITY PRIMARY KEY,
-  `nickname` VARCHAR(255),
-  `login`    VARCHAR(255),
+  `nickname` VARCHAR(255) UNIQUE,
+  `email`    VARCHAR(255) UNIQUE,
+  `login`    VARCHAR(255) UNIQUE,
   `password` VARCHAR(255),
-  `email`    VARCHAR(255)
 );
 
 CREATE TABLE IF NOT EXISTS `authority` (
@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `authority` (
   `name` VARCHAR(255),
 );
 
-CREATE TABLE IF NOT EXISTS `users_authorities` (
+CREATE TABLE IF NOT EXISTS `user_authority` (
   `id`      INTEGER IDENTITY PRIMARY KEY,
   `user_id` INTEGER,
   `role_id` INTEGER
