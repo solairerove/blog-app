@@ -20,17 +20,17 @@ public class CommentController {
     @Autowired
     private CommentService commentService;
 
-    @RequestMapping(value = "")
+    @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<?> getAllComments() {
         return ResponseEntity.ok(commentService.findAll());
     }
 
-    @RequestMapping(value = "/{id}")
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<?> getOneCommentById(@PathVariable Integer id) {
         return ResponseEntity.ok(commentService.findOneCommentById(id));
     }
 
-    @RequestMapping(value = "", method = RequestMethod.PUT)
+    @RequestMapping(method = RequestMethod.PUT)
     public ResponseEntity<?> updateReviewById(@RequestBody CommentDTO commentDTO) {
         commentService.updateReviewById(commentDTO);
         return ResponseEntity.ok(HttpStatus.OK);
