@@ -4,7 +4,6 @@ import com.github.solairerove.blog.domain.Comment;
 import com.github.solairerove.blog.domain.Post;
 import com.github.solairerove.blog.dto.CommentDTO;
 import com.github.solairerove.blog.dto.PostDTO;
-import com.github.solairerove.blog.repository.PostRepository;
 import com.github.solairerove.blog.service.CommentService;
 import com.github.solairerove.blog.service.PostService;
 import com.github.solairerove.blog.web.PageResource;
@@ -29,23 +28,27 @@ public class PostController {
     private PostService postService;
 
     @Autowired
-    private PostRepository postRepository;
-
-    @RequestMapping(value = "/pages", method = RequestMethod.GET)
-    @ResponseBody
-    public PageResource<Post> postPageResource(@RequestParam int page, @RequestParam int size) {
-        Pageable pageable = new PageRequest(page, size, new Sort("id"));
-
-        Page<Post> pageResult = postRepository.findAll(pageable);
-        return new PageResource<>(pageResult, "page", "size");
-    }
-
-    @Autowired
     private CommentService commentService;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public ResponseEntity<?> getAllPosts() {
         return new ResponseEntity<>(postService.findAll(), HttpStatus.OK);
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    @ResponseBody
+    public PageResource<Post> getPostPageResource(@RequestParam(required = false) Integer page,
+                                                  @RequestParam(required = false) Integer size) {
+        if (page != null && size != null) {
+            Pageable pageable = new PageRequest(page, size, new Sort("id"));
+
+            Page<Post> pageResult = postService.findAll(pageable);
+            return new PageResource<>(pageResult, "page", "size");
+        }
+        Pageable pageable = new PageRequest(0, 5, new Sort("id"));
+
+        Page<Post> pageResult = postService.findAll(pageable);
+        return new PageResource<>(pageResult, "page", "size");
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)

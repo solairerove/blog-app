@@ -1,6 +1,5 @@
 package com.github.solairerove.blog.aspect;
 
-import com.github.solairerove.blog.service.impl.PostServiceImpl;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -15,7 +14,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoggingAspect {
 
-    private static final Logger logger = LoggerFactory.getLogger(PostServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(LoggingAspect.class);
 
     @Before("execution(* com.github.solairerove.blog.service.PostService.*(..)))")
     public void postServiceLog(JoinPoint joinPoint) {
