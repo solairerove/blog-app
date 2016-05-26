@@ -3,7 +3,7 @@
 ##### TODO on client
 
 * routing **implemented**
-* bootstrap
+* bootstrap **implemented**
 * post details **implemented**
 * html content formatting **implemented**
 
