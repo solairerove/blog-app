@@ -6,6 +6,11 @@
 * bootstrap **implemented**
 * post details **implemented**
 * html content formatting **implemented**
+* comment details
+* add new post 
+* show commits button
+* commits pagination
+* posts pagination
 
 ___
 
@@ -20,11 +25,11 @@ ___
 * nickname and login ara uniq **implemented**
 * many to many relation between user and authority **implemented**
 * additional junit and mock
-* rest controllers too
+* jwt token implementation
+* sign up controller
 * update group in insomnia rest client
 * `pagination, sort and filtering`
 * `add findAll(Pageable page) service implementation`
-
 ___
 
 ##### Additional cookies
