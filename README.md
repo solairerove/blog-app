@@ -35,7 +35,7 @@ ___
 ##### Additional cookies
 
 * `npm i -g json`
-* `sudo easy_install pygments`
+* `sudo apt-get install python-pygments`
 * `curl 'http://localhost:8080/api/posts/' | json | pygmentize -l json`
 
 ___
@@ -78,7 +78,7 @@ ___
 
 * `http://localhost:8080/api/post/` - return all posts
 
-* `http://localhost:8080/api/posts/pages?page=1&size=2` - return 2 elements from 1 page 
+* `curl 'http://localhost:8080/api/posts?page=0&size=2' | json | pygmentize -l json` - return 2 elements from 0 page 
 
 * `http://localhost:8080/api/post/` - added new post
 ```json
