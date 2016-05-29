@@ -31,8 +31,8 @@ public class LoggingAspect {
         logger.info("Comment service : " + joinPoint.getSignature().getName());
     }
 
-    @Before("execution(* com.github.solairerove.blog.service.RoleService.*(..))")
+    @Before("execution(* com.github.solairerove.blog.service.AuthorityService.*(..))")
     public void roleServiceLog(JoinPoint joinPoint) {
-        logger.info("Role service : " + joinPoint.getSignature().getName());
+        logger.info("Authority service : " + joinPoint.getSignature().getName());
     }
 }

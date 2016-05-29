@@ -1,7 +1,7 @@
 package com.github.solairerove.blog.service;
 
 import com.github.solairerove.blog.Application;
-import com.github.solairerove.blog.domain.Role;
+import com.github.solairerove.blog.domain.Authority;
 import com.github.solairerove.blog.domain.User;
 import org.junit.Assert;
 import org.junit.Test;
@@ -29,9 +29,9 @@ public class UserServiceTest {
 
     @Test
     public void saveTest() {
-        List<Role> roles = new LinkedList<>();
-        roles.add(new Role("ADMIN"));
-        User saved = new User("stark", "iron@gmail.com", "iron_man_1", "strongpwd", roles);
+        List<Authority> authorities = new LinkedList<>();
+        authorities.add(new Authority("ADMIN"));
+        User saved = new User("stark", "iron@gmail.com", "iron_man_1", "strongpwd", authorities);
 
         userService.save(saved);
         Assert.assertEquals(userService.findUserById(saved.getId()), saved);
@@ -39,9 +39,9 @@ public class UserServiceTest {
 
     @Test
     public void changeUserNicknameTest() {
-        List<Role> roles = new LinkedList<>();
-        roles.add(new Role("ADMIN"));
-        User saved = new User("stark", "iron@gmail.com", "iron_man_1", "strongpwd", roles);
+        List<Authority> authorities = new LinkedList<>();
+        authorities.add(new Authority("ADMIN"));
+        User saved = new User("stark", "iron@gmail.com", "iron_man_1", "strongpwd", authorities);
         userService.save(saved);
 
         userService.changeUserNickname("tony", saved.getId());
@@ -51,9 +51,9 @@ public class UserServiceTest {
 
     @Test
     public void findUserByNicknameTest() {
-        List<Role> roles = new LinkedList<>();
-        roles.add(new Role("ADMIN"));
-        User saved = new User("stark", "iron@gmail.com", "iron_man_1", "strongpwd", roles);
+        List<Authority> authorities = new LinkedList<>();
+        authorities.add(new Authority("ADMIN"));
+        User saved = new User("stark", "iron@gmail.com", "iron_man_1", "strongpwd", authorities);
         userService.save(saved);
 
         User found = userService.findUserByNickname(saved.getNickname());

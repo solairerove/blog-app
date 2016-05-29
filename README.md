@@ -21,7 +21,7 @@ ___
 * user and authority dto **implemented**
 * additional repositories and services **implemented**
 * aspectj **implemented**
-* rename `role` to `authority` **implemented**
+* rename `authority` to `authority` **implemented**
 * added email(uniq) **implemented**
 * nickname and login ara uniq **implemented**
 * many to many relation between user and authority **implemented**
