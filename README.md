@@ -7,6 +7,7 @@
 * post details **implemented**
 * html content formatting **implemented**
 * comment details
+* style comments
 * add new post 
 * show commits button
 * commits pagination
