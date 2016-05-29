@@ -41,17 +41,17 @@ public class User implements Serializable {
             joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "authority_id", referencedColumnName = "id")}
     )
-    private List<Role> roles;
+    private List<Authority> authorities;
 
     public User() {
     }
 
-    public User(String nickname, String email, String login, String password, List<Role> roles) {
+    public User(String nickname, String email, String login, String password, List<Authority> authorities) {
         this.nickname = nickname;
         this.email = email;
         this.login = login;
         this.password = password;
-        this.roles = roles;
+        this.authorities = authorities;
     }
 
     public Integer getId() {
@@ -94,12 +94,12 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public List<Role> getRoles() {
-        return roles;
+    public List<Authority> getAuthorities() {
+        return authorities;
     }
 
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
+    public void setAuthorities(List<Authority> authorities) {
+        this.authorities = authorities;
     }
 
     @Override
@@ -112,12 +112,12 @@ public class User implements Serializable {
                 Objects.equals(email, user.email) &&
                 Objects.equals(login, user.login) &&
                 Objects.equals(password, user.password) &&
-                Objects.equals(roles, user.roles);
+                Objects.equals(authorities, user.authorities);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nickname, email, login, password, roles);
+        return Objects.hash(id, nickname, email, login, password, authorities);
     }
 
     @Override
@@ -128,7 +128,7 @@ public class User implements Serializable {
                 ", email='" + email + '\'' +
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
-                ", roles=" + roles +
+                ", authorities=" + authorities +
                 '}';
     }
 }
