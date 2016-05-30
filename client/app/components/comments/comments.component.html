@@ -1,8 +1,18 @@
-<article *ngIf="post">
+<article *ngFor="let comment of comments">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div>KEK AZAZAZAZAZAZ</div>
+                <div>
+                    <h4>
+                        {{comment.author}}
+                    </h4>
+                    <h5>
+                        {{comment.review}}
+                    </h5>
+                    <h6>
+                        {{comment.date}}
+                    </h6>
+                </div>
             </div>
         </div>
     </div>
