@@ -1,5 +1,5 @@
 # blog-app
-
+[rest-blog.herokuapp.com](https://rest-blog.herokuapp.com)
 ##### TODO on client
 
 * routing **implemented**
@@ -7,6 +7,7 @@
 * post details **implemented**
 * html content formatting **implemented**
 * comment details
+* style comments
 * add new post 
 * show commits button
 * commits pagination
@@ -20,7 +21,7 @@ ___
 * user and authority dto **implemented**
 * additional repositories and services **implemented**
 * aspectj **implemented**
-* rename `role` to `authority` **implemented**
+* rename `authority` to `authority` **implemented**
 * added email(uniq) **implemented**
 * nickname and login ara uniq **implemented**
 * many to many relation between user and authority **implemented**
