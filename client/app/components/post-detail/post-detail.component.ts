@@ -23,13 +23,20 @@ import {CommentService} from "../../service/comment.service";
 
 export class PostDetailComponent implements OnInit {
     post:Post;
+    commentShow:boolean;
 
     constructor(private postService:PostService,
                 private routeParams:RouteParams) {
 
     }
 
+    switchCommentShow(){
+        this.commentShow = !this.commentShow;
+        console.log(this.commentShow);
+    }
+
     ngOnInit() {
+        this.commentShow = false;
         let id = +this.routeParams.get('id');
         this.postService.getPost(id)
             .subscribe(post => this.post = post);
