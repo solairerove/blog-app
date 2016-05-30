@@ -15,7 +15,7 @@ import {Comment} from "../../model/comment";
     ]
 })
 
-export class CommentComponent implements OnInit {
+export class CommentsComponent implements OnInit {
     comments:Comment[];
     errorMessage:string;
 

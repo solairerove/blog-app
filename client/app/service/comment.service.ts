@@ -13,8 +13,8 @@ export class CommentService{
         this.url='http://localhost:8080/api/posts/'
     }
     
-    getPostComments(postId):Observable<Comment[]>{
-        return this.http.get(this.url + postId + '/' 
+    getPostComments(id):Observable<Comment[]>{
+        return this.http.get(this.url + id + '/'
             + 'comments')
             .map(res => res.json())
             .catch(this.handleError);
