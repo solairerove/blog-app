@@ -1,7 +1,7 @@
 package com.github.solairerove.blog.repository;
 
 import com.github.solairerove.blog.Application;
-import com.github.solairerove.blog.domain.Role;
+import com.github.solairerove.blog.domain.Authority;
 import com.github.solairerove.blog.domain.User;
 import org.junit.Assert;
 import org.junit.Before;
@@ -30,16 +30,16 @@ public class UserRepositoryTest {
 
     @Before
     public void setUp() {
-        List<Role> roles = new LinkedList<>();
-        roles.add(new Role("ADMIN"));
-        userRepository.save(new User("stark1", "iron1@gmail.com", "iron_man_1", "strongpwd", roles));
+        List<Authority> authorities = new LinkedList<>();
+        authorities.add(new Authority("ADMIN"));
+        userRepository.save(new User("stark1", "iron1@gmail.com", "iron_man_1", "strongpwd", authorities));
     }
 
     @Test
     public void findUserByIdTest() {
-        List<Role> roles = new LinkedList<>();
-        roles.add(new Role("ADMIN"));
-        User saved = new User("stark2", "iron2@gmail.com", "iron_man_2", "strongpwd", roles);
+        List<Authority> authorities = new LinkedList<>();
+        authorities.add(new Authority("ADMIN"));
+        User saved = new User("stark2", "iron2@gmail.com", "iron_man_2", "strongpwd", authorities);
         userRepository.save(saved);
 
         User found = userRepository.findUserById(saved.getId());
@@ -49,9 +49,9 @@ public class UserRepositoryTest {
 
     @Test
     public void changeUserNicknameTest() {
-        List<Role> roles = new LinkedList<>();
-        roles.add(new Role("ADMIN"));
-        User saved = new User("stark3", "iron3@gmail.com", "iron_man_3", "strongpwd", roles);
+        List<Authority> authorities = new LinkedList<>();
+        authorities.add(new Authority("ADMIN"));
+        User saved = new User("stark3", "iron3@gmail.com", "iron_man_3", "strongpwd", authorities);
         userRepository.save(saved);
 
         userRepository.changeUserNickname("tony", saved.getId());
@@ -61,9 +61,9 @@ public class UserRepositoryTest {
 
     @Test
     public void findUserByNicknameTest() {
-        List<Role> roles = new LinkedList<>();
-        roles.add(new Role("ADMIN"));
-        User saved = new User("stark4", "iron4@gmail.com", "iron_man_4", "strongpwd", roles);
+        List<Authority> authorities = new LinkedList<>();
+        authorities.add(new Authority("ADMIN"));
+        User saved = new User("stark4", "iron4@gmail.com", "iron_man_4", "strongpwd", authorities);
         userRepository.save(saved);
 
         User found = userRepository.findUserByNickname(saved.getNickname());
