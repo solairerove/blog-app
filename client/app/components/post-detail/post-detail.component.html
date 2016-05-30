@@ -28,5 +28,9 @@
 
 <hr/>
 
-<my-comments></my-comments>
+<button (click)="switchCommentShow()" style="cursor: hand">show/hide comments</button>
+<div [ngClass]="{hide: !commentShow}">
+    <my-comments></my-comments>
+</div>
+
 
