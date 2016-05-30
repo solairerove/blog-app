@@ -4,12 +4,18 @@ import {RouteParams} from 'angular2/router';
 
 import {Post} from '../../../app/model/post';
 import {PostService} from '../../service/post.service';
+import {CommentsComponent} from '../comments/comments.component';
+import {CommentService} from "../../service/comment.service";
 
 
 @Component({
     selector: 'my-post-detail',
     templateUrl: '/app/components/post-detail/post-detail.component.html',
+    directives: [
+        CommentsComponent
+    ],
     providers: [
+        CommentService,
         PostService,
         HTTP_PROVIDERS
     ]
