@@ -1,6 +1,6 @@
 import {Component, OnInit} from "angular2/core";
 import {HTTP_PROVIDERS} from "angular2/http";
-import {Router} from "angular2/router";
+import {RouteParams} from 'angular2/router';
 
 import {CommentService} from "../../service/comment.service";
 import {Comment} from "../../model/comment";
@@ -9,26 +9,31 @@ import {Comment} from "../../model/comment";
 @Component({
     selector: 'my-comments',
     templateUrl: '/app/components/comments/comments.component.html',
-    providers: [CommentService, HTTP_PROVIDERS]
+    providers: [
+        CommentService, 
+        HTTP_PROVIDERS
+    ]
 })
 
 export class CommentComponent implements OnInit {
     comments:Comment[];
     errorMessage:string;
 
-    constructor(private router:Router,
-                private commentService:CommentService) {
+    constructor(private commentService:CommentService,
+                private routeParams:RouteParams) {
 
     }
 
     ngOnInit() {
-    }
-
-    getComments(postId) {
-        this.commentService.getPostComments(postId)
+        let id = +this.routeParams.get('id');
+        this.commentService.getPostComments(id)
             .subscribe(
                 comments => this.comments = comments,
                 error => this.errorMessage = <any> error
             );
+    }
+
+    goBack() {
+        window.history.back();
     }
 }
