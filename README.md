@@ -9,7 +9,7 @@
 * comment details **implemented**
 * style comments **implemented**
 * add new post 
-* show commits button
+* show comments button **implemented**
 * commits pagination
 * posts pagination
 
