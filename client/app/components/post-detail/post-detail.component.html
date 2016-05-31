@@ -28,7 +28,22 @@
 
 <hr/>
 
+<!-- Pager -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <ul class="pager">
+                <li class="next">
+                    <a (click)="switchCommentShow()" style="cursor: hand">Show/Hide comments &rarr;</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--
 <button (click)="switchCommentShow()" style="cursor: hand">show/hide comments</button>
+-->
 <div [ngClass]="{hide: !commentShow}">
     <my-comments></my-comments>
 </div>
