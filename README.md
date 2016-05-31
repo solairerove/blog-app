@@ -6,8 +6,8 @@
 * bootstrap **implemented**
 * post details **implemented**
 * html content formatting **implemented**
-* comment details
-* style comments
+* comment details **implemented**
+* style comments **implemented**
 * add new post 
 * show commits button
 * commits pagination
