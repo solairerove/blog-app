@@ -32,7 +32,6 @@ export class PostDetailComponent implements OnInit {
 
     switchCommentShow(){
         this.commentShow = !this.commentShow;
-        console.log(this.commentShow);
     }
 
     ngOnInit() {
