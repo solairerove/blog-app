@@ -12,6 +12,7 @@
 * show comments button **implemented**
 * commits pagination
 * posts pagination
+* client as view of rest server
 
 ___
 
@@ -25,8 +26,9 @@ ___
 * added email(uniq) **implemented**
 * nickname and login ara uniq **implemented**
 * many to many relation between user and authority **implemented**
+* simple rest security filter **implemented**
 * additional junit and mock
-* jwt token implementation
+* OAuth2 implementation
 * sign up controller
 * update group in insomnia rest client
 * `pagination, sort and filtering`
@@ -47,11 +49,10 @@ ___
 
 ___
 
-##### Run client
+##### Install client dependencies
 
+* `cd src/main/webapp`
 * `npm i` - first time to download dependencies
-* `cd client/`
-* `npm start`
 
 ___
 
@@ -64,104 +65,18 @@ ___
 
 #### Open in whatever rest client
 
-* `http://localhost:8080/api/post/1` - get post by id
-```json
-{
-    "id": 1,
-    "title": "Man must explore, and this is exploration at its greatest.",
-    "subtitle": "Problems look mighty small from 150 miles up.",
-    "content": "<p>What was most significant about the lunar voyage was not that man set foot on the Moon.</p>",
-    "date": "2016-05-11",
-    "author": "union.one",
-    "commentList": []
-}
-```
-
-* `http://localhost:8080/api/post/` - return all posts
-
-* `curl 'http://localhost:8080/api/posts?page=0&size=2' | json | pygmentize -l json` - return 2 elements from 0 page 
-
-* `http://localhost:8080/api/post/` - added new post
-```json
-{
-    "id": 1,
-    "title": "Failure is not an option",
-    "subtitle": "Many say exploration is part of our destiny.",
-    "content": "MockFlow",
-    "date": "2016-05-11",
-    "author": "union.one"
-}
-```
-* `http://localhost:8080/api/post/1` - deleted post by id
-
-* `http://localhost:8080/api/post/` - update post content by id
-```json
-{
-    "id": 1,
-    "title": "Failure is not an option",
-    "subtitle": "Many say exploration is part of our destiny.",
-    "content": "new content",
-    "date": "2016-05-11",
-    "author": "union.one"
-}
-```
-
-* `http://localhost:8080/api/comment/` - get all comment
-```json
-{
-    "id": 1,
-    "author": "I'm a great author",
-    "review": "this is my another review",
-    "date": "date",
-    "postId": 2
-}
-```
-
-* `http://localhost:8080/api/comment/1` - get comment by id
-```json
-{
-    "id": 1,
-    "author": "I'm a great author",
-    "review": "this is my another review",
-    "date": "date",
-    "postId": 2
-}
-```
-
-* `http://localhost:8080/api/comment/1` - update comment review by id
-```json
-{
-    "id": 1,
-    "author": "this is great author.",
-    "review": "review update",
-    "date": "date of great comment.",
-    "postId": 1
-}
-```
-
-* `http://localhost:8080/api/comment/1` - delete comment by id
-
-* `http://localhost:8080/api/post/1/comment` - add new comment to post by id
-```json
-{
-    "id": 1,
-    "author": "I'm a great author",
-    "review": "this is my another review",
-    "date": "date",
-    "postId": 2
-}
-```
-
-* `http://localhost:8080/api/post/1/comment` - get all comments from post by id
-```json
-{
-    "id": 1,
-    "author": "I'm a great author",
-    "review": "this is my another review",
-    "date": "date",
-    "postId": 2
-}
-```
+* `http://localhost:8080/api/posts/1` - get post by id
+* `http://localhost:8080/api/posts/` - get all posts
+* `http://localhost:8080/api/posts?page=1&size=2` - get 2 elements from 1 page 
+* `http://localhost:8080/api/posts` - add new post
+* `http://localhost:8080/api/posts/5` - delete post by id
+* `http://localhost:8080/api/posts` - update post content by id
+* `http://localhost:8080/api/comments` - get all comments
+* `http://localhost:8080/api/comments/1` - get comment by id
+* `http://localhost:8080/api/comments` - update review by id
+* `http://localhost:8080/api/comments/1` - delete comment by id
+* `http://localhost:8080/api/posts/6/comments` - add new comment to post by id
+* `http://localhost:8080/api/posts/1/comments` - get all comments from post by id
 
 ___
 
