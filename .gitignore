@@ -19,6 +19,8 @@ target/
 # Client
 
 npm-debug.log
+node
+etc
 node_modules
 typings
 

@@ -10,9 +10,8 @@
 * style comments **implemented**
 * add new post 
 * show comments button **implemented**
-* commits pagination
 * posts pagination
-* client as view of rest server
+* client as view of rest server **implemented**
 
 ___
 
@@ -46,14 +45,9 @@ ___
 ##### Run server
 
 * `mvn spring-boot:run`
-
-___
-
-##### Install client dependencies
-
-* `cd src/main/webapp`
-* `npm i` - first time to download dependencies
-*  `npm run tsc:w` - compile ts to js
+or
+* `mvn clean install`
+* `java -jar target/*.jar`
 
 ___
 
