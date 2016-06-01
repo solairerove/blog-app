@@ -53,6 +53,7 @@ ___
 
 * `cd src/main/webapp`
 * `npm i` - first time to download dependencies
+*  `npm run tsc:w` - compile ts to js
 
 ___
 
