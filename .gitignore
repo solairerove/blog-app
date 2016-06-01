@@ -18,10 +18,10 @@ target/
 
 # Client
 
-client/npm-debug.log
-client/node_modules
-client/typings
+npm-debug.log
+node_modules
+typings
 
 *.js
 *.js.map
-!client/public/js/clean-blog.min.js
+!clean-blog.min.js
