@@ -24,4 +24,4 @@ client/typings
 
 *.js
 *.js.map
-!client/resources/js/clean-blog.min.js
+!client/public/js/clean-blog.min.js
