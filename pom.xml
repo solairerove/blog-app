@@ -52,9 +52,9 @@
                         </goals>
                         <phase>generate-resources</phase>
                         <configuration>
-                            <nodeVersion>v4.2.6</nodeVersion>
+                            <nodeVersion>v4.4.5</nodeVersion>
                             <npmVersion>3.9.3</npmVersion>
-                            <nodeDownloadRoot>https://nodejs.org/nodejs/dist/</nodeDownloadRoot>
+                            <nodeDownloadRoot>https://nodejs.org/dist/</nodeDownloadRoot>
                             <npmDownloadRoot>http://registry.npmjs.org/npm/-/</npmDownloadRoot>
                         </configuration>
                     </execution>
