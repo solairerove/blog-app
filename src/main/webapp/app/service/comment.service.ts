@@ -10,7 +10,7 @@ export class CommentService{
     private url:string;
     
     constructor(private http:Http){
-        this.url='https://rest-blog.herokuapp.com/api/posts/'
+        this.url='http://localhost:8080/api/posts/'
     }
     
     getPostComments(id):Observable<Comment[]>{
