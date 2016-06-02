@@ -1,40 +1,6 @@
 # [blog-app](https://rest-blog.herokuapp.com)
 [![Build Status](https://travis-ci.org/solairerove/blog-app.svg?branch=master)](https://travis-ci.org/solairerove/blog-app) 
 [![Dependency Status](https://www.versioneye.com/user/projects/574ffa3ee298f30028d711f1/badge.svg?style=flat)](https://www.versioneye.com/user/projects/574ffa3ee298f30028d711f1)
-##### TODO on client
-
-* routing **implemented**
-* bootstrap **implemented**
-* post details **implemented**
-* html content formatting **implemented**
-* comment details **implemented**
-* style comments **implemented**
-* add new post 
-* show comments button **implemented**
-* posts pagination
-* client as view of rest server **implemented**
-
-___
-
-##### TODO on server
-
-* user and authority models **implemented**
-* user and authority dto **implemented**
-* additional repositories and services **implemented**
-* aspectj **implemented**
-* rename `authority` to `authority` **implemented**
-* added email(uniq) **implemented**
-* nickname and login ara uniq **implemented**
-* many to many relation between user and authority **implemented**
-* simple rest security filter **implemented**
-* additional junit and mock
-* OAuth2 implementation
-* sign up controller
-* update group in insomnia rest client
-* [api doc generate](https://github.com/kongchen/swagger-maven-plugin#typesToSkip)
-* mvn site generate
-* `pagination, sort and filtering`
-* `add findAll(Pageable page) service implementation`
 ___
 
 ##### Additional cookies
