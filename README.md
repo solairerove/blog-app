@@ -30,6 +30,7 @@ ___
 * OAuth2 implementation
 * sign up controller
 * update group in insomnia rest client
+* [api doc generate](https://github.com/kongchen/swagger-maven-plugin#typesToSkip)
 * `pagination, sort and filtering`
 * `add findAll(Pageable page) service implementation`
 ___
