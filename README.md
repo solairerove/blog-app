@@ -31,6 +31,7 @@ ___
 * sign up controller
 * update group in insomnia rest client
 * [api doc generate](https://github.com/kongchen/swagger-maven-plugin#typesToSkip)
+* mvn site generate
 * `pagination, sort and filtering`
 * `add findAll(Pageable page) service implementation`
 ___
