@@ -3,7 +3,7 @@
 [![Dependency Status](https://www.versioneye.com/user/projects/574ffa3ee298f30028d711f1/badge.svg?style=flat)](https://www.versioneye.com/user/projects/574ffa3ee298f30028d711f1)
 ___
 
-##### Additional cookies
+##### Additional cookies:
 
 * `npm i -g json`
 * `sudo apt-get install python-pygments`
@@ -11,10 +11,9 @@ ___
 
 ___
 
-##### Run server
+##### Run server:
 
 * `mvn spring-boot:run`
-or
 * `mvn clean install`
 * `java -jar target/*.jar`
 
@@ -27,7 +26,14 @@ ___
 
 ___
 
-#### Open in whatever rest client
+##### Generate Maven Site:
+
+* `mvn site`
+* `target/site/index.html`
+
+___
+
+#### Open in whatever rest client:
 
 * `http://localhost:8080/api/posts/1` - get post by id
 * `http://localhost:8080/api/posts/` - get all posts
