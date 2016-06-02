@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * Created by union on 01.06.16.
  */
 @Controller
+//TODO swagger io annotations fo doc
 public class HomeController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)

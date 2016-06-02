@@ -33,6 +33,13 @@ ___
 
 ___
 
+##### Generate Api doc:
+
+* `mvn clean compile`
+* `target/generated/document.html`
+
+___
+
 #### Open in whatever rest client:
 
 * `http://localhost:8080/api/posts/1` - get post by id
