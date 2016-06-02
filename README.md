@@ -1,4 +1,4 @@
-# blog-app
+# blog-app [![Build Status](https://travis-ci.org/solairerove/blog-app.svg?branch=master)](https://travis-ci.org/solairerove/blog-app)
 [rest-blog.herokuapp.com](https://rest-blog.herokuapp.com)
 ##### TODO on client
 
