@@ -12,6 +12,7 @@
 	<description>RESTfull Blog</description>
 
     <properties>
+		<aspectjrt.version>1.8.9</aspectjrt.version>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -128,12 +129,12 @@
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
-			<version>1.6.11</version>
+			<version>${aspectjrt.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
-			<version>1.6.11</version>
+			<version>${aspectjrt.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
