@@ -1,7 +1,6 @@
-# blog-app
+# [blog-app](https://rest-blog.herokuapp.com)
 [![Build Status](https://travis-ci.org/solairerove/blog-app.svg?branch=master)](https://travis-ci.org/solairerove/blog-app) 
 [![Dependency Status](https://www.versioneye.com/user/projects/574ffa3ee298f30028d711f1/badge.svg?style=flat)](https://www.versioneye.com/user/projects/574ffa3ee298f30028d711f1)
-[rest-blog.herokuapp.com](https://rest-blog.herokuapp.com)
 ##### TODO on client
 
 * routing **implemented**
