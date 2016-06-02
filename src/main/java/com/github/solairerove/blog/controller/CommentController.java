@@ -8,9 +8,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
-@Component
 @RestController
 @RequestMapping("/api/comments")
+//TODO swagger io annotations fo doc
 public class CommentController {
 
     @Autowired
