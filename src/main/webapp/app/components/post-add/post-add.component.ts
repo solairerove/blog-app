@@ -15,8 +15,13 @@ import {PostService} from "../../service/post.service";
 export class PostAddComponent {
 
     constructor(private postService:PostService) {
-
+        
     }
+
     
     
+    
+    goBack() {
+        window.history.back();
+    }
 }
