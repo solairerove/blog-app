@@ -10,6 +10,7 @@ import {PostsComponent} from '../../components/posts/posts.component';
 import {AboutComponent} from '../../components/about/about.component';
 import {FooterComponent} from '../../components/footer/footer.component';
 import {PostDetailComponent} from '../../components/post-detail/post-detail.component';
+import {PostAddComponent} from '../../components/post-add/post-add.component';
 
 @RouteConfig([
     {
@@ -27,6 +28,11 @@ import {PostDetailComponent} from '../../components/post-detail/post-detail.comp
         path: '/posts/:id',
         name: 'PostDetail',
         component: PostDetailComponent
+    },
+    {
+        path:'/add',
+        name: 'PostAddComponent',
+        component: PostAddComponent
     },
     {
         path: '/**',
