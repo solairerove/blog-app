@@ -31,7 +31,7 @@ import {PostAddComponent} from '../../components/post-add/post-add.component';
     },
     {
         path:'/add',
-        name: 'PostAddComponent',
+        name: 'AddPost',
         component: PostAddComponent
     },
     {
