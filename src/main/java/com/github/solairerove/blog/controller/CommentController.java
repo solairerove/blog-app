@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/comments")
-//TODO swagger io annotations fo doc
 public class CommentController {
 
     @Autowired
@@ -22,7 +21,7 @@ public class CommentController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<?> getOneCommentById(@PathVariable Integer id) {
+    public ResponseEntity<?> getOneCommentById(@PathVariable Long id) {
         return new ResponseEntity<>(commentService.findOneCommentById(id), HttpStatus.OK);
     }
 
@@ -33,7 +32,7 @@ public class CommentController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<?> deleteCommentById(@PathVariable Integer id) {
+    public ResponseEntity<?> deleteCommentById(@PathVariable Long id) {
         commentService.deleteCommentById(id);
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
