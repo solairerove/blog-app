@@ -24,10 +24,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .exceptionHandling().authenticationEntryPoint(authenticationEntryPoint())
                 .and()
                 .authorizeRequests()
-//                .antMatchers(HttpMethod.GET, "/api/posts**").permitAll()
-//                .antMatchers(HttpMethod.GET, "/api/posts/**").permitAll()
-                .antMatchers("/api**").permitAll();
-//                .antMatchers("/api/**").authenticated();
+                .antMatchers(HttpMethod.GET, "/api/posts**").permitAll()
+                .antMatchers(HttpMethod.GET, "/api/posts/**").permitAll()
+//                .antMatchers("/api**").permitAll();
+                .antMatchers("/api/**").authenticated();
     }
 
     @Bean
