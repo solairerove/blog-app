@@ -1,1 +1,42 @@
-<p>check</p>
+<header class="intro-header" style="background-image: url('../../../public/img/about-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+                    <h1>Clean Blog</h1>
+                    <hr class="small">
+                    <span class="subheading">Anything more than you need</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<article *ngIf="post">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div>
+                    <label>id(stub): </label>
+                    <input [(ngModel)]="post.id" placeholder="id"/>
+
+                    <label>author: </label>
+                    <input [(ngModel)]="post.author" placeholder="author"/>
+
+                    <label>title: </label>
+                    <input [(ngModel)]="post.title" placeholder="title"/>
+
+                    <label>subtitle: </label>
+                    <input [(ngModel)]="post.subtitle" placeholder="subtitle"/>
+
+                    <label>content: </label>
+                    <textarea [(ngModel)]="post.content" placeholder="content"></textarea>
+
+                    <label>date(stub): </label>
+                    <input [(ngModel)]="post.date" placeholder="date"/>
+                </div>
+                <button (click)="goBack()">Back</button>
+                <button (click)="save()">Save</button>
+            </div>
+        </div>
+    </div>
+</article>
