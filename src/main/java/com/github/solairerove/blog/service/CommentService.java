@@ -19,29 +19,29 @@ public class CommentService {
     @Autowired
     private CommentRepository commentRepository;
 
+    public Comment findOneCommentById(Long id) {
+        return commentRepository.findOneCommentById(id);
+    }
+
     public List<Comment> findAll() {
         return commentRepository.findAll();
     }
 
-    public Comment findOneCommentById(Integer id) {
-        return commentRepository.findOneCommentById(id);
+    public List<Comment> findAllCommentsFromPostById(Long id) {
+        return commentRepository.findAllCommentsFromPostById(id);
     }
 
     public void save(Comment comment) {
         commentRepository.save(comment);
     }
 
-    public void deleteCommentById(Integer id) {
+    public void deleteCommentById(Long id) {
         commentRepository.delete(id);
     }
 
-    public void addNewCommentToPost(Integer id, Comment comment) {
+    public void addNewCommentToPost(Long id, Comment comment) {
         comment.setPostId(id);
         commentRepository.save(comment);
-    }
-
-    public List<Comment> findAllCommentsFromPostById(Integer id) {
-        return commentRepository.findAllCommentsFromPostById(id);
     }
 
     public void updateReviewById(CommentDTO commentDTO) {

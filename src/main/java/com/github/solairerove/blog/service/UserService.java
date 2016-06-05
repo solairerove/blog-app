@@ -20,11 +20,11 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public User findUserById(Integer id) {
+    public User findUserById(Long id) {
         return userRepository.findUserById(id);
     }
 
-    public void changeUserNickname(String nickname, Integer id) {
+    public void changeUserNickname(String nickname, Long id) {
         userRepository.changeUserNickname(nickname, id);
     }
 
