@@ -3,6 +3,7 @@ package com.github.solairerove.blog.service;
 import com.github.solairerove.blog.Application;
 import com.github.solairerove.blog.domain.Authority;
 import com.github.solairerove.blog.domain.User;
+import com.github.solairerove.blog.service.UserService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

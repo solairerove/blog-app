@@ -126,9 +126,9 @@ VALUES (
 INSERT INTO `USER` (`id`, `nickname`, `email`, `login`, `password`)
 VALUES (
   1,
-  'JaVaDeV',
-  'javadev12@mail.com',
-  'voitelrulit',
+  'Govnov',
+  'govnov@gmail.com',
+  'user',
   'strongpwd'
 );
 
