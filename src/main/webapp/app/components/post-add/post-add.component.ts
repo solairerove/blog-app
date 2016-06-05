@@ -13,13 +13,17 @@ import {Post} from "../../model/post";
     ]
 })
 
-export class PostAddComponent {
+export class PostAddComponent implements OnInit{
 
     @Input() post: Post;
     error: any;
 
     constructor(private postService:PostService) {
         
+    }
+
+    ngOnInit(){
+        this.post = new Post();
     }
 
     save(){
