@@ -23,7 +23,7 @@ import java.time.LocalDate;
 @Api
 @RestController
 @RequestMapping("/api/posts")
-//TODO swagger io annotations fo doc
+//TODO swagger io annotations for generate doc
 public class PostController {
 
     @Autowired
@@ -62,7 +62,7 @@ public class PostController {
     })
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<?> getOnePostById(
-            @ApiParam(value = "Post id", required = true) @PathVariable Integer id) {
+            @ApiParam(value = "Post id", required = true) @PathVariable Long id) {
         return new ResponseEntity<>(postService.findOnePostById(id), HttpStatus.OK);
     }
 
@@ -83,7 +83,7 @@ public class PostController {
     @ApiOperation(value = "Delete post by id", notes = "By authenticated users only.", position = 4)
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<?> deletePostById(
-            @ApiParam(value = "Post id", required = true) @PathVariable Integer id) {
+            @ApiParam(value = "Post id", required = true) @PathVariable Long id) {
         postService.deletePostById(id);
         return new ResponseEntity<>(id, HttpStatus.OK);
     }
@@ -106,12 +106,12 @@ public class PostController {
     @ApiOperation(value = "Add new comment to post", notes = "By authenticated users only.", position = 7)
     @RequestMapping(value = "/{id}/comments", method = RequestMethod.POST)
     public ResponseEntity<?> addNewCommentToPost(
-            @ApiParam(value = "Post id", required = true) @PathVariable Integer id,
+            @ApiParam(value = "Post id", required = true) @PathVariable Long id,
             @ApiParam(value = "Created comment object", required = true) @RequestBody CommentDTO commentDTO) {
         Comment comment = new Comment();
         comment.setAuthor(commentDTO.getAuthor());
         comment.setReview(commentDTO.getReview());
-        comment.setDate(commentDTO.getDate());
+        comment.setDate(LocalDate.now().toString());
         commentService.save(comment);
 
         commentService.addNewCommentToPost(id, comment);
@@ -121,7 +121,7 @@ public class PostController {
     @ApiOperation(value = "Get all comments from post by id", notes = "By authenticated users only.", position = 8)
     @RequestMapping(value = "/{id}/comments", method = RequestMethod.GET)
     public ResponseEntity<?> getAllCommentsFromPost(
-            @ApiParam(value = "Post id", required = true) @PathVariable Integer id) {
+            @ApiParam(value = "Post id", required = true) @PathVariable Long id) {
         return new ResponseEntity<>(commentService.findAllCommentsFromPostById(id), HttpStatus.OK);
     }
 }
