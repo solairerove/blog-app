@@ -67,6 +67,9 @@ public class PostController {
     }
 
     @ApiOperation(value = "Add new post", notes = "By authenticated users only.", position = 3)
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Created")
+    })
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<?> addNewPost(
             @ApiParam(value = "Created post object", required = true) @RequestBody PostDTO postDTO) {
@@ -77,7 +80,7 @@ public class PostController {
         post.setDate(LocalDate.now().toString());
         post.setAuthor(postDTO.getAuthor());
         postService.save(post);
-        return new ResponseEntity<>(postDTO.getTitle(), HttpStatus.OK);
+        return new ResponseEntity<>(postDTO.getTitle(), HttpStatus.CREATED);
     }
 
     @ApiOperation(value = "Delete post by id", notes = "By authenticated users only.", position = 4)
@@ -105,6 +108,7 @@ public class PostController {
 
     @ApiOperation(value = "Add new comment to post", notes = "By authenticated users only.", position = 7)
     @RequestMapping(value = "/{id}/comments", method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> addNewCommentToPost(
             @ApiParam(value = "Post id", required = true) @PathVariable Long id,
             @ApiParam(value = "Created comment object", required = true) @RequestBody CommentDTO commentDTO) {
