@@ -1,7 +1,8 @@
 import {Injectable} from "angular2/core";
-import {Http, Response} from "angular2/http";
+import {Http, Response, Headers} from "angular2/http";
 import {Observable} from "rxjs/Observable";
 import "rxjs/Rx";
+
 import {Post} from "../model/post";
 
 @Injectable()
@@ -26,7 +27,14 @@ export class PostService {
     }
 
     save(post) {
+        var json = JSON.stringify(post);
+        var params = 'json=' + json;
+        var headers = new Headers();
 
+        return this.http.post(this.url,json,{
+            headers: headers
+        })
+        .map(res=>res.json());
     }
 
     private handleError(error:Response) {
