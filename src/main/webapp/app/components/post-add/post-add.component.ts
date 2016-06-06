@@ -13,25 +13,28 @@ import {Post} from "../../model/post";
     ]
 })
 
-export class PostAddComponent implements OnInit{
+export class PostAddComponent implements OnInit {
 
-    @Input() post: Post;
-    error: any;
+    @Input() post:Post;
+    data:string;
+    error:any;
 
     constructor(private postService:PostService) {
-        
+
     }
 
-    ngOnInit(){
+    ngOnInit() {
         this.post = new Post();
     }
 
-    save(){
-        this.postService.save(this.post)
-            .catch(error => this.error = error);
+    save() {
+        this.postService.save(this.post).subscribe(
+            data=>this.data = JSON.stringify(data),
+            ()=>console.log("Post added")
+        );
+        alert(this.data);
     }
-    
-    
+
     goBack() {
         window.history.back();
     }
