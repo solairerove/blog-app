@@ -95,6 +95,6 @@ public class PostControllerTest {
         mvc.perform(MockMvcRequestBuilders.request(HttpMethod.POST, "/api/posts")
                 .content(objectMapper.writeValueAsString(saved))
                 .contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isOk());
+                .andExpect(MockMvcResultMatchers.status().isCreated());
     }
 }
