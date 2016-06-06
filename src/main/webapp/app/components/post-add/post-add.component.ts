@@ -16,7 +16,6 @@ import {Post} from "../../model/post";
 export class PostAddComponent implements OnInit {
 
     @Input() post:Post;
-    data:string;
     error:any;
 
     constructor(private postService:PostService) {
@@ -28,11 +27,7 @@ export class PostAddComponent implements OnInit {
     }
 
     save() {
-        this.postService.save(this.post).subscribe(
-            data=>this.data = JSON.stringify(data),
-            ()=>console.log("Post added")
-        );
-        alert(this.data);
+        this.postService.save(this.post);
     }
 
     goBack() {

@@ -30,6 +30,7 @@ export class PostService {
 
     save(post: Post) {
         var json = JSON.stringify(post);
+        alert(json);
         var headers = new Headers();
         headers.append('Content-type',
         'application/json');
