@@ -5,6 +5,7 @@ import com.github.solairerove.blog.domain.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -13,6 +14,7 @@ import java.util.List;
 /**
  * Created by union on 5/06/16.
  */
+@Component
 public class CustomUserDetailsService implements UserDetails {
 
     private static final long serialVersionUID = 1L;

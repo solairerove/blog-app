@@ -32,13 +32,6 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
-    @Bean
-    public ServletRegistrationBean h2servletRegistration() {
-        ServletRegistrationBean registration = new ServletRegistrationBean(new WebServlet());
-        registration.addUrlMappings("/console/*");
-        return registration;
-    }
-
 //    @Configuration
 //    @EnableAuthorizationServer
 //    protected static class OAuth2Config extends AuthorizationServerConfigurerAdapter {
