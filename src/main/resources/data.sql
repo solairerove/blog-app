@@ -1,4 +1,4 @@
-INSERT INTO `POST` (`id`, `title`, `subtitle`, `content`, `date`, `author`)
+INSERT INTO `post` (`id`, `title`, `subtitle`, `content`, `date`, `author`)
 VALUES (
   1,
   'Man must explore, and this is exploration at its greatest.',
@@ -12,7 +12,7 @@ VALUES (
   'union.one'
 );
 
-INSERT INTO `POST` (`id`, `title`, `subtitle`, `content`, `date`, `author`)
+INSERT INTO `post` (`id`, `title`, `subtitle`, `content`, `date`, `author`)
 VALUES (
   2,
   'I believe every human has a finite number of heartbeats. I don''t intend to waste any of mine.',
@@ -24,7 +24,7 @@ VALUES (
   'vlad'
 );
 
-INSERT INTO `POST` (`id`, `title`, `subtitle`, `content`, `date`, `author`)
+INSERT INTO `post` (`id`, `title`, `subtitle`, `content`, `date`, `author`)
 VALUES (
   3,
   'Science has not yet mastered prophecy.',
@@ -36,7 +36,7 @@ VALUES (
   'union.one'
 );
 
-INSERT INTO `POST` (`id`, `title`, `subtitle`, `content`, `date`, `author`)
+INSERT INTO `post` (`id`, `title`, `subtitle`, `content`, `date`, `author`)
 VALUES (
   4,
   'Failure is not an option.',
@@ -48,7 +48,7 @@ VALUES (
   'union.one'
 );
 
-INSERT INTO `POST` (`id`, `title`, `subtitle`, `content`, `date`, `author`)
+INSERT INTO `post` (`id`, `title`, `subtitle`, `content`, `date`, `author`)
 VALUES (
   5,
   'MockFlow new feature: Link your comments in the Mockup.',
@@ -60,7 +60,7 @@ VALUES (
   'vlad'
 );
 
-INSERT INTO `COMMENT` (`id`, `author`, `review`, `date`, `post_id`)
+INSERT INTO `comment` (`id`, `author`, `review`, `date`, `post_id`)
 VALUES (
   1,
   'this is great author.',
@@ -69,7 +69,7 @@ VALUES (
   1
 );
 
-INSERT INTO `COMMENT` (`id`, `author`, `review`, `date`, `post_id`)
+INSERT INTO `comment` (`id`, `author`, `review`, `date`, `post_id`)
 VALUES (
   2,
   'this is great author.',
@@ -78,7 +78,7 @@ VALUES (
   1
 );
 
-INSERT INTO `COMMENT` (`id`, `author`, `review`, `date`, `post_id`)
+INSERT INTO `comment` (`id`, `author`, `review`, `date`, `post_id`)
 VALUES (
   3,
   'this is great author.',
@@ -87,7 +87,7 @@ VALUES (
   1
 );
 
-INSERT INTO `COMMENT` (`id`, `author`, `review`, `date`, `post_id`)
+INSERT INTO `comment` (`id`, `author`, `review`, `date`, `post_id`)
 VALUES (
   4,
   'this is great author.',
@@ -96,7 +96,7 @@ VALUES (
   1
 );
 
-INSERT INTO `COMMENT` (`id`, `author`, `review`, `date`, `post_id`)
+INSERT INTO `comment` (`id`, `author`, `review`, `date`, `post_id`)
 VALUES (
   5,
   'this is great author.',
@@ -105,7 +105,7 @@ VALUES (
   2
 );
 
-INSERT INTO `COMMENT` (`id`, `author`, `review`, `date`, `post_id`)
+INSERT INTO `comment` (`id`, `author`, `review`, `date`, `post_id`)
 VALUES (
   6,
   'this is great author.',
@@ -114,7 +114,7 @@ VALUES (
   2
 );
 
-INSERT INTO `COMMENT` (`id`, `author`, `review`, `date`, `post_id`)
+INSERT INTO `comment` (`id`, `author`, `review`, `date`, `post_id`)
 VALUES (
   7,
   'this is great author.',
@@ -123,24 +123,27 @@ VALUES (
   2
 );
 
-INSERT INTO `USER` (`id`, `nickname`, `email`, `login`, `password`)
+INSERT INTO `user` (`id`, `nickname`, `email`, `login`, `password`)
 VALUES (
   1,
-  'Govnov',
-  'govnov@gmail.com',
+  'Admin',
+  'admin@gmail.com',
+  'admin',
+  'pass'
+);
+
+INSERT INTO `user` (`id`, `nickname`, `email`, `login`, `password`)
+VALUES (
+  2,
+  'User',
+  'user@gmail.com',
   'user',
-  'strongpwd'
+  'pass'
 );
 
-INSERT INTO `AUTHORITY` (`id`, `name`)
-VALUES (
-  1,
-  'ROLE_USER',
-);
+INSERT INTO `authority` (`id`, `name`) VALUES (1, 'ROLE_USER');
+INSERT INTO `authority` (`id`, `name`) VALUES (2, 'ROLE_ADMIN');
 
-INSERT INTO `USER_AUTHORITY` (`id`, `user_id`, `role_id`)
-VALUES (
-  1,
-  1,
-  1
-)
+INSERT INTO `user_authority` (`id`, `user_id`, `role_id`) VALUES (1, 1, 1);
+INSERT INTO `user_authority` (`id`, `user_id`, `role_id`) VALUES (2, 1, 2);
+INSERT INTO `user_authority` (`id`, `user_id`, `role_id`) VALUES (3, 2, 1);
