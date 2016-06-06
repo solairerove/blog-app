@@ -22,7 +22,7 @@ public class User implements Serializable {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(name = "nickname", length = 32)
     private String nickname;
@@ -54,11 +54,11 @@ public class User implements Serializable {
         this.authorities = authorities;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
