@@ -9,9 +9,11 @@ import {Post} from "../model/post";
 export class PostService {
 
     private url:string;
+    private postUrl:string;
 
     constructor(private http:Http) {
         this.url = 'http://localhost:8080/api/posts/'
+        this.postUrl = 'http://localhost:8080/api/posts'
     }
 
     getPosts():Observable<Post[]> {
@@ -26,15 +28,17 @@ export class PostService {
             .catch(this.handleError);
     }
 
-    save(post) {
+    save(post: Post) {
         var json = JSON.stringify(post);
-        var params = 'json=' + json;
         var headers = new Headers();
+        headers.append('Content-type',
+        'application/json');
 
-        return this.http.post(this.url,json,{
-            headers: headers
+        return this.http.post(this.postUrl,json,{
+            headers:headers
         })
-        .map(res=>res.json());
+        .map(res=>res.json())
+        .catch(this.handleError);
     }
 
     private handleError(error:Response) {
