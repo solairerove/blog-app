@@ -17,6 +17,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
+import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
@@ -67,15 +68,14 @@ public class OAuth2Configuration {
     @Configuration
     @EnableAuthorizationServer
     protected static class AuthorizationServerConfiguration
-            extends AuthorizationServerConfigurerAdapter
-            implements EnvironmentAware {
+            extends AuthorizationServerConfigurerAdapter implements EnvironmentAware {
 
         private static final String ENV_OAUTH = "authentication.oauth.";
         private static final String PROP_CLIENTID = "clientid";
         private static final String PROP_SECRET = "secret";
         private static final String PROP_TOKEN_VALIDITY_SECONDS = "tokenValidityInSeconds";
 
-        private RelaxedPropertyResolver relaxedPropertyResolver;
+        private RelaxedPropertyResolver propertyResolver;
 
         @Autowired
         private DataSource dataSource;
@@ -90,20 +90,27 @@ public class OAuth2Configuration {
         private AuthenticationManager authenticationManager;
 
         @Override
+        public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+            endpoints
+                    .tokenStore(tokenStore())
+                    .authenticationManager(authenticationManager);
+        }
+
+        @Override
         public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
             clients
                     .inMemory()
-                    .withClient(relaxedPropertyResolver.getProperty(PROP_CLIENTID))
+                    .withClient(propertyResolver.getProperty(PROP_CLIENTID))
                     .scopes("read", "write")
                     .authorities("ROLE_ADMIN", "ROLE_USER")
                     .authorizedGrantTypes("password", "refresh_token")
-                    .secret(relaxedPropertyResolver.getProperty(PROP_SECRET))
-                    .accessTokenValiditySeconds(relaxedPropertyResolver.getProperty(PROP_TOKEN_VALIDITY_SECONDS, Integer.class, 1800));
+                    .secret(propertyResolver.getProperty(PROP_SECRET))
+                    .accessTokenValiditySeconds(propertyResolver.getProperty(PROP_TOKEN_VALIDITY_SECONDS, Integer.class, 1800));
         }
 
         @Override
         public void setEnvironment(Environment environment) {
-            this.relaxedPropertyResolver = new RelaxedPropertyResolver(environment, ENV_OAUTH);
+            this.propertyResolver = new RelaxedPropertyResolver(environment, ENV_OAUTH);
         }
     }
 }
