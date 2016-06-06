@@ -3,7 +3,7 @@ package com.github.solairerove.blog.dto;
 import java.io.Serializable;
 
 public class CommentDTO implements Serializable {
-    private Integer id;
+    private Long id;
     private String author;
     private String review;
     private String date;
@@ -12,19 +12,11 @@ public class CommentDTO implements Serializable {
     public CommentDTO() {
     }
 
-    public CommentDTO(Integer id, String author, String review, String date, Integer postId) {
-        this.id = id;
-        this.author = author;
-        this.review = review;
-        this.date = date;
-        this.postId = postId;
-    }
-
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

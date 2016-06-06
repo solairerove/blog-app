@@ -16,7 +16,6 @@ import javax.validation.Valid;
  */
 @RestController
 @RequestMapping("/api")
-//TODO swagger io annotations fo doc
 public class AuthController {
 
     public ResponseEntity<?> authorize(@Valid @RequestBody LoginDTO loginDTO,

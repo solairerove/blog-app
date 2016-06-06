@@ -29,7 +29,7 @@ public class PostService {
         return postRepository.findAll(pageable);
     }
 
-    public Post findOnePostById(Integer id) {
+    public Post findOnePostById(Long id) {
         return postRepository.findOnePostById(id);
     }
 
@@ -37,7 +37,7 @@ public class PostService {
         postRepository.save(post);
     }
 
-    public void deletePostById(Integer id) {
+    public void deletePostById(Long id) {
         postRepository.delete(id);
     }
 
