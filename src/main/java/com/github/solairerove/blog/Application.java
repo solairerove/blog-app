@@ -41,7 +41,7 @@ public class Application {
 
 //    @Configuration
 //    @EnableAuthorizationServer
-//    protected static class OAuth2Config starextends AuthorizationServerConfigurerAdapter {
+//    protected static class OAuth2Config extends AuthorizationServerConfigurerAdapter {
 //
 //        @Autowired
 //        private AuthenticationManager authenticationManager;
