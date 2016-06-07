@@ -12,8 +12,8 @@ export class PostService {
     private postUrl:string;
 
     constructor(private http:Http) {
-        this.url = 'http://localhost:8080/api/posts/'
-        this.postUrl = 'http://localhost:8080/api/posts'
+        this.url = 'http://localhost:8080/api/posts/';
+        this.postUrl = 'http://localhost:8080/api/posts';
     }
 
     getPosts():Observable<Post[]> {
@@ -37,7 +37,6 @@ export class PostService {
         return this.http.post(this.postUrl,json,{
             headers:headers
         })
-        .map(res=>res.json())
         .catch(this.handleError);
     }
 
