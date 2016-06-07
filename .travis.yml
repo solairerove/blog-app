@@ -1,5 +1,4 @@
-language: javaafter_success:
-  - mvn clean test jacoco:report coveralls:report
+language: java
 jdk:
   - oraclejdk8
 script: mvn clean install
