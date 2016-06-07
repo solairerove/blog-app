@@ -18,6 +18,7 @@ export class PostAddComponent implements OnInit {
     @Input() post:Post;
     error:any;
     postAdded:boolean;
+    data:string;
 
     constructor(private postService:PostService) {
         this.postAdded = false;
@@ -28,7 +29,8 @@ export class PostAddComponent implements OnInit {
     }
 
     save() {
-        this.postService.save(this.post);
+        this.postService.save(this.post)
+            .subscribe(data => this.data = JSON.stringify(data));
         this.postAdded = true;
     }
 
