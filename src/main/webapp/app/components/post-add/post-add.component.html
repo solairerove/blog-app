@@ -12,7 +12,7 @@
     </div>
 </header>
 
-<div *ngIf="post">
+<div *ngIf="post" [ngClass]="{hide: postAdded}">
     <article>
         <div class="container">
             <div class="row">
@@ -64,26 +64,42 @@
             </div>
         </div>
     </article>
-</div>
-<br/>
-<!-- Pager -->
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <ul class="pager">
-                <div class="col-lg-2 col-lg-offset-7 col-md-2 col-md-offset-8">
-                    <li class="next">
-                        <a (click)="save()" style="cursor: hand;margin-right: 22%">Save&rarr;</a>
-                    </li>
-                </div>
 
-                <div class="col-lg-2 col-md-2">
-                    <li class="next">
-                        <a (click)="goBack()" style="cursor: hand;margin-right: 22%">Back&rarr;</a>
-                    </li>
-                </div>
-            </ul>
+    <br/>
+    <!-- Pager -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="pager">
+                    <div class="col-lg-2 col-lg-offset-7 col-md-2 col-md-offset-8">
+                        <li class="next">
+                            <a (click)="save()" style="cursor: hand;margin-right: 22%">Save&rarr;</a>
+                        </li>
+                    </div>
+
+                    <div class="col-lg-2 col-md-2">
+                        <li class="next">
+                            <a (click)="goBack()" style="cursor: hand;margin-right: 22%">Back&rarr;</a>
+                        </li>
+                    </div>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
 
+
+<div [ngClass]="{hide: !postAdded}" style="margin-bottom: 20%">
+    <div class="col-lg-8 col-lg-offset-3 col-md-10 col-md-offset-1">
+        <div class="col-lg-4 col-lg-offset-2">
+            <h1 style="margin-top: 10%">Post added!</h1>
+        </div>
+        <div class="col-lg-2">
+            <ul class="pager">
+                <li class="next">
+                    <a (click)="goBack()" style="cursor: hand;margin-right: 22%">Posts&rarr;</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -17,9 +17,10 @@ export class PostAddComponent implements OnInit {
 
     @Input() post:Post;
     error:any;
+    postAdded:boolean;
 
     constructor(private postService:PostService) {
-
+        this.postAdded = false;
     }
 
     ngOnInit() {
@@ -28,9 +29,11 @@ export class PostAddComponent implements OnInit {
 
     save() {
         this.postService.save(this.post);
+        this.postAdded = true;
     }
 
     goBack() {
+        this.postAdded = false;
         window.history.back();
     }
 }
