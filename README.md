@@ -41,6 +41,14 @@ ___
 
 ___
 
+mvn clean test jacoco:report coveralls:report
+
+##### coveralls-maven-plugin:
+
+* `mvn clean test jacoco:report coveralls:report`
+
+___
+
 #### Open in whatever rest client:
 
 * `http://localhost:8080/api/posts/1` - get post by id
