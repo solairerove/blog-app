@@ -4,6 +4,7 @@ import {Observable} from "rxjs/Observable";
 import "rxjs/Rx";
 
 import {Post} from "../model/post";
+import {Constraints} from '../constraints/constraints';
 
 @Injectable()
 export class PostService {
@@ -12,8 +13,8 @@ export class PostService {
     private postUrl:string;
 
     constructor(private http:Http) {
-        this.url = 'http://localhost:8080/api/posts';
-        this.postUrl = 'http://localhost:8080/api/posts';
+        this.url = Constraints.POST_URL;
+        this.postUrl = Constraints.POST_URL;
     }
 
     getPosts():Observable<Post[]> {
@@ -28,16 +29,16 @@ export class PostService {
             .catch(this.handleError);
     }
 
-    save(post: Post) {
+    save(post:Post) {
         var json = JSON.stringify(post);
-        var headers = new Headers();    
+        var headers = new Headers();
         headers.append('Content-type',
-        'application/json');
+            'application/json');
 
-        return this.http.post(this.postUrl,json,{
-            headers:headers
-        })
-        .catch(this.handleError);
+        return this.http.post(this.postUrl, json, {
+                headers: headers
+            })
+            .catch(this.handleError);
     }
 
     private handleError(error:Response) {
