@@ -12,7 +12,7 @@ export class PostService {
     private postUrl:string;
 
     constructor(private http:Http) {
-        this.url = 'http://localhost:8080/api/posts/';
+        this.url = 'http://localhost:8080/api/posts';
         this.postUrl = 'http://localhost:8080/api/posts';
     }
 
@@ -23,7 +23,7 @@ export class PostService {
     }
 
     getPost(id):Observable<Post> {
-        return this.http.get(this.url + id)
+        return this.http.get(this.url + "/" + id)
             .map(res => res.json())
             .catch(this.handleError);
     }

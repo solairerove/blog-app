@@ -6,16 +6,10 @@ import com.github.solairerove.blog.dto.CommentDTO;
 import com.github.solairerove.blog.dto.PostDTO;
 import com.github.solairerove.blog.service.CommentService;
 import com.github.solairerove.blog.service.PostService;
-import com.github.solairerove.blog.web.PageResource;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -23,7 +17,6 @@ import java.time.LocalDate;
 @Api
 @RestController
 @RequestMapping("/api/posts")
-//TODO swagger io annotations for generate doc
 public class PostController {
 
     @Autowired
@@ -34,25 +27,9 @@ public class PostController {
 
     @ApiOperation(value = "Get all posts", notes = "This can be done by all users.", position = 1)
     @ApiResponse(code = 200, message = "Ok")
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<?> getAllPosts() {
         return new ResponseEntity<>(postService.findAll(), HttpStatus.OK);
-    }
-
-    @RequestMapping(method = RequestMethod.GET)
-    @ResponseBody
-    public PageResource<Post> getPostPageResource(@RequestParam(required = false) Integer page,
-                                                  @RequestParam(required = false) Integer size) {
-        if (page != null && size != null) {
-            Pageable pageable = new PageRequest(page, size, new Sort("id"));
-
-            Page<Post> pageResult = postService.findAll(pageable);
-            return new PageResource<>(pageResult, "page", "size");
-        }
-        Pageable pageable = new PageRequest(0, 5, new Sort("id"));
-
-        Page<Post> pageResult = postService.findAll(pageable);
-        return new PageResource<>(pageResult, "page", "size");
     }
 
     @ApiOperation(value = "Get post by id", notes = "This can be done by all users.", position = 2, response = Post.class)
