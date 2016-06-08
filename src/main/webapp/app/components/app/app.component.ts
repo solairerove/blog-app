@@ -11,31 +11,32 @@ import {AboutComponent} from '../../components/about/about.component';
 import {FooterComponent} from '../../components/footer/footer.component';
 import {PostDetailComponent} from '../../components/post-detail/post-detail.component';
 import {PostAddComponent} from '../../components/post-add/post-add.component';
+import {Constraints} from '../../constraints/constraints';
 
 @RouteConfig([
     {
-        path: '/posts',
+        path: Constraints.POSTS_PATH,
         name: 'Posts',
         component: PostsComponent,
         useAsDefault: true
     },
     {
-        path: '/about',
+        path: Constraints.ABOUT_PATH,
         name: 'About',
         component: AboutComponent
     },
     {
-        path: '/posts/:id',
+        path: Constraints.POST_DETAIL_PATH,
         name: 'PostDetail',
         component: PostDetailComponent
     },
     {
-        path:'/add',
+        path: Constraints.ADD_POST_PATH,
         name: 'AddPost',
         component: PostAddComponent
     },
     {
-        path: '/**',
+        path: Constraints.OTHER,
         redirectTo: ['Posts']
     }
 ])
