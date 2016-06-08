@@ -1,6 +1,6 @@
 import {Component, OnInit, Input} from 'angular2/core';
 import {HTTP_PROVIDERS} from 'angular2/http';
-import {ROUTER_DIRECTIVES, Router} from 'angular2/router';
+import {ROUTER_DIRECTIVES} from 'angular2/router';
 
 import {PostService} from "../../service/post.service";
 import {Post} from "../../model/post";
@@ -22,7 +22,7 @@ export class PostAddComponent implements OnInit {
     postAdded:boolean;
     data:string;
 
-    constructor(private postService:PostService, private router:Router) {
+    constructor(private postService:PostService) {
         this.postAdded = false;
     }
 
