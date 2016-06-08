@@ -1,5 +1,6 @@
 import {Component, OnInit, Input} from 'angular2/core';
 import {HTTP_PROVIDERS} from 'angular2/http';
+import {ROUTER_DIRECTIVES, Router} from 'angular2/router';
 
 import {PostService} from "../../service/post.service";
 import {Post} from "../../model/post";
@@ -10,7 +11,8 @@ import {Post} from "../../model/post";
     providers: [
         PostService,
         HTTP_PROVIDERS
-    ]
+    ],
+    directives: [ROUTER_DIRECTIVES]
 })
 
 export class PostAddComponent implements OnInit {
@@ -20,7 +22,7 @@ export class PostAddComponent implements OnInit {
     postAdded:boolean;
     data:string;
 
-    constructor(private postService:PostService) {
+    constructor(private postService:PostService, private router:Router) {
         this.postAdded = false;
     }
 
@@ -32,10 +34,5 @@ export class PostAddComponent implements OnInit {
         this.postService.save(this.post)
             .subscribe(data => this.data = JSON.stringify(data));
         this.postAdded = true;
-    }
-
-    goBack() {
-        this.postAdded = false;
-        window.history.back();
     }
 }
