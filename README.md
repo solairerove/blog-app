@@ -2,6 +2,7 @@
 [![Build Status](https://travis-ci.org/solairerove/blog-app.svg?branch=master)](https://travis-ci.org/solairerove/blog-app) 
 [![Dependency Status](https://www.versioneye.com/user/projects/574ffa3ee298f30028d711f1/badge.svg?style=flat)](https://www.versioneye.com/user/projects/574ffa3ee298f30028d711f1)
 [![Coverage Status](https://coveralls.io/repos/github/solairerove/blog-app/badge.svg?branch=master)](https://coveralls.io/github/solairerove/blog-app?branch=master)
+
 ___
 
 ##### Additional cookies:
@@ -41,8 +42,6 @@ ___
 
 ___
 
-mvn clean test jacoco:report coveralls:report
-
 ##### coveralls-maven-plugin:
 
 * `mvn clean test jacoco:report coveralls:report`
@@ -53,7 +52,6 @@ ___
 
 * `http://localhost:8080/api/posts/1` - get post by id
 * `http://localhost:8080/api/posts/` - get all posts
-* `http://localhost:8080/api/posts?page=1&size=2` - get 2 elements from 1 page 
 * `http://localhost:8080/api/posts` - add new post
 * `http://localhost:8080/api/posts/5` - delete post by id
 * `http://localhost:8080/api/posts` - update post content by id
