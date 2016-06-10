@@ -109,5 +109,26 @@ public class PostControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
 
+    @Test
+    public void updatePostByIdTest() throws Exception {
+        postService.deleteAllPosts();
+        Post saved = EntityUtils.generatePost();
+        postService.save(saved);
 
+        saved.setContent("changed");
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        mvc.perform(MockMvcRequestBuilders.request(HttpMethod.PUT, "/api/posts/")
+                .content(objectMapper.writeValueAsString(saved))
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.content().string(saved.getId().toString()))
+                .andExpect(MockMvcResultMatchers.status().isOk());
+    }
+
+    @Test
+    public void deleteAllPostsTest() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.request(HttpMethod.DELETE, "/api/posts/clear")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk());
+    }
 }
