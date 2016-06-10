@@ -20,6 +20,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
 
+import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 
@@ -45,27 +46,27 @@ public class PostControllerTest {
         this.mvc = webAppContextSetup(context).build();
     }
 
-//    @Test
-//    public void findAllPosts() throws Exception {
-//        postService.deleteAllPosts();
-//        postService.save(new Post("test title", "test subtitle", "test content", "test date", "test author"));
-//        postService.save(new Post("another test title", "another test subtitle", "another test content", "" +
-//                "another test date", "another test author"));
-//
-//        mvc.perform(MockMvcRequestBuilders.request(HttpMethod.GET, "/api/posts"))
-//                .andExpect(MockMvcResultMatchers.status().isOk())
-//                .andExpect(MockMvcResultMatchers.jsonPath("$.content", hasSize(2)))
-//                .andExpect(MockMvcResultMatchers.jsonPath("$.content[0].title", is("test title")))
-//                .andExpect(MockMvcResultMatchers.jsonPath("$.content[0].subtitle", is("test subtitle")))
-//                .andExpect(MockMvcResultMatchers.jsonPath("$.content[0].content", is("test content")))
-//                .andExpect(MockMvcResultMatchers.jsonPath("$.content[0].date", is("test date")))
-//                .andExpect(MockMvcResultMatchers.jsonPath("$.content[0].author", is("test author")))
-//                .andExpect(MockMvcResultMatchers.jsonPath("$.content[1].title", is("another test title")))
-//                .andExpect(MockMvcResultMatchers.jsonPath("$.content[1].subtitle", is("another test subtitle")))
-//                .andExpect(MockMvcResultMatchers.jsonPath("$.content[1].content", is("another test content")))
-//                .andExpect(MockMvcResultMatchers.jsonPath("$.content[1].date", is("another test date")))
-//                .andExpect(MockMvcResultMatchers.jsonPath("$.content[1].author", is("another test author")));
-//    }
+    @Test
+    public void findAllPosts() throws Exception {
+        postService.deleteAllPosts();
+        postService.save(new Post("test title", "test subtitle", "test content", "test date", "test author"));
+        postService.save(new Post("another test title", "another test subtitle", "another test content", "" +
+                "another test date", "another test author"));
+
+        mvc.perform(MockMvcRequestBuilders.request(HttpMethod.GET, "/api/posts"))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$",hasSize(2)))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].title", is("test title")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].subtitle", is("test subtitle")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].content", is("test content")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].date", is("test date")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].author", is("test author")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[1].title", is("another test title")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[1].subtitle", is("another test subtitle")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[1].content", is("another test content")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[1].date", is("another test date")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[1].author", is("another test author")));
+    }
 
     @Test
     public void getOnePostByIdTest() throws Exception {
