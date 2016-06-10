@@ -21,7 +21,7 @@ ___
 
 ___
 
-##### Use H2 web console:
+##### Use H2 [web console](https://github.com/solairerove/blog-app/blob/master/src/main/java/com/github/solairerove/blog/Application.java#L21-L26):
 
 * `http://localhost:8080/console/`
 * `jdbc:h2:mem:post`
@@ -35,14 +35,14 @@ ___
 
 ___
 
-##### Generate Api doc:
+##### Generate [Api doc](https://github.com/solairerove/blog-app/blob/master/pom.xml#L173-L214):
 
 * `mvn clean compile`
 * `target/generated/document.html`
 
 ___
 
-##### coveralls-maven-plugin:
+##### [coveralls-maven-plugin](https://github.com/solairerove/blog-app/blob/master/pom.xml#L216-L239):
 
 * `mvn clean test jacoco:report coveralls:report`
 
@@ -53,13 +53,13 @@ ___
 * `http://localhost:8080/api/posts/1` - get post by id
 * `http://localhost:8080/api/posts/` - get all posts
 * `http://localhost:8080/api/posts` - add new post
-* `http://localhost:8080/api/posts/5` - delete post by id
+* `http://localhost:8080/api/posts/1` - delete post by id
 * `http://localhost:8080/api/posts` - update post content by id
 * `http://localhost:8080/api/comments` - get all comments
 * `http://localhost:8080/api/comments/1` - get comment by id
 * `http://localhost:8080/api/comments` - update review by id
 * `http://localhost:8080/api/comments/1` - delete comment by id
-* `http://localhost:8080/api/posts/6/comments` - add new comment to post by id
+* `http://localhost:8080/api/posts/1/comments` - add new comment to post by id
 * `http://localhost:8080/api/posts/1/comments` - get all comments from post by id
 
 ___
