@@ -6,7 +6,6 @@ import com.github.solairerove.blog.domain.Post;
 import com.github.solairerove.blog.repository.common.EntityUtils;
 import com.github.solairerove.blog.service.PostService;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,6 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
 
-import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 
@@ -70,7 +68,7 @@ public class PostControllerTest {
 //    }
 
     @Test
-    public void getOnePostById() throws Exception {
+    public void getOnePostByIdTest() throws Exception {
         postService.deleteAllPosts();
         Post saved = EntityUtils.generatePost();
         postService.save(saved);
@@ -88,7 +86,7 @@ public class PostControllerTest {
     }
 
     @Test
-    public void addNewPost() throws Exception {
+    public void addNewPostTest() throws Exception {
         postService.deleteAllPosts();
         Post saved = EntityUtils.generatePost();
         ObjectMapper objectMapper = new ObjectMapper();
@@ -98,4 +96,18 @@ public class PostControllerTest {
                 .contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isCreated());
     }
+
+    @Test
+    public void deletePostByIdTest() throws Exception {
+        postService.deleteAllPosts();
+        Post saved = EntityUtils.generatePost();
+        postService.save(saved);
+
+        mvc.perform(MockMvcRequestBuilders.request(HttpMethod.DELETE, "/api/posts/" + saved.getId())
+                .contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.content().string(saved.getId().toString()))
+                .andExpect(MockMvcResultMatchers.status().isOk());
+    }
+
+
 }
