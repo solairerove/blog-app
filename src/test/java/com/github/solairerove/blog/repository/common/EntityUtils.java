@@ -1,5 +1,6 @@
 package com.github.solairerove.blog.repository.common;
 
+import com.github.solairerove.blog.domain.Comment;
 import com.github.solairerove.blog.domain.Post;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.stereotype.Component;
@@ -21,6 +22,12 @@ public class EntityUtils {
         return new Post(getRandomString(MAX_STRING_LENGTH),
                 getRandomString(MAX_STRING_LENGTH),
                 getRandomString(MAX_STRING_LENGTH),
+                getRandomString(MAX_STRING_LENGTH),
+                getRandomString(MAX_STRING_LENGTH));
+    }
+
+    public static Comment generateComment() {
+        return new Comment(getRandomString(MAX_STRING_LENGTH),
                 getRandomString(MAX_STRING_LENGTH),
                 getRandomString(MAX_STRING_LENGTH));
     }
