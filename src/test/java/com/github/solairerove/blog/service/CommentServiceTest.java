@@ -27,6 +27,9 @@ public class CommentServiceTest {
     @Autowired
     CommentService commentService;
 
+    @Autowired
+    PostService postService;
+
     @Test
     public void findCommentByIdTest(){
         Comment saved = new Comment("test author","test review","test date");
@@ -34,7 +37,6 @@ public class CommentServiceTest {
 
         Assert.assertEquals(commentService.findOneCommentById(saved.getId()),saved);
     }
-
 
     @Test
     public void findAllTest() {
@@ -48,13 +50,21 @@ public class CommentServiceTest {
         Assert.assertTrue(saved.containsAll(found) && found.containsAll(saved));
     }
 
-//    @Test
-//    public void saveTest() {
-//        Post saved = EntityUtils.generatePost();
-//        postService.save(saved);
-//
-//        Assert.assertEquals(postService.findOnePostById(saved.getId()), saved);
-//    }
+    @Test
+    public void findAllCommentsFromPostByIdTest() {
+        Comment saved1 = EntityUtils.generateComment();
+        Comment saved2 = EntityUtils.generateComment();
+
+        commentService.addNewCommentToPost(0L,saved1);
+        commentService.addNewCommentToPost(0L,saved2);
+
+        List<Comment> saved = new LinkedList<>();
+        saved.add(saved1);
+        saved.add(saved2);
+
+        List<Comment> found = commentService.findAllCommentsFromPostById(0L);
+        Assert.assertTrue(saved.containsAll(found) && found.containsAll(saved));
+    }
 //
 //    @Test
 //    public void deletePostByIdTest() {
