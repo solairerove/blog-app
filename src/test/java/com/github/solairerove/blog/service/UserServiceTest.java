@@ -92,7 +92,7 @@ public class UserServiceTest {
         User saved = new User("stark", "iron@gmail.com", "iron_man_1", "strongpwd", authorities);
         userService.save(saved);
 
-        userService.deleteUserById(Math.toIntExact(saved.getId()));
+        userService.deleteUserById(saved.getId());
         Assert.assertEquals(userService.findUserById(saved.getId()), null);
     }
 }
