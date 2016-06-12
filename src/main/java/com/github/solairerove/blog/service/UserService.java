@@ -3,7 +3,6 @@ package com.github.solairerove.blog.service;
 import com.github.solairerove.blog.domain.User;
 import com.github.solairerove.blog.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -37,7 +36,7 @@ public class UserService {
         return userRepository.findUserByLogin(login);
     }
 
-    public void deleteUserById(Integer id) {
-        userRepository.delete(id);
+    public void deleteUserById(Long id) {
+        userRepository.deleteUserById(id);
     }
 }
