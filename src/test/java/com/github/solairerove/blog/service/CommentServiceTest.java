@@ -31,11 +31,11 @@ public class CommentServiceTest {
     PostService postService;
 
     @Test
-    public void findCommentByIdTest(){
-        Comment saved = new Comment("test author","test review","test date");
+    public void findCommentByIdTest() {
+        Comment saved = new Comment("test author", "test review", "test date");
         commentService.save(saved);
 
-        Assert.assertEquals(commentService.findOneCommentById(saved.getId()),saved);
+        Assert.assertEquals(commentService.findOneCommentById(saved.getId()), saved);
     }
 
     @Test
@@ -55,8 +55,8 @@ public class CommentServiceTest {
         Comment saved1 = EntityUtils.generateComment();
         Comment saved2 = EntityUtils.generateComment();
 
-        commentService.addNewCommentToPost(0L,saved1);
-        commentService.addNewCommentToPost(0L,saved2);
+        commentService.addNewCommentToPost(0L, saved1);
+        commentService.addNewCommentToPost(0L, saved2);
 
         List<Comment> saved = new LinkedList<>();
         saved.add(saved1);
@@ -65,21 +65,32 @@ public class CommentServiceTest {
         List<Comment> found = commentService.findAllCommentsFromPostById(0L);
         Assert.assertTrue(saved.containsAll(found) && found.containsAll(saved));
     }
-//
+
+    @Test
+    public void deleteCommentByIdTest() {
+        Comment saved = EntityUtils.generateComment();
+        commentService.save(saved);
+
+        commentService.deleteCommentById(saved.getId());
+        Assert.assertEquals(commentService.findOneCommentById(saved.getId()), null);
+    }
+
 //    @Test
-//    public void deletePostByIdTest() {
-//        Post saved = EntityUtils.generatePost();
-//        postService.save(saved);
+//    public void updateReviewByIdTest() {
+//        //Comment saved = EntityUtils.generateComment();
 //
-//        postService.deletePostById(saved.getId());
-//        Assert.assertEquals(postService.findOnePostById(saved.getId()), null);
-//    }
+//        Comment saved = new Comment();
+//        saved.setId(1L);
+//        saved.setReview("asd");
 //
-//    @Test
-//    public void deleteAllPostsTest() {
-//        postService.save(EntityUtils.generatePost());
-//        postService.deleteAllPosts();
+//        commentService.save(saved);
 //
-//        Assert.assertTrue((postService.findAll()).isEmpty());
+//        CommentDTO update = new CommentDTO();
+//        update.setId(saved.getId());
+//        update.setReview("review");
+//
+//        commentService.updateReviewById(update);
+//
+//        Assert.assertEquals("review",commentService.findOneCommentById(saved.getId()).getReview());
 //    }
 }
