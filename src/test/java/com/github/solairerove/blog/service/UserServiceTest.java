@@ -3,7 +3,6 @@ package com.github.solairerove.blog.service;
 import com.github.solairerove.blog.Application;
 import com.github.solairerove.blog.domain.Authority;
 import com.github.solairerove.blog.domain.User;
-import com.github.solairerove.blog.service.UserService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -39,6 +38,18 @@ public class UserServiceTest {
     }
 
     @Test
+    public void findUserById() {
+        List<Authority> authorities = new LinkedList<>();
+        authorities.add(new Authority("ADMIN"));
+        User saved = new User("stark", "iron@gmail.com", "iron_man_1", "strongpwd", authorities);
+        userService.save(saved);
+
+        User found = userService.findUserById(saved.getId());
+
+        Assert.assertEquals(saved, found);
+    }
+
+    @Test
     public void changeUserNicknameTest() {
         List<Authority> authorities = new LinkedList<>();
         authorities.add(new Authority("ADMIN"));
@@ -60,5 +71,28 @@ public class UserServiceTest {
         User found = userService.findUserByNickname(saved.getNickname());
 
         Assert.assertEquals(saved, found);
+    }
+
+    @Test
+    public void findUserByLoginTest() {
+        List<Authority> authorities = new LinkedList<>();
+        authorities.add(new Authority("ADMIN"));
+        User saved = new User("stark", "iron@gmail.com", "iron_man_1", "strongpwd", authorities);
+        userService.save(saved);
+
+        User found = userService.findUserByLogin(saved.getLogin());
+
+        Assert.assertEquals(saved, found);
+    }
+
+    @Test
+    public void deleteUserByIdTest() {
+        List<Authority> authorities = new LinkedList<>();
+        authorities.add(new Authority("ADMIN"));
+        User saved = new User("stark", "iron@gmail.com", "iron_man_1", "strongpwd", authorities);
+        userService.save(saved);
+
+        userService.deleteUserById(Math.toIntExact(saved.getId()));
+        Assert.assertEquals(userService.findUserById(saved.getId()), null);
     }
 }
