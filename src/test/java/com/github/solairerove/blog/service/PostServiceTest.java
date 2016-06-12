@@ -2,6 +2,7 @@ package com.github.solairerove.blog.service;
 
 import com.github.solairerove.blog.domain.Post;
 import com.github.solairerove.blog.Application;
+import com.github.solairerove.blog.dto.PostDTO;
 import com.github.solairerove.blog.repository.common.EntityUtils;
 import org.junit.Assert;
 import org.junit.Test;
@@ -56,6 +57,22 @@ public class PostServiceTest {
         postService.deletePostById(saved.getId());
         Assert.assertEquals(postService.findOnePostById(saved.getId()), null);
     }
+
+    @Test
+    public void updateContentByIdTest() {
+        postService.deleteAllPosts();
+        Post saved = EntityUtils.generatePost();
+
+        postService.save(saved);
+
+        PostDTO updated = new PostDTO();
+        updated.setContent("test");
+        updated.setId(1L);
+
+        postService.updateContentById(updated);
+        Assert.assertEquals("test",postService.findOnePostById(1L).getContent());
+    }
+
 
     @Test
     public void deleteAllPostsTest() {
