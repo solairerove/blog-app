@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+//TODO create some getIdByTitleAndSubtitle
 @Repository
 public interface PostRepository extends JpaRepository<Post, Integer> {
 
