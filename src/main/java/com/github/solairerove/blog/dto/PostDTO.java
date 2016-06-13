@@ -17,6 +17,15 @@ public class PostDTO implements Serializable {
     public PostDTO() {
     }
 
+    public PostDTO(Long id, String title, String subtitle, String content, String date, String author) {
+        this.id = id;
+        this.title = title;
+        this.subtitle = subtitle;
+        this.content = content;
+        this.date = date;
+        this.author = author;
+    }
+
     public Long getId() {
         return id;
     }
