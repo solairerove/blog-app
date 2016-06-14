@@ -44,6 +44,8 @@ ___
 
 ##### [coveralls-maven-plugin](https://github.com/solairerove/blog-app/blob/master/pom.xml#L216-L239):
 
+* `mvn clean test jacoco:report`
+* `target/site/jacoco/index.html`
 * `mvn clean test jacoco:report coveralls:report`
 
 ___
