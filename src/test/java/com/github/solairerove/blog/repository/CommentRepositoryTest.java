@@ -53,4 +53,13 @@ public class CommentRepositoryTest {
         Assert.assertEquals(expected, repository.findAllCommentsFromPostById(1L));
     }
 
+    @Test
+    public void deleteCommentTest() {
+        Comment saved = new Comment("tony", "iron man", "06.06.1976");
+        repository.save(saved);
+
+        repository.delete(saved.getId());
+
+        Assert.assertEquals(null, repository.findOneCommentById(saved.getId()));
+    }
 }
