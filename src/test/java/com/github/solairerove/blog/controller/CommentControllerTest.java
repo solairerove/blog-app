@@ -1,7 +1,9 @@
 package com.github.solairerove.blog.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.solairerove.blog.Application;
 import com.github.solairerove.blog.domain.Comment;
+import com.github.solairerove.blog.dto.CommentDTO;
 import com.github.solairerove.blog.repository.common.EntityUtils;
 import com.github.solairerove.blog.service.CommentService;
 import org.junit.Before;
@@ -46,7 +48,7 @@ public class CommentControllerTest {
     }
 
     @Test
-    public void getAllComentsTest() throws Exception{
+    public void getAllComentsTest() throws Exception {
         Comment comment = EntityUtils.generateComment();
         Comment anotherComment = EntityUtils.generateComment();
         service.save(comment);
@@ -56,7 +58,7 @@ public class CommentControllerTest {
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$",hasSize(2)))
+                .andExpect(MockMvcResultMatchers.jsonPath("$", hasSize(2)))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.[0].id", is(comment.getId().intValue())))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.[0].author", is(comment.getAuthor())))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.[0].review", is(comment.getReview())))
@@ -68,20 +70,35 @@ public class CommentControllerTest {
     }
 
     @Test
-    public void getCommentByIdTest() throws Exception{
+    public void getCommentByIdTest() throws Exception {
         Comment comment = EntityUtils.generateComment();
         service.save(comment);
 
-        mvc.perform(MockMvcRequestBuilders.request(HttpMethod.GET, "/api/comments")
+        mvc.perform(MockMvcRequestBuilders.request(HttpMethod.GET, "/api/comments/" + comment.getId())
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$",hasSize(1)))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].id", is(comment.getId().intValue())))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].author", is(comment.getAuthor())))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].review", is(comment.getReview())))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].date", is(comment.getDate())));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id", is(comment.getId().intValue())))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.author", is(comment.getAuthor())))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.review", is(comment.getReview())))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.date", is(comment.getDate())));
     }
 
+    @Test
+    public void updateReviewByIdTest() throws Exception {
+        ObjectMapper mapper = new ObjectMapper();
+        Comment comment = EntityUtils.generateComment();
+        service.save(comment);
 
+        CommentDTO dto = new CommentDTO();
+        dto.setId(comment.getId());
+        dto.setReview("review");
+
+        mvc.perform(MockMvcRequestBuilders.request(HttpMethod.PUT, "/api/comments")
+                .accept(MediaType.APPLICATION_JSON)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(mapper.writeValueAsString(dto)))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().string(comment.getId().toString()));
+    }
 }
