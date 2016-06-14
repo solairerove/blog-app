@@ -101,4 +101,16 @@ public class CommentControllerTest {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string(comment.getId().toString()));
     }
+
+
+    @Test
+    public void deleteCommentByIdTest() throws Exception {
+        Comment comment = EntityUtils.generateComment();
+        service.save(comment);
+
+        mvc.perform(MockMvcRequestBuilders.request(HttpMethod.DELETE, "/api/comments/"+comment.getId())
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().string(comment.getId().toString()));
+    }
 }
