@@ -25,10 +25,6 @@ public class PostService {
         return postRepository.findAll();
     }
 
-    public Page<Post> findAll(Pageable pageable) {
-        return postRepository.findAll(pageable);
-    }
-
     public Post findOnePostById(Long id) {
         return postRepository.findOnePostById(id);
     }

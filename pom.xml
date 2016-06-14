@@ -235,6 +235,8 @@
                         <exclude>**/*config/*.class</exclude>
                         <exclude>**/*domain/*.class</exclude>
                         <exclude>**/*dto/*.class</exclude>
+                        <exclude>**/*service/CustomUserDetailsService.class</exclude>
+                        <exclude>**/*controller/HomeController.class</exclude>
                     </excludes>
                 </configuration>
                 <executions>
