@@ -66,4 +66,22 @@ public class CommentControllerTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.[1].review", is(anotherComment.getReview())))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.[1].date", is(anotherComment.getDate())));
     }
+
+    @Test
+    public void getCommentByIdTest() throws Exception{
+        Comment comment = EntityUtils.generateComment();
+        service.save(comment);
+
+        mvc.perform(MockMvcRequestBuilders.request(HttpMethod.GET, "/api/comments")
+                .accept(MediaType.APPLICATION_JSON)
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$",hasSize(1)))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].id", is(comment.getId().intValue())))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].author", is(comment.getAuthor())))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].review", is(comment.getReview())))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].date", is(comment.getDate())));
+    }
+
+
 }
