@@ -3,10 +3,7 @@
 
 <liferay-portlet-app>
 	<portlet>
-		<portlet-name>Liferay-Example</portlet-name>
-		<icon>/icon.png</icon>
-		<header-portlet-css>/css/main.css</header-portlet-css>
-		<footer-portlet-javascript>/js/main.js</footer-portlet-javascript>
+		<portlet-name>Blog-App</portlet-name>
 	</portlet>
 	<role-mapper>
 		<role-name>administrator</role-name>

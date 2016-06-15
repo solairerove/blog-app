@@ -5,21 +5,21 @@
              xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
              version="2.0">
     <portlet>
-        <portlet-name>Liferay-Example</portlet-name>
-        <display-name>Liferay-Example</display-name>
-        <portlet-class>com.liferay.util.bridges.mvc.MVCPortlet</portlet-class>
+        <portlet-name>Blog-app</portlet-name>
+        <display-name>Blog-app</display-name>
         <init-param>
             <name>view-template</name>
-            <value>/view.jsp</value>
+            <value>/index.html</value>
         </init-param>
+        <portlet-class>com.liferay.util.bridges.mvc.MVCPortlet</portlet-class>
         <expiration-cache>0</expiration-cache>
         <supports>
             <mime-type>text/html</mime-type>
         </supports>
         <portlet-info>
-            <title>Liferay-Example</title>
-            <short-title>Liferay-Example</short-title>
-            <keywords>Liferay-Example</keywords>
+            <title>Blog-app</title>
+            <short-title>Blog-app</short-title>
+            <keywords>Blog-app</keywords>
         </portlet-info>
         <security-role-ref>
             <role-name>administrator</role-name>

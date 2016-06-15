@@ -7,7 +7,7 @@
     <groupId>com.github.solairerove.blog</groupId>
     <artifactId>blog-app</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
     <name>blog-app</name>
     <description>RESTFul Blog</description>
@@ -29,6 +29,11 @@
     </parent>
 
     <dependencies>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -158,14 +163,6 @@
                 <groupId>com.liferay.maven.plugins</groupId>
                 <artifactId>liferay-maven-plugin</artifactId>
                 <version>${liferay.maven.plugin.version}</version>
-                <executions>
-                    <execution>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>build-css</goal>
-                        </goals>
-                    </execution>
-                </executions>
                 <configuration>
                     <liferayVersion>${liferay.version}</liferayVersion>
                     <pluginType>portlet</pluginType>
