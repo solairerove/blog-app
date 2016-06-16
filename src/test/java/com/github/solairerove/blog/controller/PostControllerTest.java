@@ -2,6 +2,7 @@ package com.github.solairerove.blog.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.solairerove.blog.Application;
+import com.github.solairerove.blog.domain.Comment;
 import com.github.solairerove.blog.domain.Post;
 import com.github.solairerove.blog.repository.common.EntityUtils;
 import com.github.solairerove.blog.service.PostService;
@@ -47,7 +48,7 @@ public class PostControllerTest {
     }
 
     @Test
-    public void findAllPosts() throws Exception {
+    public void getAllPostsTest() throws Exception {
         postService.deleteAllPosts();
         postService.save(new Post("test title", "test subtitle", "test content", "test date", "test author"));
         postService.save(new Post("another test title", "another test subtitle", "another test content", "" +
@@ -55,7 +56,7 @@ public class PostControllerTest {
 
         mvc.perform(MockMvcRequestBuilders.request(HttpMethod.GET, "/api/posts"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$",hasSize(2)))
+                .andExpect(MockMvcResultMatchers.jsonPath("$", hasSize(2)))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.[0].title", is("test title")))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.[0].subtitle", is("test subtitle")))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.[0].content", is("test content")))
@@ -130,6 +131,22 @@ public class PostControllerTest {
     public void deleteAllPostsTest() throws Exception {
         mvc.perform(MockMvcRequestBuilders.request(HttpMethod.DELETE, "/api/posts/clear")
                 .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk());
+    }
+
+    @Test
+    public void addNewCommentToPostTest() throws Exception {
+        postService.deleteAllPosts();
+        Post saved = EntityUtils.generatePost();
+        postService.save(saved);
+
+        Comment comment = EntityUtils.generateComment();
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        mvc.perform(MockMvcRequestBuilders.request(HttpMethod.POST, "/api/posts/"+saved.getId()+"/comments")
+                .content(objectMapper.writeValueAsString(saved))
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.content().string(saved.getId().toString()))
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
 }
