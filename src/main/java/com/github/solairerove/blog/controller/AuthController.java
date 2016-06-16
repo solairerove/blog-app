@@ -1,7 +1,9 @@
 package com.github.solairerove.blog.controller;
 
+import com.github.solairerove.blog.domain.User;
 import com.github.solairerove.blog.dto.LoginDTO;
 import com.github.solairerove.blog.dto.TokenModel;
+import com.github.solairerove.blog.dto.UserDTO;
 import com.github.solairerove.blog.service.UserService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -20,8 +22,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.security.Key;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by union on 31.05.16.
@@ -42,7 +42,6 @@ public class AuthController {
     public ResponseEntity<?> authenticate(@Valid @RequestBody LoginDTO loginDTO,
                                           HttpServletRequest request) throws AuthenticationException {
         if (userService.findUserByLogin(loginDTO.getLogin()) != null) {
-
             String token = Jwts.builder().setSubject(loginDTO.getLogin()).
                     signWith(SignatureAlgorithm.HS512, key).compact();
 
@@ -58,9 +57,18 @@ public class AuthController {
             String subject = Jwts.parser().setSigningKey(key).parseClaimsJws(request.getHeader("Rest-Token"))
                     .getBody().getSubject();
 
-            Map<String, String> responseBody = new HashMap<>();
-            responseBody.put("subject", subject);
-            return new ResponseEntity<>(responseBody, HttpStatus.OK);
+            UserDTO response = new UserDTO();
+
+            User currentUser = userService.findUserByLogin(subject);
+
+            //FIXME fix authority json mapping
+            //response.setAuthorities(currentUser.getAuthorities());
+            response.setEmail(currentUser.getEmail());
+            response.setLogin(currentUser.getLogin());
+            response.setId(currentUser.getId());
+            response.setNickname(currentUser.getNickname());
+
+            return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
