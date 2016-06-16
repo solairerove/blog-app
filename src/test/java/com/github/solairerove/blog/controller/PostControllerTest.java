@@ -5,6 +5,7 @@ import com.github.solairerove.blog.Application;
 import com.github.solairerove.blog.domain.Comment;
 import com.github.solairerove.blog.domain.Post;
 import com.github.solairerove.blog.repository.common.EntityUtils;
+import com.github.solairerove.blog.service.CommentService;
 import com.github.solairerove.blog.service.PostService;
 import org.junit.Before;
 import org.junit.Test;
@@ -41,6 +42,9 @@ public class PostControllerTest {
 
     @Autowired
     private PostService postService;
+
+    @Autowired
+    private CommentService commentService;
 
     @Before
     public void setup() throws Exception {
@@ -143,10 +147,39 @@ public class PostControllerTest {
         Comment comment = EntityUtils.generateComment();
         ObjectMapper objectMapper = new ObjectMapper();
 
-        mvc.perform(MockMvcRequestBuilders.request(HttpMethod.POST, "/api/posts/"+saved.getId()+"/comments")
+        mvc.perform(MockMvcRequestBuilders.request(HttpMethod.POST, "/api/posts/" + saved.getId() + "/comments")
                 .content(objectMapper.writeValueAsString(saved))
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.content().string(saved.getId().toString()))
                 .andExpect(MockMvcResultMatchers.status().isOk());
+    }
+
+    @Test
+    public void getAllCommentsFromPostTest() throws Exception {
+        postService.deleteAllPosts();
+        Post saved = EntityUtils.generatePost();
+        postService.save(saved);
+
+        Comment comment = EntityUtils.generateComment();
+        Comment anotherComment = EntityUtils.generateComment();
+
+        commentService.addNewCommentToPost(saved.getId(), comment);
+        commentService.addNewCommentToPost(saved.getId(), anotherComment);
+
+        mvc.perform(MockMvcRequestBuilders.request(HttpMethod.GET, "/api/posts/" + saved.getId() + "/comments")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.jsonPath("$", hasSize(2)))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].id", is(Math.toIntExact(comment.getId()))))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].author", is(comment.getAuthor())))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].review", is(comment.getReview())))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].date", is(comment.getDate())))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].postId", is(Math.toIntExact(comment.getPostId()))))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[1].id", is(Math.toIntExact(anotherComment.getId()))))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[1].author", is(anotherComment.getAuthor())))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[1].review", is(anotherComment.getReview())))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[1].date", is(anotherComment.getDate())))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[1].postId", is(Math.toIntExact(anotherComment.getPostId()))));
     }
 }
