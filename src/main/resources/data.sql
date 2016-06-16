@@ -4,8 +4,8 @@ VALUES (
   'Man must explore, and this is exploration at its greatest.',
   'Problems look mighty small from 150 miles up.',
   '<p>
-    What was most significant about the lunar voyage was not that man set foot on the Moonbut
-    that they set eye on the earth.
+    What was most significant about the lunar voyage was not that man set foot on the Moon,
+    but that they set eye on the earth.
    </p>
 
    <p>
@@ -14,8 +14,8 @@ VALUES (
 
    <p>
     NASA is not about the Adventure of Human Space Exploration.
-    We won`t be doing it just to get out there in space - we ll be doing it
-    because the things we learn out there will be making life better for a lot of people who won`t be able to go.
+    We won<q>t be doing it just to get out there in space - we<q>ll be doing it
+    because the things we learn out there will be making life better for a lot of people who won<q>t be able to go.
    </p>
 
    <p>
@@ -34,12 +34,12 @@ VALUES (
 INSERT INTO `post` (`id`, `title`, `subtitle`, `content`, `date`, `author`)
 VALUES (
   2,
-  'I believe every human has a finite number of heartbeats. I don''t intend to waste any of mine.',
+  'I believe every human has a finite number of heartbeats. I don<q>t intend to waste any of mine.',
   'Problems look mighty small.',
   '<p>
-    NASA is not about the `Adventure of Human Space Exploration`.
-    We won`t be doing it just to get out there in space - we`ll be doing it
-    because the things we learn out there will be making life better for a lot of people who won`t be able to go.
+    NASA is not about the <q>Adventure of Human Space Exploration</q>.
+    We won<q>t be doing it just to get out there in space - we<q>ll be doing it
+    because the things we learn out there will be making life better for a lot of people who won<q>t be able to go.
    </p>
 
    <p>
@@ -88,15 +88,15 @@ INSERT INTO `post` (`id`, `title`, `subtitle`, `content`, `date`, `author`)
 VALUES (
   4,
   'Failure is not an option.',
-  'Many say exploration is part of our destiny, but it`s actually our duty to future generations.',
+  'Many say exploration is part of our destiny, but it<q>s actually our duty to future generations.',
   '<p>
-    There can be no thought of finishing for `aiming for the stars.`
+    There can be no thought of finishing for <q>aiming for the stars.</q>
     Both figuratively and literally, it is a task to occupy the generations.
     And no matter how much progress one makes, there is always the thrill of just beginning.
    </p>
 
    <p>
-    There can be no thought of finishing for `aiming for the stars.`
+    There can be no thought of finishing for <q>aiming for the stars.</q>
     Both figuratively and literally, it is a task to occupy the generations.
     And no matter how much progress one makes, there is always the thrill of just beginning.
    </p>
