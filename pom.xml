@@ -47,10 +47,10 @@
             <groupId>org.springframework.security.oauth</groupId>
             <artifactId>spring-security-oauth2</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-hateoas</artifactId>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-hateoas</artifactId>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -238,6 +238,7 @@
                         <exclude>**/*dto/*.class</exclude>
                         <exclude>**/*service/CustomUserDetailsService.class</exclude>
                         <exclude>**/*controller/HomeController.class</exclude>
+                        <exclude>**/Application.class</exclude>
                     </excludes>
                 </configuration>
                 <executions>

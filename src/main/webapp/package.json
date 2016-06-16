@@ -25,6 +25,6 @@
     "concurrently": "2.1.0",
     "lite-server": "2.2.0",
     "typescript": "1.8.10",
-    "typings": "1.0.5"
+    "typings": "1.1.0"
   }
 }
