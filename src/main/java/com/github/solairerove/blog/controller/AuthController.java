@@ -23,6 +23,7 @@ public class AuthController {
     public ResponseEntity<?> authorize(@Valid @RequestBody LoginDTO loginDTO,
                                        HttpServletRequest request) throws AuthenticationException {
 
+
         return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
     }
 }
