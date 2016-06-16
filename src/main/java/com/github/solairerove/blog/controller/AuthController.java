@@ -45,33 +45,25 @@ public class AuthController {
             String token = Jwts.builder().setSubject(loginDTO.getLogin()).
                     signWith(SignatureAlgorithm.HS512, key).compact();
 
-//            Authentication authentication = this.authenticationManager.authenticate(authenticationToken);
-//            SecurityContext securityContext = SecurityContextHolder.getContext();
-//            securityContext.setAuthentication(authentication);
-
             return new ResponseEntity<>(new TokenModel(token), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 
-    @RequestMapping(value = "/user", method = RequestMethod.POST)
-    public ResponseEntity<?> currentUser(@Valid @RequestBody TokenModel tokenModel,
-                                         HttpServletRequest request) throws Exception {
+    @RequestMapping(value = "/user", method = RequestMethod.GET)
+    public ResponseEntity<?> currentUser(HttpServletRequest request) throws Exception {
 
-        String subject = Jwts.parser().setSigningKey(key).parseClaimsJws(tokenModel.getToken())
-                         .getBody().getSubject();
+        try {
+            String subject = Jwts.parser().setSigningKey(key).parseClaimsJws(request.getHeader("Rest-Token"))
+                    .getBody().getSubject();
 
-//        SecurityContext securityContext = SecurityContextHolder.getContext();
-//        Authentication authentication = securityContext.getAuthentication();
-//        if (authentication != null) {
-//            return (KikkoUser) authentication.getDetails();
-//        }
-//        return null;
+            Map<String, String> responseBody = new HashMap<>();
+            responseBody.put("subject", subject);
 
-
-        Map<String, String> responseBody = new HashMap<>();
-        responseBody.put("subject",subject);
-        return new ResponseEntity<>(responseBody,HttpStatus.OK);
+            return new ResponseEntity<>(responseBody, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
     }
 }
