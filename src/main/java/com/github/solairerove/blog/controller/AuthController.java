@@ -53,14 +53,12 @@ public class AuthController {
 
     @RequestMapping(value = "/user", method = RequestMethod.GET)
     public ResponseEntity<?> currentUser(HttpServletRequest request) throws Exception {
-
         try {
             String subject = Jwts.parser().setSigningKey(key).parseClaimsJws(request.getHeader("Rest-Token"))
                     .getBody().getSubject();
 
             Map<String, String> responseBody = new HashMap<>();
             responseBody.put("subject", subject);
-
             return new ResponseEntity<>(responseBody, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
