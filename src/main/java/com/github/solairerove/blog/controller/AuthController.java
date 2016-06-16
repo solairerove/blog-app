@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.security.Key;
 import java.util.HashMap;
@@ -61,6 +62,20 @@ public class AuthController {
             responseBody.put("subject", subject);
             return new ResponseEntity<>(responseBody, HttpStatus.OK);
         } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
+    }
+
+    @RequestMapping(value = "/logout", method = RequestMethod.POST)
+    public ResponseEntity<?> logout(HttpServletRequest request,
+                                    HttpServletResponse response) throws Exception {
+        try {
+            String subject = Jwts.parser().setSigningKey(key).parseClaimsJws(request.getHeader("Rest-Token"))
+                    .getBody().getSubject();
+
+            //TODO: fix it if we want session, if not logout mech will be on client side
+            return new ResponseEntity<>(HttpStatus.OK);
+        }catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
     }
