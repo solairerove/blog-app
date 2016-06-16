@@ -65,7 +65,7 @@ VALUES (
   '<p>
     We want to explore. We re curious people. Look back over history,
     people have put their lives at stake to go out and explore.
-    We believe in what we’re doing. Now it`s time to go.
+    We believe in what we`re doing. Now it`s time to go.
    </p>
 
    <p>
@@ -88,7 +88,7 @@ INSERT INTO `post` (`id`, `title`, `subtitle`, `content`, `date`, `author`)
 VALUES (
   4,
   'Failure is not an option.',
-  'Many say exploration is part of our destiny, but it’s actually our duty to future generations.',
+  'Many say exploration is part of our destiny, but it`s actually our duty to future generations.',
   '<p>
     There can be no thought of finishing for `aiming for the stars.`
     Both figuratively and literally, it is a task to occupy the generations.
