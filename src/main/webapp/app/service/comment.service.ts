@@ -12,7 +12,7 @@ export class CommentService {
     private url:string;
 
     constructor(private http:Http) {
-        this.url = Constraints.POST_URL_WITH_END_SLASH;
+        this.url = Constraints.POST_URL;
     }
 
     getPostComments(id):Observable<Comment[]> {

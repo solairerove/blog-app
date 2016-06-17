@@ -10,11 +10,9 @@ import {Constraints} from '../constraints/constraints';
 export class PostService {
 
     private url:string;
-    private postUrl:string;
 
     constructor(private http:Http) {
         this.url = Constraints.POST_URL;
-        this.postUrl = Constraints.POST_URL;
     }
 
     getPosts():Observable<Post[]> {
@@ -35,7 +33,7 @@ export class PostService {
         headers.append('Content-type',
             'application/json');
 
-        return this.http.post(this.postUrl, json, {
+        return this.http.post(this.url, json, {
                 headers: headers
             })
             .catch(this.handleError);
