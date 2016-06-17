@@ -5,5 +5,4 @@ export class Constraints {
     public static ADD_POST_PATH = '/add';
     public static OTHER = '/**';
     public static POST_URL = 'https://rest-blog.herokuapp.com/api/posts';
-    public static POST_URL_WITH_END_SLASH = 'http://localhost:8080/api/posts/';
 }
