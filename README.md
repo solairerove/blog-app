@@ -74,6 +74,6 @@ ___
 
 ___
 
-[travis]: https://travis-ci.org/solairerove/blog-app.svg?branch=master
-[coveralls]: https://coveralls.io/repos/github/solairerove/blog-app/badge.svg?branch=master
+[travis]: http://travis-ci.org/solairerove/blog-app.svg?branch=master
+[coveralls]: http://coveralls.io/repos/github/solairerove/blog-app/badge.svg?branch=master
 [version]: https://www.versioneye.com/user/projects/574ffa3ee298f30028d711f1/badge.svg?style=flat
