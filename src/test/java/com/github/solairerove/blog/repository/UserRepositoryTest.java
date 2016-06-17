@@ -4,7 +4,6 @@ import com.github.solairerove.blog.Application;
 import com.github.solairerove.blog.domain.Authority;
 import com.github.solairerove.blog.domain.User;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,13 +26,6 @@ public class UserRepositoryTest {
 
     @Autowired
     private UserRepository userRepository;
-
-    @Before
-    public void setUp() {
-        List<Authority> authorities = new LinkedList<>();
-        authorities.add(new Authority("ADMIN"));
-        userRepository.save(new User("stark1", "iron1@gmail.com", "iron_man_1", "strongpwd", authorities));
-    }
 
     @Test
     public void findUserByIdTest() {

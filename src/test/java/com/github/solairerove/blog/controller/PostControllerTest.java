@@ -2,8 +2,10 @@ package com.github.solairerove.blog.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.solairerove.blog.Application;
+import com.github.solairerove.blog.domain.Comment;
 import com.github.solairerove.blog.domain.Post;
 import com.github.solairerove.blog.repository.common.EntityUtils;
+import com.github.solairerove.blog.service.CommentService;
 import com.github.solairerove.blog.service.PostService;
 import org.junit.Before;
 import org.junit.Test;
@@ -41,13 +43,16 @@ public class PostControllerTest {
     @Autowired
     private PostService postService;
 
+    @Autowired
+    private CommentService commentService;
+
     @Before
     public void setup() throws Exception {
         this.mvc = webAppContextSetup(context).build();
     }
 
     @Test
-    public void findAllPosts() throws Exception {
+    public void getAllPostsTest() throws Exception {
         postService.deleteAllPosts();
         postService.save(new Post("test title", "test subtitle", "test content", "test date", "test author"));
         postService.save(new Post("another test title", "another test subtitle", "another test content", "" +
@@ -55,21 +60,21 @@ public class PostControllerTest {
 
         mvc.perform(MockMvcRequestBuilders.request(HttpMethod.GET, "/api/posts"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.content", hasSize(2)))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.content[0].title", is("test title")))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.content[0].subtitle", is("test subtitle")))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.content[0].content", is("test content")))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.content[0].date", is("test date")))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.content[0].author", is("test author")))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.content[1].title", is("another test title")))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.content[1].subtitle", is("another test subtitle")))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.content[1].content", is("another test content")))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.content[1].date", is("another test date")))
-                .andExpect(MockMvcResultMatchers.jsonPath("$.content[1].author", is("another test author")));
+                .andExpect(MockMvcResultMatchers.jsonPath("$", hasSize(2)))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].title", is("test title")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].subtitle", is("test subtitle")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].content", is("test content")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].date", is("test date")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].author", is("test author")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[1].title", is("another test title")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[1].subtitle", is("another test subtitle")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[1].content", is("another test content")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[1].date", is("another test date")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[1].author", is("another test author")));
     }
 
     @Test
-    public void getOnePostById() throws Exception {
+    public void getOnePostByIdTest() throws Exception {
         postService.deleteAllPosts();
         Post saved = EntityUtils.generatePost();
         postService.save(saved);
@@ -87,7 +92,7 @@ public class PostControllerTest {
     }
 
     @Test
-    public void addNewPost() throws Exception {
+    public void addNewPostTest() throws Exception {
         postService.deleteAllPosts();
         Post saved = EntityUtils.generatePost();
         ObjectMapper objectMapper = new ObjectMapper();
@@ -95,6 +100,86 @@ public class PostControllerTest {
         mvc.perform(MockMvcRequestBuilders.request(HttpMethod.POST, "/api/posts")
                 .content(objectMapper.writeValueAsString(saved))
                 .contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isCreated());
+    }
+
+    @Test
+    public void deletePostByIdTest() throws Exception {
+        postService.deleteAllPosts();
+        Post saved = EntityUtils.generatePost();
+        postService.save(saved);
+
+        mvc.perform(MockMvcRequestBuilders.request(HttpMethod.DELETE, "/api/posts/" + saved.getId())
+                .contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.content().string(saved.getId().toString()))
                 .andExpect(MockMvcResultMatchers.status().isOk());
+    }
+
+    @Test
+    public void updatePostByIdTest() throws Exception {
+        postService.deleteAllPosts();
+        Post saved = EntityUtils.generatePost();
+        postService.save(saved);
+
+        saved.setContent("changed");
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        mvc.perform(MockMvcRequestBuilders.request(HttpMethod.PUT, "/api/posts/")
+                .content(objectMapper.writeValueAsString(saved))
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.content().string(saved.getId().toString()))
+                .andExpect(MockMvcResultMatchers.status().isOk());
+    }
+
+    @Test
+    public void deleteAllPostsTest() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.request(HttpMethod.DELETE, "/api/posts/clear")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk());
+    }
+
+    @Test
+    public void addNewCommentToPostTest() throws Exception {
+        postService.deleteAllPosts();
+        Post saved = EntityUtils.generatePost();
+        postService.save(saved);
+
+        Comment comment = EntityUtils.generateComment();
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        mvc.perform(MockMvcRequestBuilders.request(HttpMethod.POST, "/api/posts/" + saved.getId() + "/comments")
+                .content(objectMapper.writeValueAsString(saved))
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.content().string(saved.getId().toString()))
+                .andExpect(MockMvcResultMatchers.status().isOk());
+    }
+
+    @Test
+    public void getAllCommentsFromPostTest() throws Exception {
+        postService.deleteAllPosts();
+        Post saved = EntityUtils.generatePost();
+        postService.save(saved);
+
+        Comment comment = EntityUtils.generateComment();
+        Comment anotherComment = EntityUtils.generateComment();
+
+        commentService.addNewCommentToPost(saved.getId(), comment);
+        commentService.addNewCommentToPost(saved.getId(), anotherComment);
+
+        mvc.perform(MockMvcRequestBuilders.request(HttpMethod.GET, "/api/posts/" + saved.getId() + "/comments")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON_UTF8))
+                .andExpect(MockMvcResultMatchers.jsonPath("$", hasSize(2)))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].id", is(Math.toIntExact(comment.getId()))))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].author", is(comment.getAuthor())))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].review", is(comment.getReview())))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].date", is(comment.getDate())))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[0].postId", is(Math.toIntExact(comment.getPostId()))))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[1].id", is(Math.toIntExact(anotherComment.getId()))))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[1].author", is(anotherComment.getAuthor())))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[1].review", is(anotherComment.getReview())))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[1].date", is(anotherComment.getDate())))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.[1].postId", is(Math.toIntExact(anotherComment.getPostId()))));
     }
 }

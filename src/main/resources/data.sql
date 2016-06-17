@@ -1,66 +1,141 @@
-INSERT INTO `POST` (`id`, `title`, `subtitle`, `content`, `date`, `author`)
+INSERT INTO `post` (`id`, `title`, `subtitle`, `content`, `date`, `author`)
 VALUES (
   1,
   'Man must explore, and this is exploration at its greatest.',
   'Problems look mighty small from 150 miles up.',
-  '<p>What was most significant about the lunar voyage was not that man set foot on the Moon but that they set eye on the earth.</p>
-  <p>Houston, Tranquillity Base here. The Eagle has landed.</p>
-  <p>NASA is not about the ‘Adventure of Human Space Exploration’…We won’t be doing it just to get out there in space – we’ll be doing it because the things we learn out there will be making life better for a lot of people who won’t be able to go.</p>
-  <p>The Earth was small, light blue, and so touchingly alone, our home that must be defended like a holy relic. The Earth was absolutely round. I believe I never knew what the word round meant until I saw Earth from space.</p>
-  <p>When I orbited the Earth in a spaceship, I saw for the first time how beautiful our planet is. Mankind, let us preserve and increase this beauty, and not destroy it!</p>',
+  '<p>
+    What was most significant about the lunar voyage was not that man set foot on the Moon,
+    but that they set eye on the earth.
+   </p>
+
+   <p>
+    Houston, Tranquillity Base here. The Eagle has landed.
+   </p>
+
+   <p>
+    NASA is not about the Adventure of Human Space Exploration.
+    We won<q>t be doing it just to get out there in space - we<q>ll be doing it
+    because the things we learn out there will be making life better for a lot of people who won<q>t be able to go.
+   </p>
+
+   <p>
+    The Earth was small, light blue, and so touchingly alone, our home that must be defended like a holy relic.
+    The Earth was absolutely round. I believe I never knew what the word round meant until I saw Earth from space.
+   </p>
+
+   <p>
+    When I orbited the Earth in a spaceship, I saw for the first time how beautiful our planet is.
+    Mankind, let us preserve and increase this beauty, and not destroy it!
+   </p>',
   '2016-05-11',
   'union.one'
 );
 
-INSERT INTO `POST` (`id`, `title`, `subtitle`, `content`, `date`, `author`)
+INSERT INTO `post` (`id`, `title`, `subtitle`, `content`, `date`, `author`)
 VALUES (
   2,
-  'I believe every human has a finite number of heartbeats. I don''t intend to waste any of mine.',
+  'I believe every human has a finite number of heartbeats. I don<q>t intend to waste any of mine.',
   'Problems look mighty small.',
-  '<p>NASA is not about the ‘Adventure of Human Space Exploration’…We won’t be doing it just to get out there in space – we’ll be doing it because the things we learn out there will be making life better for a lot of people who won’t be able to go.</p>
-  <p>The dreams of yesterday are the hopes of today and the reality of tomorrow.</p>
-  <p>As we got further and further away, it [the Earth] diminished in size. Finally it shrank to the size of a marble, the most beautiful you can imagine. That beautiful, warm, living object looked so fragile, so delicate, that if you touched it with a finger it would crumble and fall apart. Seeing this has to change a man.</p>',
+  '<p>
+    NASA is not about the <q>Adventure of Human Space Exploration</q>.
+    We won<q>t be doing it just to get out there in space - we<q>ll be doing it
+    because the things we learn out there will be making life better for a lot of people who won<q>t be able to go.
+   </p>
+
+   <p>
+    The dreams of yesterday are the hopes of today and the reality of tomorrow.
+   </p>
+
+   <p>
+    As we got further and further away, it the Earth diminished in size.
+    Finally it shrank to the size of a marble, the most beautiful you can imagine.
+    That beautiful, warm, living object looked so fragile, so delicate,
+    that if you touched it with a finger it would crumble and fall apart.
+    Seeing this has to change a man.
+   </p>',
   '2016-05-11',
   'vlad'
 );
 
-INSERT INTO `POST` (`id`, `title`, `subtitle`, `content`, `date`, `author`)
+INSERT INTO `post` (`id`, `title`, `subtitle`, `content`, `date`, `author`)
 VALUES (
   3,
   'Science has not yet mastered prophecy.',
   'We predict too much for the next year and yet far too little for the next ten.',
-  '<p>We want to explore. We’re curious people. Look back over history, people have put their lives at stake to go out and explore … We believe in what we’re doing. Now it’s time to go.</p>
-  <p>We choose to go to the moon in this decade and do the other things, not because they are easy, but because they are hard, because that goal will serve to organize and measure the best of our energies and skills, because that challenge is one that we are willing to accept, one we are unwilling to postpone, and one which we intend to win.</p>
-  <p>Buy why, some say, the moon? Why choose this as our goal? And they may as well ask why climb the highest mountain?</p>',
+  '<p>
+    We want to explore. We re curious people. Look back over history,
+    people have put their lives at stake to go out and explore.
+    We believe in what we`re doing. Now it`s time to go.
+   </p>
+
+   <p>
+    We choose to go to the moon in this decade and do the other things,
+    not because they are easy, but because they are hard,
+    because that goal will serve to organize and measure the best of our energies and skills,
+    because that challenge is one that we are willing to accept,
+    one we are unwilling to postpone, and one which we intend to win.
+   </p>
+
+   <p>
+    Buy why, some say, the moon? Why choose this as our goal?
+    And they may as well ask why climb the highest mountain?
+   </p>',
   '2016-05-11',
   'union.one'
 );
 
-INSERT INTO `POST` (`id`, `title`, `subtitle`, `content`, `date`, `author`)
+INSERT INTO `post` (`id`, `title`, `subtitle`, `content`, `date`, `author`)
 VALUES (
   4,
   'Failure is not an option.',
-  'Many say exploration is part of our destiny, but it’s actually our duty to future generations.',
-  '<p>There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it is a task to occupy the generations. And no matter how much progress one makes, there is always the thrill of just beginning.</p>
-  <p>There can be no thought of finishing for ‘aiming for the stars.’ Both figuratively and literally, it is a task to occupy the generations. And no matter how much progress one makes, there is always the thrill of just beginning.</p>
-  <p>Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the next 10.</p>',
+  'Many say exploration is part of our destiny, but it<q>s actually our duty to future generations.',
+  '<p>
+    There can be no thought of finishing for <q>aiming for the stars.</q>
+    Both figuratively and literally, it is a task to occupy the generations.
+    And no matter how much progress one makes, there is always the thrill of just beginning.
+   </p>
+
+   <p>
+    There can be no thought of finishing for <q>aiming for the stars.</q>
+    Both figuratively and literally, it is a task to occupy the generations.
+    And no matter how much progress one makes, there is always the thrill of just beginning.
+   </p>
+
+   <p>
+    Science has not yet mastered prophecy.
+    We predict too much for the next year and yet far too little for the next 10.
+   </p>',
   '2016-05-11',
   'union.one'
 );
 
-INSERT INTO `POST` (`id`, `title`, `subtitle`, `content`, `date`, `author`)
+INSERT INTO `post` (`id`, `title`, `subtitle`, `content`, `date`, `author`)
 VALUES (
   5,
   'MockFlow new feature: Link your comments in the Mockup.',
   'This is the part 2 follow up feature to our SiteMap implementation.',
-  '<p>We choose to go to the moon in this decade and do the other things, not because they are easy, but because they are hard, because that goal will serve to organize and measure the best of our energies and skills, because that challenge is one that we are willing to accept, one we are unwilling to postpone, and one which we intend to win.</p>
-  <p>For those who have seen the Earth from space, and for the hundreds and perhaps thousands more who will, the experience most certainly changes your perspective. The things that we share in our world are far more valuable than those which divide us.</p>
-  <p>Across the sea of space, the stars are other suns.</p>',
+  '<p>
+    We choose to go to the moon in this decade and do the other things,
+    not because they are easy, but because they are hard,
+    because that goal will serve to organize and measure the best of our energies and skills,
+    because that challenge is one that we are willing to accept,
+    one we are unwilling to postpone, and one which we intend to win.
+   </p>
+
+   <p>
+    For those who have seen the Earth from space, and for the hundreds and perhaps thousands more who will,
+    the experience most certainly changes your perspective.
+    The things that we share in our world are far more valuable than those which divide us.
+   </p>
+
+   <p>
+    Across the sea of space, the stars are other suns.
+   </p>',
   '2016-05-11',
   'vlad'
 );
 
-INSERT INTO `COMMENT` (`id`, `author`, `review`, `date`, `post_id`)
+INSERT INTO `comment` (`id`, `author`, `review`, `date`, `post_id`)
 VALUES (
   1,
   'this is great author.',
@@ -69,7 +144,7 @@ VALUES (
   1
 );
 
-INSERT INTO `COMMENT` (`id`, `author`, `review`, `date`, `post_id`)
+INSERT INTO `comment` (`id`, `author`, `review`, `date`, `post_id`)
 VALUES (
   2,
   'this is great author.',
@@ -78,7 +153,7 @@ VALUES (
   1
 );
 
-INSERT INTO `COMMENT` (`id`, `author`, `review`, `date`, `post_id`)
+INSERT INTO `comment` (`id`, `author`, `review`, `date`, `post_id`)
 VALUES (
   3,
   'this is great author.',
@@ -87,7 +162,7 @@ VALUES (
   1
 );
 
-INSERT INTO `COMMENT` (`id`, `author`, `review`, `date`, `post_id`)
+INSERT INTO `comment` (`id`, `author`, `review`, `date`, `post_id`)
 VALUES (
   4,
   'this is great author.',
@@ -96,7 +171,7 @@ VALUES (
   1
 );
 
-INSERT INTO `COMMENT` (`id`, `author`, `review`, `date`, `post_id`)
+INSERT INTO `comment` (`id`, `author`, `review`, `date`, `post_id`)
 VALUES (
   5,
   'this is great author.',
@@ -105,7 +180,7 @@ VALUES (
   2
 );
 
-INSERT INTO `COMMENT` (`id`, `author`, `review`, `date`, `post_id`)
+INSERT INTO `comment` (`id`, `author`, `review`, `date`, `post_id`)
 VALUES (
   6,
   'this is great author.',
@@ -114,7 +189,7 @@ VALUES (
   2
 );
 
-INSERT INTO `COMMENT` (`id`, `author`, `review`, `date`, `post_id`)
+INSERT INTO `comment` (`id`, `author`, `review`, `date`, `post_id`)
 VALUES (
   7,
   'this is great author.',
@@ -123,24 +198,27 @@ VALUES (
   2
 );
 
-INSERT INTO `USER` (`id`, `nickname`, `email`, `login`, `password`)
+INSERT INTO `user` (`id`, `nickname`, `email`, `login`, `password`)
 VALUES (
   1,
-  'JaVaDeV',
-  'javadev12@mail.com',
-  'voitelrulit',
-  'strongpwd'
+  'Admin',
+  'admin@gmail.com',
+  'admin',
+  'pass'
 );
 
-INSERT INTO `AUTHORITY` (`id`, `name`)
+INSERT INTO `user` (`id`, `nickname`, `email`, `login`, `password`)
 VALUES (
-  1,
-  'ROLE_USER',
+  2,
+  'User',
+  'user@gmail.com',
+  'user',
+  'pass'
 );
 
-INSERT INTO `USER_AUTHORITY` (`id`, `user_id`, `role_id`)
-VALUES (
-  1,
-  1,
-  1
-)
+INSERT INTO `authority` (`id`, `name`) VALUES (1, 'ROLE_USER');
+INSERT INTO `authority` (`id`, `name`) VALUES (2, 'ROLE_ADMIN');
+
+INSERT INTO `user_authority` (`id`, `user_id`, `role_id`) VALUES (1, 1, 1);
+INSERT INTO `user_authority` (`id`, `user_id`, `role_id`) VALUES (2, 1, 2);
+INSERT INTO `user_authority` (`id`, `user_id`, `role_id`) VALUES (3, 2, 1);

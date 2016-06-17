@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.List;
 
 public class PostDTO implements Serializable {
-    private Integer id;
+    private Long id;
     private String title;
     private String subtitle;
     private String content;
@@ -17,7 +17,7 @@ public class PostDTO implements Serializable {
     public PostDTO() {
     }
 
-    public PostDTO(Integer id, String title, String subtitle, String content, String date, String author) {
+    public PostDTO(Long id, String title, String subtitle, String content, String date, String author) {
         this.id = id;
         this.title = title;
         this.subtitle = subtitle;
@@ -26,21 +26,11 @@ public class PostDTO implements Serializable {
         this.author = author;
     }
 
-    public PostDTO(Integer id, String title, String subtitle, String content, String date, String author, List<Comment> commentList) {
-        this.id = id;
-        this.title = title;
-        this.subtitle = subtitle;
-        this.content = content;
-        this.date = date;
-        this.author = author;
-        this.commentList = commentList;
-    }
-
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

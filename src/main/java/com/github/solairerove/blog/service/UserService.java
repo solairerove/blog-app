@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * Created by vlad on 23.05.16.
+ * Created by union on 5/06/16.
  */
 @Service
 @Transactional
@@ -20,11 +20,11 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public User findUserById(Integer id) {
+    public User findUserById(Long id) {
         return userRepository.findUserById(id);
     }
 
-    public void changeUserNickname(String nickname, Integer id) {
+    public void changeUserNickname(String nickname, Long id) {
         userRepository.changeUserNickname(nickname, id);
     }
 
@@ -32,7 +32,11 @@ public class UserService {
         return userRepository.findUserByNickname(nickname);
     }
 
-    public void deleteUserById(Integer id) {
-        userRepository.delete(id);
+    public User findUserByLogin(String login) {
+        return userRepository.findUserByLogin(login);
+    }
+
+    public void deleteUserById(Long id) {
+        userRepository.deleteUserById(id);
     }
 }

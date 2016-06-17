@@ -1,43 +1,11 @@
 # [blog-app](https://rest-blog.herokuapp.com)
-[![Build Status](https://travis-ci.org/solairerove/blog-app.svg?branch=master)](https://travis-ci.org/solairerove/blog-app) 
-[![Dependency Status](https://www.versioneye.com/user/projects/574ffa3ee298f30028d711f1/badge.svg?style=flat)](https://www.versioneye.com/user/projects/574ffa3ee298f30028d711f1)
-##### TODO on client
-
-* routing **implemented**
-* bootstrap **implemented**
-* post details **implemented**
-* html content formatting **implemented**
-* comment details **implemented**
-* style comments **implemented**
-* add new post 
-* show comments button **implemented**
-* posts pagination
-* client as view of rest server **implemented**
+![][travis]
+![][coveralls]
+![][version]
 
 ___
 
-##### TODO on server
-
-* user and authority models **implemented**
-* user and authority dto **implemented**
-* additional repositories and services **implemented**
-* aspectj **implemented**
-* rename `authority` to `authority` **implemented**
-* added email(uniq) **implemented**
-* nickname and login ara uniq **implemented**
-* many to many relation between user and authority **implemented**
-* simple rest security filter **implemented**
-* additional junit and mock
-* OAuth2 implementation
-* sign up controller
-* update group in insomnia rest client
-* [api doc generate](https://github.com/kongchen/swagger-maven-plugin#typesToSkip)
-* mvn site generate
-* `pagination, sort and filtering`
-* `add findAll(Pageable page) service implementation`
-___
-
-##### Additional cookies
+##### Additional cookies:
 
 * `npm i -g json`
 * `sudo apt-get install python-pygments`
@@ -45,35 +13,55 @@ ___
 
 ___
 
-##### Run server
+##### Run server:
 
 * `mvn spring-boot:run`
-or
 * `mvn clean install`
 * `java -jar target/*.jar`
 
 ___
 
-##### Use H2 web console:
+##### Use H2 [web console](https://github.com/solairerove/blog-app/blob/master/src/main/java/com/github/solairerove/blog/config/H2Configuration.java):
 
 * `http://localhost:8080/console/`
 * `jdbc:h2:mem:post`
 
 ___
 
-#### Open in whatever rest client
+##### Generate Maven Site:
+
+* `mvn site`
+* `target/site/index.html`
+
+___
+
+##### Generate [Api doc](https://github.com/solairerove/blog-app/blob/master/pom.xml#L176-L216):
+
+* `mvn clean compile`
+* `target/generated/document.html`
+
+___
+
+##### [coveralls-maven-plugin](https://github.com/solairerove/blog-app/blob/master/pom.xml#L219-L252):
+
+* `mvn clean test jacoco:report`
+* `target/site/jacoco/index.html`
+* `mvn clean test jacoco:report coveralls:report`
+
+___
+
+#### Open in whatever rest client:
 
 * `http://localhost:8080/api/posts/1` - get post by id
 * `http://localhost:8080/api/posts/` - get all posts
-* `http://localhost:8080/api/posts?page=1&size=2` - get 2 elements from 1 page 
 * `http://localhost:8080/api/posts` - add new post
-* `http://localhost:8080/api/posts/5` - delete post by id
+* `http://localhost:8080/api/posts/1` - delete post by id
 * `http://localhost:8080/api/posts` - update post content by id
 * `http://localhost:8080/api/comments` - get all comments
 * `http://localhost:8080/api/comments/1` - get comment by id
 * `http://localhost:8080/api/comments` - update review by id
 * `http://localhost:8080/api/comments/1` - delete comment by id
-* `http://localhost:8080/api/posts/6/comments` - add new comment to post by id
+* `http://localhost:8080/api/posts/1/comments` - add new comment to post by id
 * `http://localhost:8080/api/posts/1/comments` - get all comments from post by id
 
 ___
@@ -86,10 +74,6 @@ ___
 
 ___
 
-##### The Spring Boot gradle plugin provides many convenient features:
-
-* It collects all the jars on the classpath and builds a single, runnable `über-jar`, which makes it more convenient to execute and transport your service.
-* It searches for the `public static void main()` method to flag as a runnable class.
-* It provides a built-in dependency resolver that sets the version number to match Spring Boot dependencies. You can override any version you wish, but it will default to Boot’s chosen set of versions.
-
-____
+[travis]: http://travis-ci.org/solairerove/blog-app.svg?branch=master
+[coveralls]: http://coveralls.io/repos/github/solairerove/blog-app/badge.svg?branch=master
+[version]: https://www.versioneye.com/user/projects/574ffa3ee298f30028d711f1/badge.svg?style=flat
