@@ -1,7 +1,7 @@
 # [blog-app](https://rest-blog.herokuapp.com)
-[![Build Status](https://travis-ci.org/solairerove/blog-app.svg?branch=master)](https://travis-ci.org/solairerove/blog-app) 
-[![Dependency Status](https://www.versioneye.com/user/projects/574ffa3ee298f30028d711f1/badge.svg?style=flat)](https://www.versioneye.com/user/projects/574ffa3ee298f30028d711f1)
-[![Coverage Status](https://coveralls.io/repos/github/solairerove/blog-app/badge.svg?branch=master)](https://coveralls.io/github/solairerove/blog-app?branch=master)
+![][travis]
+![][coveralls]
+![][version]
 
 ___
 
@@ -73,3 +73,7 @@ ___
 * `@ComponentScan` tells Spring to look for other components, configurations, and services in the package, allowing it to find the `GreetingController`.
 
 ___
+
+[travis]: https://travis-ci.org/solairerove/blog-app.svg?branch=master
+[coveralls]: https://coveralls.io/repos/github/solairerove/blog-app/badge.svg?branch=master
+[version]: https://www.versioneye.com/user/projects/574ffa3ee298f30028d711f1/badge.svg?style=flat
