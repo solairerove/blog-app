@@ -21,7 +21,7 @@ ___
 
 ___
 
-##### Use H2 [web console](https://github.com/solairerove/blog-app/blob/master/src/main/java/com/github/solairerove/blog/Application.java#L21-L26):
+##### Use H2 [web console](https://github.com/solairerove/blog-app/blob/master/src/main/java/com/github/solairerove/blog/config/H2Configuration.java):
 
 * `http://localhost:8080/console/`
 * `jdbc:h2:mem:post`
@@ -35,14 +35,14 @@ ___
 
 ___
 
-##### Generate [Api doc](https://github.com/solairerove/blog-app/blob/master/pom.xml#L173-L214):
+##### Generate [Api doc](https://github.com/solairerove/blog-app/blob/master/pom.xml#L176-L216):
 
 * `mvn clean compile`
 * `target/generated/document.html`
 
 ___
 
-##### [coveralls-maven-plugin](https://github.com/solairerove/blog-app/blob/master/pom.xml#L216-L239):
+##### [coveralls-maven-plugin](https://github.com/solairerove/blog-app/blob/master/pom.xml#L219-L252):
 
 * `mvn clean test jacoco:report`
 * `target/site/jacoco/index.html`
