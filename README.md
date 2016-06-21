@@ -1,8 +1,7 @@
 # [blog-app](https://rest-blog.herokuapp.com)
-![][travis]
-![][coveralls]
-![][version]
-
+[![Build Status](https://travis-ci.org/solairerove/blog-app.svg?branch=master)](https://travis-ci.org/solairerove/blog-app)
+[![Coverage Status](https://coveralls.io/repos/github/solairerove/blog-app/badge.svg?branch=master)](https://coveralls.io/github/solairerove/blog-app?branch=master)
+[![Dependency Status](https://www.versioneye.com/user/projects/574ffa3ee298f30028d711f1/badge.svg?style=flat)](https://www.versioneye.com/user/projects/574ffa3ee298f30028d711f1)
 ___
 
 ##### Additional cookies:
@@ -99,6 +98,5 @@ git gc --aggressive --prune=now
 git push origin -f
 ```
 
-[travis]: http://travis-ci.org/solairerove/blog-app.svg?branch=master
 [coveralls]: http://coveralls.io/repos/github/solairerove/blog-app/badge.svg?branch=master
 [version]: https://www.versioneye.com/user/projects/574ffa3ee298f30028d711f1/badge.svg?style=flat
