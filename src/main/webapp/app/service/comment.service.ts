@@ -16,7 +16,7 @@ export class CommentService {
     }
 
     getPostComments(id):Observable<Comment[]> {
-        return this.http.get(this.url + id + '/'
+        return this.http.get(this.url + '/' + id + '/'
                 + 'comments')
             .map(res => res.json())
             .catch(this.handleError);
