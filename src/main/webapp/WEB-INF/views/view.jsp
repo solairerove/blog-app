@@ -41,7 +41,7 @@
                 }
             }
         });
-        System.import('app/main').then(null, console.error.bind(console));
+        System.import('../../app/main').then(null, console.error.bind(console));
     </script>
 </head>
 

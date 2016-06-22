@@ -4,4 +4,30 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
 		 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/spring/root-context.xml</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>portalListenerClasses</param-name>
+        <param-value>
+            com.liferay.portal.kernel.servlet.SerializableSessionAttributeListener,
+            org.springframework.web.com.liferay.getaquote.util.Log4jConfigListener,
+            org.springframework.web.context.ContextLoaderListener
+        </param-value>
+    </context-param>
+
+    <servlet>
+        <servlet-name>view-servlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>view-servlet</servlet-name>
+        <url-pattern>/WEB-INF/servlet/view</url-pattern>
+    </servlet-mapping>
+
 </web-app>

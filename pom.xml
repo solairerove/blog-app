@@ -13,11 +13,34 @@
     <description>RESTFul Blog</description>
     <url>https://github.com/solairerove/blog-app</url>
 
+    <profiles>
+        <profile>
+            <id>doclint-java8-disable</id>
+            <activation>
+                <jdk>[1.8,)</jdk>
+            </activation>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <configuration>
+                            <additionalparam>-Xdoclint:none</additionalparam>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
     <properties>
         <aspectjrt.version>1.8.9</aspectjrt.version>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <liferay.version>6.2.5</liferay.version>
+        <spring.version>4.2.6.RELEASE</spring.version>
+        <jackson-version>2.6.3</jackson-version>
     </properties>
 
     <parent>
@@ -87,6 +110,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+            <version>4.12</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -164,6 +188,29 @@
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc-portlet</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>4.0.2.RELEASE</version>
+        </dependency>
+
+        <!-- Others -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson-version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -185,23 +232,23 @@
             </plugin>
 
             <!--Liferay maven plugin-->
-            <!--<plugin>-->
-                <!--<groupId>com.liferay.maven.plugins</groupId>-->
-                <!--<artifactId>liferay-maven-plugin</artifactId>-->
-                <!--<version>${liferay.version}</version>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<phase>generate-sources</phase>-->
-                        <!--<goals>-->
-                            <!--<goal>build-css</goal>-->
-                        <!--</goals>-->
-                    <!--</execution>-->
-                <!--</executions>-->
-                <!--<configuration>-->
-                    <!--<liferayVersion>${liferay.version}</liferayVersion>-->
-                    <!--<pluginType>portlet</pluginType>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
+            <plugin>
+                <groupId>com.liferay.maven.plugins</groupId>
+                <artifactId>liferay-maven-plugin</artifactId>
+                <version>${liferay.version}</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>build-css</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <liferayVersion>${liferay.version}</liferayVersion>
+                    <pluginType>portlet</pluginType>
+                </configuration>
+            </plugin>
 
             <!-- Frontend maven plugin -->
             <plugin>

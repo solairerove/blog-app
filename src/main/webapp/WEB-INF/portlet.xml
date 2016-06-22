@@ -9,11 +9,12 @@ http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd "
     <portlet>
         <portlet-name>Blog-App</portlet-name>
         <display-name>Blog-App</display-name>
-        <portlet-class>com.liferay.util.bridges.mvc.MVCPortlet</portlet-class>
+        <portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
         <init-param>
-            <name>view-template</name>
-            <value>/view.jsp</value>
+            <name>contextConfigLocation</name>
+            <value>/WEB-INF/spring/portlet-context.xml</value>
         </init-param>
+
         <expiration-cache>0</expiration-cache>
         <supports>
             <mime-type>text/html</mime-type>
@@ -23,5 +24,18 @@ http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd "
             <short-title>Blog-App</short-title>
             <keywords>Blog-App</keywords>
         </portlet-info>
+
+        <security-role-ref>
+            <role-name>administrator</role-name>
+        </security-role-ref>
+        <security-role-ref>
+            <role-name>guest</role-name>
+        </security-role-ref>
+        <security-role-ref>
+            <role-name>power-user</role-name>
+        </security-role-ref>
+        <security-role-ref>
+            <role-name>user</role-name>
+        </security-role-ref>
     </portlet>
 </portlet-app>
