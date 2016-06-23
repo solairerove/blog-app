@@ -41,7 +41,7 @@ gulp.task("libs", () => {
         'angular2/core.js',
         'angular2/http.js',
         'angular2/router.js',
-        'angular2/**',
+        'angular2/src/**',
         'rxjs/**'
     ], {cwd: "node_modules/**"})
         .pipe(gulp.dest("build/lib"));

@@ -15,7 +15,9 @@
     };
 
     var packageNames = [
-        'angular2/'
+        'angular2',
+        'rxjs',
+        'systemjs'
     ];
 
     packageNames.forEach(function (pkgName) {
