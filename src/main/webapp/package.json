@@ -1,6 +1,8 @@
 {
   "name": "blog-client",
-  "version": "1.0.0",
+  "version": "1.1.0",
+  "description": "Angular 2 application for rest development using typescript and gulp",
+  "main": "index.js",
   "scripts": {
     "start": "concurrent \"npm run tsc:w\" \"npm run lite\" ",
     "tsc": "tsc",
@@ -9,7 +11,18 @@
     "typings": "typings",
     "postinstall": "typings install"
   },
-  "license": "ISC",
+
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/solairerove/blog-app"
+  },
+
+  "authors": {
+    "solairerove": "Nikita Krivitski",
+    "vlsidlyarevich": "Vladislav Sidlyarevich"
+  },
+  "license": "MIT",
+
   "dependencies": {
     "angular2": "2.0.0-beta.17",
     "systemjs": "0.19.31",
@@ -21,7 +34,11 @@
     "bootstrap": "3.3.6",
     "jquery": "2.2.4"
   },
+
   "devDependencies": {
+    "gulp": "3.8.11",
+    "gulp-rename": "1.2.2",
+    "gulp-typescript": "2.10.0",
     "concurrently": "2.1.0",
     "lite-server": "2.2.0",
     "typescript": "1.8.10",

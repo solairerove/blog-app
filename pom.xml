@@ -153,16 +153,24 @@
                         </configuration>
                     </execution>
 
-                    <!-- npm run tsc:w -->
                     <execution>
-                        <id>npm run tsc</id>
+                        <id>gulp-build</id>
                         <goals>
-                            <goal>npm</goal>
+                            <goal>gulp</goal>
                         </goals>
-                        <configuration>
-                            <arguments>run tsc</arguments>
-                        </configuration>
+                        <phase>generate-resources</phase>
                     </execution>
+
+                    <!--&lt;!&ndash; npm run tsc:w &ndash;&gt;-->
+                    <!--<execution>-->
+                        <!--<id>npm run tsc</id>-->
+                        <!--<goals>-->
+                            <!--<goal>npm</goal>-->
+                        <!--</goals>-->
+                        <!--<configuration>-->
+                            <!--<arguments>run tsc</arguments>-->
+                        <!--</configuration>-->
+                    <!--</execution>-->
                 </executions>
 
                 <configuration>
