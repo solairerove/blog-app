@@ -153,14 +153,25 @@
                         </configuration>
                     </execution>
 
-                    <!-- npm run tsc:w -->
+                    <!-- npm run clean -->
                     <execution>
-                        <id>npm run tsc</id>
+                        <id>npm run clean</id>
                         <goals>
                             <goal>npm</goal>
                         </goals>
                         <configuration>
-                            <arguments>run tsc</arguments>
+                            <arguments>run clean</arguments>
+                        </configuration>
+                    </execution>
+
+                    <!-- npm run build -->
+                    <execution>
+                        <id>npm run build</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>run build</arguments>
                         </configuration>
                     </execution>
                 </executions>

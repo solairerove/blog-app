@@ -6,23 +6,24 @@
     <title>Clean blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!--<script src="node_modules/es6-shim/es6-shim.min.js"></script>-->
-    <script src="../node_modules/systemjs/dist/system-polyfills.js"></script>
-    <script src="../node_modules/angular2/bundles/angular2-polyfills.js"></script>
-    <script src="../node_modules/systemjs/dist/system.src.js"></script>
+    <script src="lib/systemjs/dist/system-polyfills.js"></script>
+    <script src="lib/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="lib/systemjs/dist/system.src.js"></script>
 
-    <script src="../node_modules/rxjs/bundles/Rx.js"></script>
-    <script src="../node_modules/angular2/bundles/angular2.dev.js"></script>
-    <script src="../node_modules/angular2/bundles/http.dev.js"></script>
-    <script src="../node_modules/angular2/bundles/router.dev.js"></script>
+    <script src="lib/rxjs/bundles/Rx.js"></script>
+    <script src="lib/angular2/bundles/angular2.dev.js"></script>
+    <script src="lib/angular2/bundles/http.dev.js"></script>
+    <script src="lib/angular2/bundles/router.dev.js"></script>
 
-    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="public/style/clean-blog.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <script src="system.config.js"></script>
 
     <script>
         System.config({
@@ -33,19 +34,19 @@
                 }
             }
         });
-        System.import('app/main')
+        System.import('app')
                 .then(null, console.error.bind(console));
     </script>
 
 </head>
 
 <body>
-    <my-app></my-app>
+    <my-app>Loading...</my-app>
 </body>
 
-<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="lib/jquery/dist/jquery.min.js"></script>
 
-<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
 
 <script src="public/js/clean-blog.min.js"></script>
 
