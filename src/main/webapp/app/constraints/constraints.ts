@@ -6,4 +6,5 @@ export class Constraints {
     public static LOG_IN_PATH = '/authenticate'
     public static OTHER = '/**';
     public static POST_URL = 'http://localhost:8080/api/posts';
+    public static API_URL = 'http://localhost:8080/api';
 }
