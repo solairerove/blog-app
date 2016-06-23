@@ -2,7 +2,9 @@ package com.github.solairerove.blog.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.solairerove.blog.Application;
+import com.github.solairerove.blog.domain.User;
 import com.github.solairerove.blog.dto.LoginDTO;
+import com.github.solairerove.blog.service.UserService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,6 +20,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
 
+import static org.hamcrest.Matchers.notNullValue;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
 
 /**
@@ -32,22 +35,30 @@ public class AuthControllerTest {
     @Autowired
     private WebApplicationContext context;
 
+    @Autowired
+    private UserService service;
+
     private MockMvc mvc;
 
     @Before
     public void setup() throws Exception {
         this.mvc = webAppContextSetup(context).build();
+        User user = new User();
+        user.setLogin("admin");
+        user.setPassword("pass");
+        service.save(user);
     }
 
     @Test
-    public void authorizeTest() throws Exception{
-        LoginDTO dto = new LoginDTO("login","password");
+    public void authenticateTest() throws Exception{
+        LoginDTO dto = new LoginDTO("admin","pass");
         ObjectMapper objectMapper = new ObjectMapper();
 
-        mvc.perform(MockMvcRequestBuilders.request(HttpMethod.POST, "/api/")
+        mvc.perform(MockMvcRequestBuilders.request(HttpMethod.POST, "/api/authenticate")
                 .accept(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(dto))
                 .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isNotImplemented());
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.token",notNullValue()));
     }
 }
