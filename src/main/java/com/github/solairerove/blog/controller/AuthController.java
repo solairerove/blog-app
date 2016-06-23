@@ -59,7 +59,7 @@ public class AuthController {
             User currentUser = userService.findUserByLogin(subject);
 
             //FIXME fix authority json mapping
-            response.setAuthorities(currentUser.getAuthorities());
+            //response.setAuthorities(currentUser.getAuthorities());
             response.setEmail(currentUser.getEmail());
             response.setLogin(currentUser.getLogin());
             response.setId(currentUser.getId());

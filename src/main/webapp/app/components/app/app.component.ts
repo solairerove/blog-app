@@ -36,6 +36,11 @@ import {Constraints} from '../../constraints/constraints';
         component: PostAddComponent
     },
     {
+        path: Constraints.LOG_IN_PATH,
+        name: 'LogIn',
+        component: PostAddComponent
+    },
+    {
         path: Constraints.OTHER,
         redirectTo: ['Posts']
     }
