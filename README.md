@@ -62,6 +62,9 @@ ___
 * `http://localhost:8080/api/comments/1` - delete comment by id
 * `http://localhost:8080/api/posts/1/comments` - add new comment to post by id
 * `http://localhost:8080/api/posts/1/comments` - get all comments from post by id
+* `http://localhost:8080/api/authenticate` - authenticate user
+* `http://localhost:8080/api/user` - get current user
+* `http://localhost:8080/api/logout` - logout
 
 ___
 
