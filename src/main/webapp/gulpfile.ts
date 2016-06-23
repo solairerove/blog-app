@@ -29,19 +29,11 @@ gulp.task("resources", () => {
 gulp.task("libs", () => {
     return gulp.src([
         'systemjs/dist/system-polyfills.js',
-        'angular2/bundles/angular2-polyfills.js',
         'systemjs/dist/system.src.js',
-        'rxjs/bundles/Rx.js',
-        'angular2/bundles/angular2.dev.js',
-        'angular2/bundles/http.dev.js',
-        'angular2/bundles/router.dev.js',
         'bootstrap/dist/css/bootstrap.min.css',
         'jquery/dist/jquery.min.js',
         'bootstrap/dist/js/bootstrap.min.js',
-        'angular2/core.js',
-        'angular2/http.js',
-        'angular2/router.js',
-        'angular2/src/**',
+        'angular2/**',
         'rxjs/**'
     ], {cwd: "node_modules/**"})
         .pipe(gulp.dest("build/lib"));
