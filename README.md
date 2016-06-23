@@ -73,6 +73,26 @@ ___
 
 ___
 
+##### Security is provided by [JWT](https://jwt.io/) based library [jjwt](https://github.com/jwtk/jjwt)
+ Easy to configure, easy to use. When user trying to log in, backend can give him a token, which he can use in the future requests. Each request after user authorization should contain token in header. It allow backend to understand authorities of each user. There is no session, so it's stateless implementation. Library [jjwt](https://github.com/jwtk/jjwt) is easy
+ to integrate, token generation looks like:
+ 
+```java
+String token = Jwts.builder().setSubject(loginDTO.getLogin())
+                   .signWith(SignatureAlgorithm.HS512, provider.getTokenKey()).compact();
+```
+
+Token parsing:
+
+```java
+String subject = Jwts.parser().setSigningKey(provider.getTokenKey())
+                     .parseClaimsJws(request.getHeader("Rest-Token"))
+                     .getBody().getSubject();
+```
+
+Token will contain login of authenticated user, so backend will load it's authorities by login from database.
+___
+
 ##### Cookies with decreasing repo size: 
 
 * To see the 10 biggest files, run this from the root directory:
