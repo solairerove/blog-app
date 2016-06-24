@@ -1,4 +1,4 @@
-package com.github.solairerove.blog.security.provider;
+package com.github.solairerove.blog.security;
 
 import io.jsonwebtoken.impl.crypto.MacProvider;
 import org.springframework.stereotype.Component;

@@ -248,6 +248,7 @@
                         <exclude>**/*domain/*.class</exclude>
                         <exclude>**/*dto/*.class</exclude>
                         <exclude>**/*service/CustomUserDetailsService.class</exclude>
+                        <exclude>**/*security/SecurityProvider.class</exclude>
                         <exclude>**/*controller/HomeController.class</exclude>
                         <exclude>**/Application.class</exclude>
                     </excludes>

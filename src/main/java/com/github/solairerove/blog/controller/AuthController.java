@@ -4,7 +4,7 @@ import com.github.solairerove.blog.domain.User;
 import com.github.solairerove.blog.dto.LoginDTO;
 import com.github.solairerove.blog.dto.TokenModel;
 import com.github.solairerove.blog.dto.UserDTO;
-import com.github.solairerove.blog.security.provider.SecurityProvider;
+import com.github.solairerove.blog.security.SecurityProvider;
 import com.github.solairerove.blog.service.UserService;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
