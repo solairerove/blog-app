@@ -30,25 +30,36 @@ gulp.task("libs", () => {
     return gulp.src([
         'systemjs/dist/system-polyfills.js',
         'systemjs/dist/system.src.js',
-        'bootstrap/dist/css/bootstrap.min.css',
+
         'jquery/dist/jquery.min.js',
+        'bootstrap/dist/css/bootstrap.min.css',
         'bootstrap/dist/js/bootstrap.min.js',
+
         'angular2/bundles/angular2-polyfills.js',
         'angular2/bundles/angular2.dev.js',
         'angular2/bundles/http.dev.js',
         'angular2/bundles/router.dev.js',
+
         'angular2/core.js',
         'angular2/http.js',
         'angular2/router.js',
         'angular2/common.js',
         'angular2/compiler.js',
+
+        'angular2/src/platform/**',
+        'angular2/src/compiler/**',
+        'angular2/src/facade/**',
+        'angular2/src/http/**',
+        'angular2/src/core/**',
+        'angular2/src/router/**',
+        'angular2/src/common/**',
+        'angular2/src/animate/**',
+
         'angular2/platform/common.js',
         'angular2/platform/common_dom.js',
         'angular2/platform/browser.js',
-        'angular2/src/**',
-        'angular2/src/core/**',
-        'angular2/src/router/**',
-        'rxjs/**'
+
+        'rxjs/**',
     ], {cwd: "node_modules/**"})
         .pipe(gulp.dest("../webapp/lib"));
 });
