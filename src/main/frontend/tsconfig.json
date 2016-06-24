@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "outDir": "../webapp/app",
     "target": "es6",
     "module": "system",
     "moduleResolution": "node",
