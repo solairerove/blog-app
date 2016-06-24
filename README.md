@@ -1,7 +1,7 @@
 # [blog-app](https://rest-blog.herokuapp.com)
 [![Build Status](https://travis-ci.org/solairerove/blog-app.svg?branch=master)](https://travis-ci.org/solairerove/blog-app)
 [![Coverage Status](https://coveralls.io/repos/github/solairerove/blog-app/badge.svg?branch=master)](https://coveralls.io/github/solairerove/blog-app?branch=master)
-[![Dependency Status](https://www.versioneye.com/user/projects/574ffa3ee298f30028d711f1/badge.svg?style=flat)](https://www.versioneye.com/user/projects/574ffa3ee298f30028d711f1)
+[![Dependency Status](https://www.versioneye.com/user/projects/576d19144fa522002a240cff/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/576d19144fa522002a240cff)
 ___
 
 ##### Additional cookies:
