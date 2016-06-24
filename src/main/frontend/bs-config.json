@@ -4,6 +4,6 @@
     "build/**/*.{html,htm,css,js}"
   ],
   "server": {
-    "baseDir": "build"
+    "baseDir": "../webapp"
   }
 }

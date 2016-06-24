@@ -9,7 +9,7 @@ const tsProject = tsc.createProject("tsconfig.json");
 const tslint = require('gulp-tslint');
 
 gulp.task('clean', (cb) => {
-    return del(["build"], cb);
+    return del(["../webapp"], cb);
 });
 
 gulp.task("compile", () => {
@@ -18,12 +18,12 @@ gulp.task("compile", () => {
         .pipe(tsc(tsProject));
     return tsResult.js
         .pipe(sourcemaps.write("."))
-        .pipe(gulp.dest("build"));
+        .pipe(gulp.dest("../webapp"));
 });
 
 gulp.task("resources", () => {
     return gulp.src(["src/**/*", "!**/*.ts"])
-        .pipe(gulp.dest("build"))
+        .pipe(gulp.dest("../webapp"))
 });
 
 gulp.task("libs", () => {
@@ -36,7 +36,7 @@ gulp.task("libs", () => {
         'angular2/**',
         'rxjs/**'
     ], {cwd: "node_modules/**"})
-        .pipe(gulp.dest("build/lib"));
+        .pipe(gulp.dest("../webapp/lib"));
 });
 
 gulp.task("build", ['compile', 'resources', 'libs'], () => {

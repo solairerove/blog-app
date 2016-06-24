@@ -47,10 +47,6 @@
             <groupId>org.springframework.security.oauth</groupId>
             <artifactId>spring-security-oauth2</artifactId>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.boot</groupId>-->
-            <!--<artifactId>spring-boot-starter-hateoas</artifactId>-->
-        <!--</dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -178,7 +174,7 @@
 
                 <configuration>
                     <installDirectory>target/node-installation-dir</installDirectory>
-                    <workingDirectory>src/main/webapp/</workingDirectory>
+                    <workingDirectory>src/main/frontend/</workingDirectory>
                 </configuration>
             </plugin>
 

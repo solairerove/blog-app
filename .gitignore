@@ -20,7 +20,6 @@ target/
 
 npm-debug.log
 node
-etc
 node_modules
 typings
 
@@ -28,4 +27,4 @@ typings
 *.js.map
 !clean-blog.min.js
 !system.config.js
-build
+webapp
