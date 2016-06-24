@@ -9,7 +9,7 @@ const tsProject = tsc.createProject("tsconfig.json");
 const tslint = require('gulp-tslint');
 
 gulp.task('clean', (cb) => {
-    return del(["../webapp"], cb);
+    return del(["../webapp"], {force: true}, cb);
 });
 
 gulp.task("compile", () => {
