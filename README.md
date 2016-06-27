@@ -20,6 +20,14 @@ ___
 
 ___
 
+##### Run separate client:
+
+* `cd src/main/frontend`
+* `gulp clean && gulp build`
+* `npm start`
+
+___
+
 ##### Use H2 [web console](https://github.com/solairerove/blog-app/blob/master/src/main/java/com/github/solairerove/blog/config/H2Configuration.java):
 
 * `http://localhost:8080/console/`
@@ -121,5 +129,3 @@ git gc --aggressive --prune=now
 git push origin -f
 ```
 
-[coveralls]: http://coveralls.io/repos/github/solairerove/blog-app/badge.svg?branch=master
-[version]: https://www.versioneye.com/user/projects/574ffa3ee298f30028d711f1/badge.svg?style=flat
