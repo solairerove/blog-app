@@ -5,12 +5,14 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
 import {User} from "../../model/user";
 import {UserService} from "../../service/user.service";
 import {Token} from "../../model/token";
+import {UserStorage} from "../../storage/user.storage";
 
 @Component({
     selector: 'my-log-in-component',
     templateUrl: '/app/components/log-in/log-in.component.html',
     providers: [
         UserService,
+        UserStorage,
         HTTP_PROVIDERS
     ],
     directives: [ROUTER_DIRECTIVES]
@@ -21,12 +23,8 @@ export class LogInComponent implements OnInit {
     @Input() user:User;
     error:any;
 
-    //TODO:store token
-    token:Token;
-    adata:string;
-
-    constructor(private userService:UserService) {
-        console.log('constructor!');
+    constructor(private userService:UserService, private
+        userStorage:UserStorage) {
     }
 
     ngOnInit() {
@@ -35,9 +33,9 @@ export class LogInComponent implements OnInit {
 
     authenticate() {
         this.userService.authenticate(this.user)
-            .subscribe(data =>{
-                this.adata = JSON.stringify(data);
-                console.log(this.adata.toString());
+            .subscribe(data => {
+                this.userStorage.SetToken(data);
+                console.log(this.token.token.toString());
             });
     }
 }
