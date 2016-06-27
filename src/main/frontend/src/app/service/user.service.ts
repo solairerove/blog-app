@@ -55,9 +55,7 @@ export class UserService {
 
         return this.http.post(this.url + "/authenticate", user, {
             headers:headers
-        }).toPromise()
-            .then(res => this.token = res.json().data)
-            .catch(this.handleError);
+        }).map(res=>res.json());
     }
 
     getPost(id):Observable<Post> {
