@@ -58,7 +58,7 @@ gulp.task("libs", () => {
         'angular2/platform/common_dom.js',
         'angular2/platform/browser.js',
 
-        'rxjs/**',
+        'rxjs/**/*.js',
     ], {cwd: "node_modules/**"})
         .pipe(gulp.dest("../webapp/lib"));
 });
