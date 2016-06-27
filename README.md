@@ -129,3 +129,9 @@ git gc --aggressive --prune=now
 git push origin -f
 ```
 
+___
+
+##### Dark side, father:
+
+* [liferay client](https://github.com/solairerove/liferay-blog-client)
+* [liferay rest](https://github.com/vlsidlyarevich/liferay-blog-backend)
