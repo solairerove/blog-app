@@ -35,7 +35,6 @@ export class LogInComponent implements OnInit {
         this.userService.authenticate(this.user)
             .subscribe(data => {
                 this.userStorage.SetToken(data);
-                console.log(this.token.token.toString());
             });
     }
 }
