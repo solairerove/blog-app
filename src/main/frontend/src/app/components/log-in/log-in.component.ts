@@ -4,6 +4,7 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
 
 import {User} from "../../model/user";
 import {UserService} from "../../service/user.service";
+import {Token} from "../../model/token";
 
 @Component({
     selector: 'my-log-in-component',
@@ -19,11 +20,13 @@ export class LogInComponent implements OnInit {
 
     @Input() user:User;
     error:any;
-    authenticated:boolean;
-    token:string;
+
+    //TODO:store token
+    token:Token;
+    adata:string;
 
     constructor(private userService:UserService) {
-        this.authenticated = false;
+        console.log('constructor!');
     }
 
     ngOnInit() {
@@ -32,8 +35,9 @@ export class LogInComponent implements OnInit {
 
     authenticate() {
         this.userService.authenticate(this.user)
-            .subscribe(data => this.token = JSON.stringify(data));
-        this.authenticated = true;
-        console.log(this.token);
+            .subscribe(data =>{
+                this.adata = JSON.stringify(data);
+                console.log(this.adata.toString());
+            });
     }
 }

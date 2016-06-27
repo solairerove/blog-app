@@ -64,10 +64,11 @@
 
 <div [ngClass]="{hide: !authenticated}" style="margin-bottom: 20%">
     <div class="col-lg-8 col-lg-offset-3 col-md-10 col-md-offset-1">
-        <div class="col-lg-4 col-lg-offset-2">
+        <div class="col-lg-8 col-lg-offset-1">
             <h1 style="margin-top: 10%">Authorization successful!</h1>
         </div>
-        <div class="col-lg-2">
+        <br/>
+        <div class="col-lg-2 col-lg-offset-4">
             <ul class="pager">
                 <li class="next">
                     <a  [routerLink]="['Posts']" style="cursor: hand;margin-right: 22%">Posts&rarr;</a>
@@ -76,3 +77,4 @@
         </div>
     </div>
 </div>
+{{adata}}
