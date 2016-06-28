@@ -2,58 +2,71 @@
 [![Build Status](https://travis-ci.org/solairerove/blog-app.svg?branch=master)](https://travis-ci.org/solairerove/blog-app)
 [![Coverage Status](https://coveralls.io/repos/github/solairerove/blog-app/badge.svg?branch=master)](https://coveralls.io/github/solairerove/blog-app?branch=master)
 [![Dependency Status](https://www.versioneye.com/user/projects/576d19144fa522002a240cff/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/576d19144fa522002a240cff)
-___
 
 ##### Additional cookies:
 
-* `npm i -g json`
-* `sudo apt-get install python-pygments`
-* `curl 'http://localhost:8080/api/posts/' | json | pygmentize -l json`
+```shell
+npm i -g json
+sudo apt-get install python-pygments
+curl 'http://localhost:8080/api/posts' | json | pygmentize -l json
+```
 
 ___
 
 ##### Run server:
 
-* `mvn spring-boot:run`
-* `mvn clean install`
-* `java -jar target/*.jar`
+```shell
+mvn spring-boot:run
+mvn clean install
+java -jar target/*.jar
+```
 
 ___
 
 ##### Run separate client:
 
-* `cd src/main/frontend`
-* `gulp clean && gulp build`
-* `npm start`
+```shell
+cd src/main/frontend
+gulp clean && gulp build
+npm start
+```
 
 ___
 
 ##### Use H2 [web console](https://github.com/solairerove/blog-app/blob/master/src/main/java/com/github/solairerove/blog/config/H2Configuration.java):
 
-* `http://localhost:8080/console/`
-* `jdbc:h2:mem:post`
+```shell
+http://localhost:8080/console/
+jdbc:h2:mem:post
+```
 
 ___
 
 ##### Generate Maven Site:
 
-* `mvn site`
-* `target/site/index.html`
+```shell
+mvn site
+target/site/index.html
+```
 
 ___
 
 ##### Generate [Api doc](https://github.com/solairerove/blog-app/blob/master/pom.xml#L176-L216):
 
-* `mvn clean compile`
-* `target/generated/document.html`
+```shell
+mvn clean compile
+target/generated/document.html
+```
 
 ___
 
 ##### [coveralls-maven-plugin](https://github.com/solairerove/blog-app/blob/master/pom.xml#L219-L252):
 
-* `mvn clean test jacoco:report`
-* `target/site/jacoco/index.html`
-* `mvn clean test jacoco:report coveralls:report`
+```shell
+mvn clean test jacoco:report
+target/site/jacoco/index.html
+mvn clean test jacoco:report coveralls:report
+```
 
 ___
 
