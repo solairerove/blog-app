@@ -133,5 +133,5 @@ ___
 
 ##### Dark side, father:
 
-* [liferay client](https://github.com/solairerove/liferay-blog-client)
-* [liferay rest](https://github.com/vlsidlyarevich/liferay-blog-backend)
+* [liferay client](https://github.com/solairerove/liferay-blog-client) Client part of liferay-integrated blog
+* [liferay rest](https://github.com/vlsidlyarevich/liferay-blog-backend) Backend part of liferay-integrated blog
