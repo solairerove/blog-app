@@ -136,8 +136,8 @@
                         </goals>
                         <phase>generate-resources</phase>
                         <configuration>
-                            <nodeVersion>v6.2.0</nodeVersion>
-                            <npmVersion>3.9.3</npmVersion>
+                            <nodeVersion>v6.3.0</nodeVersion>
+                            <npmVersion>3.10.5</npmVersion>
                             <nodeDownloadRoot>https://nodejs.org/dist/</nodeDownloadRoot>
                             <npmDownloadRoot>http://registry.npmjs.org/npm/-/</npmDownloadRoot>
                         </configuration>
