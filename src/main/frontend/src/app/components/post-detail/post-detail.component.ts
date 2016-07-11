@@ -2,10 +2,10 @@ import {Component, OnInit} from 'angular2/core';
 import {HTTP_PROVIDERS} from 'angular2/http';
 import {RouteParams} from 'angular2/router';
 
-import {Post} from '../../../app/model/post';
+import {Post} from '../../model/post';
 import {PostService} from '../../service/post.service';
 import {CommentsComponent} from '../comments/comments.component';
-import {CommentService} from "../../service/comment.service";
+import {CommentService} from '../../service/comment.service';
 
 
 @Component({

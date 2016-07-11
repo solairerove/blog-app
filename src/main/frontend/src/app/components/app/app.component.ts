@@ -8,11 +8,11 @@ import {
 import {PostService} from '../../service/post.service';
 import {PostsComponent} from '../../components/posts/posts.component';
 import {AboutComponent} from '../../components/about/about.component';
+import {LogInComponent} from '../../components/log-in/log-in.component';
 import {FooterComponent} from '../../components/footer/footer.component';
 import {PostDetailComponent} from '../../components/post-detail/post-detail.component';
 import {PostAddComponent} from '../../components/post-add/post-add.component';
 import {Constraints} from '../../constraints/constraints';
-import {LogInComponent} from "../log-in/log-in.component";
 
 @RouteConfig([
     {

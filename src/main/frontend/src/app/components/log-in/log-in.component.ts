@@ -2,10 +2,9 @@ import {Component, OnInit, Input} from 'angular2/core';
 import {HTTP_PROVIDERS} from 'angular2/http';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 
-import {User} from "../../model/user";
-import {UserService} from "../../service/user.service";
-import {Token} from "../../model/token";
-import {UserStorage} from "../../storage/user.storage";
+import {User} from '../../model/user';
+import {UserService} from '../../service/user.service';
+import {UserStorage} from '../../storage/user.storage';
 
 @Component({
     selector: 'my-log-in-component',
@@ -23,8 +22,8 @@ export class LogInComponent implements OnInit {
     @Input() user:User;
     error:any;
 
-    constructor(private userService:UserService, private
-        userStorage:UserStorage) {
+    constructor(private userService:UserService, 
+                private userStorage:UserStorage) {
     }
 
     ngOnInit() {

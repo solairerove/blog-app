@@ -1,22 +1,18 @@
-import {Injectable} from "angular2/core";
-import {Http, Response, Headers} from "angular2/http";
-import {Observable} from "rxjs/Observable";
-import "rxjs/Rx";
+import {Injectable} from 'angular2/core';
+import {Http, Response, Headers} from 'angular2/http';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/Rx';
 
-import {Post} from "../model/post";
-import {Token} from "../model/token"
+import {Post} from '../model/post';
 import {Constraints} from '../constraints/constraints';
-import {User} from "../model/user";
-import {toPromise} from "rxjs/operator/toPromise";
+import {User} from '../model/user';
 
 @Injectable()
 export class UserService {
 
     private url:string;
     private token:string;
-
-    private adata:string;
-
+    
     constructor(private http:Http) {
         this.url = Constraints.API_URL;
         this.token = "";

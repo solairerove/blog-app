@@ -1,10 +1,10 @@
-import {Injectable} from "angular2/core";
-import {Http, Response} from "angular2/http";
-import {Observable} from "rxjs/Observable";
-import "rxjs/Rx";
+import {Injectable} from 'angular2/core';
+import {Http, Response} from 'angular2/http';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/Rx';
 
 import {Constraints} from '../constraints/constraints';
-import {Comment} from "../model/comment";
+import {Comment} from '../model/comment';
 
 @Injectable()
 export class CommentService {

@@ -32,6 +32,7 @@ gulp.task("libs", () => {
 
         'jquery/dist/jquery.min.js',
         'bootstrap/dist/css/bootstrap.min.css',
+        'bootstrap/dist/css/bootstrap.min.css.map',
         'bootstrap/dist/js/bootstrap.min.js',
 
         'angular2/bundles/angular2-polyfills.js',
