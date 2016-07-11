@@ -40,7 +40,7 @@
     "del": "2.2.1",
     "gulp": "3.9.1",
     "gulp-sourcemaps": "1.6.0",
-    "gulp-tslint": "5.0.0",
+    "gulp-tslint": "6.0.1",
     "gulp-typescript": "2.13.6",
     "lite-server": "2.2.2",
     "typescript": "1.8.10",
