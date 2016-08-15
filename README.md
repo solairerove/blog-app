@@ -20,7 +20,10 @@ mvn spring-boot:run
 mvn clean install
 java -jar target/*.jar
 ```
-
+If you have error like `Failed to load external module ts-node/register` type:
+```shell
+npm install typescript-register ts-node
+```
 ___
 
 ##### Run separate client:
