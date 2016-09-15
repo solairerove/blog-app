@@ -3,6 +3,11 @@
 [![Coverage Status](https://coveralls.io/repos/github/solairerove/blog-app/badge.svg?branch=master)](https://coveralls.io/github/solairerove/blog-app?branch=master)
 [![Dependency Status](https://www.versioneye.com/user/projects/576d19144fa522002a240cff/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/576d19144fa522002a240cff)
 
+___
+
+*This is frozen project for undefined time. We should change some principles and stack. See this [jsf-blog](https://github.com/vlsidlyarevich/JSF-Blog) pure java solve.*
+___
+
 ##### Additional cookies:
 
 ```shell
